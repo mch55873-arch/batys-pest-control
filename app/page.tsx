@@ -273,7 +273,7 @@ export default function Home() {
           
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 text-center">
             {database.states.map(state => {
-              const domain = process.env.NEXT_PUBLIC_DOMAIN || 'localhost:3000';
+              const domain = 'batyspestcontrol.com';
               const protocol = domain.includes('localhost') ? 'http' : 'https';
               const href = `${protocol}://${state.code}.${domain}`;
               

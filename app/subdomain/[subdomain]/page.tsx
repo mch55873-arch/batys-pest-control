@@ -115,7 +115,7 @@ export default async function SubdomainPage({ params }: { params: Promise<{ subd
 
              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 {stateData.cities.map(city => {
-                  const domain = process.env.NEXT_PUBLIC_DOMAIN || 'localhost:3000';
+                  const domain = 'batyspestcontrol.com';
                   const protocol = domain.includes('localhost') ? 'http' : 'https';
                   const href = `${protocol}://${city.slug}-${stateData.code}.${domain}`;
                   
