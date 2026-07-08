@@ -82,8 +82,8 @@ export default function RootLayout({
                 <span className="text-2xl group-hover:scale-110 transition-transform origin-center">📞</span>
                 <div>
                     <div className="text-[10px] text-surface-500 font-extrabold uppercase tracking-widest">Need Help? Talk to Experts</div>
-                    <a href="tel:956-306-6100" className="text-sm font-extrabold text-brand-900 hover:text-accent-600 transition-colors">
-                        (956) 306-6100
+                    <a href="tel:614-926-0787" className="text-sm font-extrabold text-brand-900 hover:text-accent-600 transition-colors">
+                        (614) 926-0787
                     </a>
                 </div>
             </div>
@@ -112,8 +112,8 @@ export default function RootLayout({
                         <p className="text-lg text-brand-50 font-light">Get your free 24/7 emergency pest control services estimate today - no obligation!</p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-                        <a href="tel:956-306-6100" className="bg-white text-brand-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-50 transition-colors flex items-center justify-center gap-2 shadow-lg hover:-translate-y-1">
-                            📞 (956) 306-6100
+                        <a href="tel:614-926-0787" className="bg-white text-brand-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-50 transition-colors flex items-center justify-center gap-2 shadow-lg hover:-translate-y-1">
+                            📞 (614) 926-0787
                         </a>
                         <a href="/#contact" className="bg-accent-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-accent-400 transition-colors shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2">
                             Get Free Quote ➔
@@ -181,7 +181,7 @@ export default function RootLayout({
                             </div>
                             <div className="flex items-center gap-4">
                                 <span className="text-accent-500 text-lg">📞</span>
-                                <a href="tel:956-306-6100" className="hover:text-white transition-colors">(956) 306-6100</a>
+                                <a href="tel:614-926-0787" className="hover:text-white transition-colors">(614) 926-0787</a>
                             </div>
                         </div>
                     </div>
@@ -237,7 +237,7 @@ export default function RootLayout({
                     <span className="relative z-10">💬</span>
                     <div className="absolute inset-0 bg-brand-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </button>
-                <a href="tel:956-306-6100" className="w-14 h-14 bg-accent-500 text-white rounded-full shadow-[0_10px_25px_rgba(245,158,11,0.5)] flex items-center justify-center text-2xl hover:-translate-y-1 transition-transform border border-white/10 relative overflow-hidden group">
+                <a href="tel:614-926-0787" className="w-14 h-14 bg-accent-500 text-white rounded-full shadow-[0_10px_25px_rgba(245,158,11,0.5)] flex items-center justify-center text-2xl hover:-translate-y-1 transition-transform border border-white/10 relative overflow-hidden group">
                     <span className="relative z-10">📞</span>
                     <div className="absolute inset-0 bg-accent-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </a>

@@ -24,8 +24,8 @@ export default async function GenericServicePage({ params }: { params: Promise<{
           <Link href="/#areas-we-serve" className="bg-brand-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-800 transition-all shadow-xl hover:-translate-y-1">
             Find Your Local Expert
           </Link>
-          <a href="tel:956-306-6100" className="bg-surface-50 border border-gray-200 text-surface-900 px-8 py-4 rounded-xl font-bold hover:border-brand-500 hover:bg-brand-50 transition-all shadow-sm">
-            Call (956) 306-6100
+          <a href="tel:614-926-0787" className="bg-surface-50 border border-gray-200 text-surface-900 px-8 py-4 rounded-xl font-bold hover:border-brand-500 hover:bg-brand-50 transition-all shadow-sm">
+            Call (614) 926-0787
           </a>
         </div>
       </div>

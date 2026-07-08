@@ -34,8 +34,8 @@ export default function Home() {
                     
                     {/* CTA Buttons */}
                     <div className="flex flex-wrap gap-4 mb-10">
-                        <a href="tel:956-306-6100" className="group inline-flex items-center gap-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-accent-400 hover:to-accent-500 hover:-translate-y-1 transition-all shadow-[0_0_30px_-5px_rgba(245,158,11,0.5)]">
-                            (956) 306-6100
+                        <a href="tel:614-926-0787" className="group inline-flex items-center gap-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-accent-400 hover:to-accent-500 hover:-translate-y-1 transition-all shadow-[0_0_30px_-5px_rgba(245,158,11,0.5)]">
+                            (614) 926-0787
                         </a>
                         <a href="#services" className="inline-flex items-center bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 hover:-translate-y-1 transition-all backdrop-blur-sm">
                             Book Online
@@ -413,7 +413,7 @@ export default function Home() {
             ].map((loc, idx) => (
               <a 
                 key={idx} 
-                href={`http://${loc.slug}-${loc.state.toLowerCase()}.localhost:3000`}
+                href={`https://${loc.slug}-${loc.state.toLowerCase()}.batyspestcontrol.com`}
                 className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-accent-500 hover:shadow-lg hover:shadow-accent-500/10 transition-all group bg-white hover:-translate-y-1"
               >
                 <div className="w-8 h-8 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center shrink-0 group-hover:bg-accent-50 group-hover:text-accent-600 transition-colors">
@@ -453,7 +453,7 @@ export default function Home() {
                      <div className="w-14 h-14 rounded-2xl bg-surface-50 text-brand-700 flex items-center justify-center shrink-0 border border-gray-100 group-hover:border-brand-500 group-hover:bg-brand-50 transition-colors text-xl">📞</div>
                      <div>
                         <strong className="block text-surface-900 font-bold mb-1 text-lg">Phone</strong>
-                        <a href="tel:956-306-6100" className="text-surface-800/70 block leading-relaxed font-light hover:text-accent-600 transition-colors">(956) 306-6100</a>
+                        <a href="tel:614-926-0787" className="text-surface-800/70 block leading-relaxed font-light hover:text-accent-600 transition-colors">(614) 926-0787</a>
                      </div>
                   </div>
                   

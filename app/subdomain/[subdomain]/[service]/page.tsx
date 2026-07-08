@@ -93,10 +93,10 @@ export default async function ServicePage({
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="tel:1-800-PEST-PRO"
+                href="tel:614-926-0787"
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-green-500/25"
               >
-                Call 1-800-PEST-PRO
+                Call 614-926-0787
               </a>
               <a
                 href="#quote"

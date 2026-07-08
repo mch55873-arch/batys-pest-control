@@ -29,9 +29,9 @@ export default async function SubdomainPage({ params }: { params: Promise<{ subd
               <p className="text-lg md:text-2xl font-light mb-10 text-gray-300 leading-relaxed">
                 Your trusted, local pest control professionals. Fast response, guaranteed results.
               </p>
-              <a href="tel:956-306-6100" className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-8 py-4 rounded-full text-xl font-bold transition-all shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] hover:shadow-[0_0_60px_-15px_rgba(59,130,246,0.7)] hover:-translate-y-1">
+              <a href="tel:614-926-0787" className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-8 py-4 rounded-full text-xl font-bold transition-all shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] hover:shadow-[0_0_60px_-15px_rgba(59,130,246,0.7)] hover:-translate-y-1">
                 <svg className="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                (956) 306-6100
+                (614) 926-0787
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity ml-2">→</span>
               </a>
             </div>
@@ -82,7 +82,7 @@ export default async function SubdomainPage({ params }: { params: Promise<{ subd
                   <p className="text-gray-500 mb-8 leading-relaxed text-[15px]">
                     {service.desc}
                   </p>
-                  <a href="tel:956-306-6100" className="mt-auto font-bold text-blue-600 flex items-center gap-2 group/btn">
+                  <a href="tel:614-926-0787" className="mt-auto font-bold text-blue-600 flex items-center gap-2 group/btn">
                     Get Free Quote 
                     <span className="transform group-hover/btn:translate-x-1 transition-transform">→</span>
                   </a>
@@ -157,7 +157,7 @@ export default async function SubdomainPage({ params }: { params: Promise<{ subd
     "@type": "HomeAndConstructionBusiness",
     "name": `PestDefense of ${cityData.name}`,
     "url": `https://${cityData.slug}-${parentState.code}.pestdefense.com`,
-    "telephone": "1-800-PEST-PRO",
+    "telephone": "614-926-0787",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": cityData.name,
@@ -197,9 +197,9 @@ export default async function SubdomainPage({ params }: { params: Promise<{ subd
             <p className="text-xl text-green-100 mb-10 leading-relaxed font-light">
               Your trusted and local Exterminator in {cityData.name}, {parentState.code.toUpperCase()}. Fast response, guaranteed results.
             </p>
-            <a href="tel:956-306-6100" className="group inline-flex items-center gap-3 bg-[#ff7340] hover:bg-[#ff5d20] text-white px-8 py-4 rounded-lg font-bold text-xl shadow-[0_0_30px_-5px_rgba(255,115,64,0.5)] transition-all hover:-translate-y-1 hover:shadow-[0_0_40px_-5px_rgba(255,115,64,0.7)]">
+            <a href="tel:614-926-0787" className="group inline-flex items-center gap-3 bg-[#ff7340] hover:bg-[#ff5d20] text-white px-8 py-4 rounded-lg font-bold text-xl shadow-[0_0_30px_-5px_rgba(255,115,64,0.5)] transition-all hover:-translate-y-1 hover:shadow-[0_0_40px_-5px_rgba(255,115,64,0.7)]">
               <svg className="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              (956) 306-6100
+              (614) 926-0787
               <span className="opacity-0 group-hover:opacity-100 transition-opacity ml-1">→</span>
             </a>
           </div>
@@ -364,7 +364,7 @@ export default async function SubdomainPage({ params }: { params: Promise<{ subd
               .filter(c => c.slug !== cityData.slug)
               .slice(0, 18)
               .map((city, idx) => (
-                <Link key={idx} href={`http://${city.slug}-${parentState.code}.localhost:3000`} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all flex flex-col items-center text-center group">
+                <Link key={idx} href={`https://${city.slug}-${parentState.code}.batyspestcontrol.com`} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all flex flex-col items-center text-center group">
                   <svg className="w-8 h-8 text-[#b18c95] mb-3 group-hover:-translate-y-1 transition-transform" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                   </svg>
