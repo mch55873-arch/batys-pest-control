@@ -5,27 +5,10 @@ export const metadata = {
   description: 'Tips, guides, and insights about pest control and home improvement.',
 };
 
+import blogPosts from '../../data/blog_posts.json';
+
 export default function BlogPage() {
-  const dummyPosts = [
-    { 
-      slug: "pest-control-services-complete-guide",
-      title: "Pest Control Services: Complete Guide to Protecting Your Home and Business", 
-      date: "February 2, 2026", 
-      excerpt: "Professional pest control services help eliminate existing infestations while preventing future pest problems. Whether you're dealing with termites, rodents, bed bugs, cockroaches, ants, or mosquitoes..." 
-    },
-    { 
-      slug: "termite-control-services-protect-your-home",
-      title: "Termite Control Services: Protect Your Home from Costly Termite Damage", 
-      date: "February 2, 2026", 
-      excerpt: "Termites are among the most destructive structural pests. They feed on wood and other cellulose-based materials, often causing extensive damage before homeowners notice any signs of an infestation..." 
-    },
-    { slug: "best-ways-to-handle-termites-in-texas-homes", title: "Best Ways to Handle Termites in Texas Homes", date: "February 2, 2026", excerpt: "Imagine coming home to a weakened structure. Avoiding termites means checking..." },
-    { slug: "quick-rodent-solutions-for-surrounding-areas", title: "Quick Rodent Solutions for Surrounding Areas", date: "February 2, 2026", excerpt: "A sudden scurry in the attic can give anyone a nightmare. But ignoring..." },
-    { slug: "the-hidden-costs-of-ignoring-pest-infestations", title: "The Hidden Costs of Ignoring Pest Infestations", date: "February 2, 2026", excerpt: "A small ant trail might seem harmless, but it can quickly escalate into..." },
-    { slug: "mosquitoes-in-summer-prevention-and-fixes", title: "Mosquitoes in Summer: Prevention and Fixes", date: "February 2, 2026", excerpt: "Imagine waking up to a beautiful summer morning only to discover your yard..." },
-    { slug: "top-5-common-pest-emergencies-in-texas", title: "Top 5 Common Pest Emergencies in Texas", date: "February 2, 2026", excerpt: "Living in Texas means dealing with unpredictable weather that can turn..." },
-    { slug: "how-to-keep-roaches-away-diy-tips", title: "How to Keep Roaches Away: DIY Tips", date: "February 2, 2026", excerpt: "A sudden bug in your kitchen sink or bathroom can ruin your morning..." }
-  ];
+  const posts = blogPosts;
 
   return (
     <div className="bg-[#fcfafb] text-gray-900 min-h-screen">
@@ -67,7 +50,7 @@ export default function BlogPage() {
           {/* Left: Blog Grid */}
           <div className="lg:col-span-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {dummyPosts.map((post, i) => (
+              {posts.map((post, i) => (
                 <article key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-gray-100 flex flex-col transition-shadow">
                   {/* Top Image Placeholder */}
                   <div className="h-48 bg-[#5a626a] flex items-center justify-center">
@@ -86,7 +69,7 @@ export default function BlogPage() {
                     <p className="text-gray-600 mb-6 text-sm line-clamp-3 leading-relaxed flex-1">
                       {post.excerpt}
                     </p>
-                    <Link href={`/blog/${post.slug || 'pest-control-services-complete-guide'}`} className="text-[#b18c95] font-bold text-sm flex items-center gap-1 hover:text-[#0d1b2a] transition-colors">
+                    <Link href={`/blog/${post.slug}`} className="text-[#b18c95] font-bold text-sm flex items-center gap-1 hover:text-[#0d1b2a] transition-colors">
                       Read more <span className="text-lg leading-none">→</span>
                     </Link>
                   </div>
