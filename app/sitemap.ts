@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import database from '../data/usa_database.json';
 
-const DOMAIN = 'pestdefense.com'; // Replace this with your actual domain when live
+const DOMAIN = 'batyspestcontrol.com'; // Replace this with your actual domain when live
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapEntries: MetadataRoute.Sitemap = [];
