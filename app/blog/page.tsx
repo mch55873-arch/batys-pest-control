@@ -148,7 +148,7 @@ export default function BlogPage() {
                   <Link href="/blog" className="flex items-center text-gray-600 hover:text-[#ff7340] transition-colors text-sm font-medium">
                     <span className="flex-1">Uncategorized</span>
                     <span className="text-gray-400">(47)</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
