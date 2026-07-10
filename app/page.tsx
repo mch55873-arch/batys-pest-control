@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import database from '../data/usa_database.json';
+import servicesData from '../data/services.json';
 
 export default function Home() {
   return (
@@ -211,32 +212,21 @@ export default function Home() {
                  </div>
                </summary>
                <div className="bg-white max-h-[600px] overflow-y-auto divide-y divide-gray-50 p-2">
-                  {[
-                    { name: 'Termite Inspection & Treatment', desc: "Termite work isn't something to guess at or wait on. Whether..." },
-                    { name: 'Rodent Exclusion & Removal', desc: "Rodent Removal: Don't Let Mice Flood Your Home Imagine coming..." },
-                    { name: 'Bed Bug Heat Treatment', desc: "Professional heat treatments to eradicate bed bugs at all life stages..." },
-                    { name: 'Mosquito Barrier Fogging', desc: "Reclaim your yard with our seasonal mosquito barrier treatments..." },
-                    { name: 'Wasp & Hornet Nest Removal', desc: "Safe and effective removal of stinging insect nests from your property..." },
-                    { name: 'Flea & Tick Eradication', desc: "Protect your family and pets from dangerous flea and tick infestations..." },
-                    { name: 'Cockroach Extermination', desc: "Targeted baiting and spraying to eliminate cockroach colonies completely..." },
-                    { name: 'Ant Colony Destruction', desc: "Comprehensive solutions for fire ants, carpenter ants, and sugar ants..." },
-                    { name: 'Spider Control Services', desc: "Removal of venomous and nuisance spiders including webs and egg sacs..." },
-                    { name: 'Wildlife Trapping & Relocation', desc: "Humane removal of raccoons, squirrels, opossums, and other wildlife..." },
-                  ].map((service, i) => (
-                    <div key={i} className="flex items-center justify-between p-6 hover:bg-surface-50 transition-colors rounded-xl mx-2 my-1 cursor-pointer group/item">
+                  {servicesData.map((service: any, i: number) => (
+                    <Link href={`/${service.slug}`} key={i} className="flex items-center justify-between p-6 hover:bg-surface-50 transition-colors rounded-xl mx-2 my-1 cursor-pointer group/item block">
                       <div className="flex items-center gap-6">
                         <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-100 to-brand-50 text-brand-700 font-extrabold flex items-center justify-center text-xl shrink-0 shadow-sm border border-brand-100 group-hover/item:scale-110 transition-transform">
-                          {service.name.split(' ').slice(0,2).map(w => w[0]).join('')}
+                          {service.name.split(' ').slice(0,2).map((w: string) => w[0]).join('')}
                         </div>
                         <div>
                           <h4 className="text-surface-900 font-bold text-lg mb-1 group-hover/item:text-brand-700 transition-colors">{service.name}</h4>
-                          <p className="text-surface-800/60 text-sm truncate max-w-md font-light">{service.desc}</p>
+                          <p className="text-surface-800/60 text-sm truncate max-w-md font-light">{service.description.slice(0, 80)}...</p>
                         </div>
                       </div>
                       <div className="text-gray-300 group-hover/item:text-accent-500 transition-colors group-hover/item:translate-x-1 transform">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                </div>
              </details>

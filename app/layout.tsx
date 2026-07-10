@@ -20,12 +20,6 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
-  alternates: {
-    canonical: 'https://www.batyspestcontrol.com',
-    languages: {
-      'en-US': 'https://www.batyspestcontrol.com',
-    },
-  },
   openGraph: {
     title: "Nationwide Pest Control | batyspestcontrol",
     description: "Fast and reliable 24/7 pest control services across the USA.",
@@ -33,11 +27,23 @@ export const metadata: Metadata = {
     siteName: "batyspestcontrol",
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/logo.png',
+        width: 800,
+        height: 600,
+        alt: "batyspestcontrol Logo",
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Nationwide Pest Control",
     description: "Fast and reliable 24/7 pest control services across the USA.",
+    images: ['/logo.png'],
+  },
+  icons: {
+    icon: '/logo.png',
   },
 };
 
@@ -316,6 +322,7 @@ export default function RootLayout({
                             <li><Link href="/#contact" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Contact Us</Link></li>
                             <li><Link href="/privacy-policy" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Privacy Policy</Link></li>
                             <li><Link href="/terms-of-service" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Terms of Service</Link></li>
+                            <li><Link href="/author" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Meet Our Team</Link></li>
                             <li><Link href="/sitemap.xml" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> HTML Sitemap</Link></li>
                         </ul>
                     </div>

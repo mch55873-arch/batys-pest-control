@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 
 export function generateStaticParams() {
   return [
@@ -231,6 +232,21 @@ const ArticleTermites = () => (
   </article>
 );
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
+  
+  const title = slug === 'pest-control-services-complete-guide' 
+    ? 'Pest Control Services: Complete Guide to Protecting Your Home and Business'
+    : slug === 'termite-control-services-protect-your-home'
+    ? 'Termite Control Services: Protect Your Home from Costly Termite Damage'
+    : slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+  return {
+    title: `${title} | batyspestcontrol`,
+    description: `Read our comprehensive guide on ${title.toLowerCase()}. Discover expert tips, prevention strategies, and professional solutions for your pest problems.`,
+  };
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;

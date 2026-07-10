@@ -88,7 +88,9 @@ export default function AboutPage() {
               Your Trusted Pest Control Partners Since 2010
             </h2>
             <p className="text-lg text-gray-600 mb-10 leading-relaxed">
-              Founded with a commitment to excellence, batyspestcontrol has served local families and businesses for over a decade. Starting as a small family operation, we've grown into the go-to experts for pest control services. Our deep roots in the community mean we understand pest behaviors inside and out. You can rely on our certified team to deliver honest, efficient solutions that stand the test of time, always treating your home like our own.
+              Founded with a commitment to excellence, batyspestcontrol has served local families and businesses for over a decade. Starting as a small family operation, we've grown into the go-to experts for pest control services. Our deep roots in the community mean we understand pest behaviors inside and out. You can rely on our certified team to deliver honest, efficient solutions that stand the test of time, always treating your home like our own. 
+              <br /><br />
+              <Link href="/author" className="text-[#ff7340] font-bold hover:underline">Meet our expert team of authors and exterminators &rarr;</Link>
             </p>
             
             {/* Stats Grid */}
