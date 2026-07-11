@@ -117,8 +117,45 @@ export default async function ServicePage({
     .filter((c) => c.slug !== cityData.slug)
     .slice(0, 10);
 
+  const rawFaqs = (aiContentData as any)[service.slug]?.faqs || [
+    {
+      question: `How much does ${service.name.toLowerCase()} cost in [CITY_NAME]?`,
+      answer: `The cost varies depending on the severity of the issue and your property size in [CITY_NAME]. We offer free, no-obligation quotes to give you an exact price.`
+    },
+    {
+      question: `Do you service all areas of [CITY_NAME]?`,
+      answer: `Yes! We provide comprehensive ${service.name.toLowerCase()} across all of [CITY_NAME] and the surrounding areas.`
+    },
+    {
+      question: `How quickly can you resolve a ${service.name.toLowerCase()} emergency?`,
+      answer: `Our emergency teams in [CITY_NAME] can typically be on-site within 1-2 hours depending on traffic and availability.`
+    }
+  ];
+
+  const processedFaqs = rawFaqs.map((faq: any) => ({
+    question: faq.question.replace(/\[CITY_NAME\]/g, cityData.name).replace(/\[STATE_CODE\]/g, parentState.code.toUpperCase()),
+    answer: faq.answer.replace(/\[CITY_NAME\]/g, cityData.name).replace(/\[STATE_CODE\]/g, parentState.code.toUpperCase())
+  }));
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": processedFaqs.map((faq: any) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <main className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero Section */}
       <div className="relative bg-[#1e293b] text-white overflow-hidden py-24">
         <div className="absolute inset-0 opacity-20">
@@ -188,23 +225,19 @@ export default async function ServicePage({
                 Frequently Asked Questions
               </h2>
               <div className="space-y-6">
-                {((aiContentData as any)[service.slug]?.faqs || [
-                  {
-                    question: `How much does ${service.name.toLowerCase()} cost in [CITY_NAME]?`,
-                    answer: `The cost varies depending on the severity of the issue and your property size in [CITY_NAME]. We offer free, no-obligation quotes to give you an exact price.`
-                  },
-                  {
-                    question: `Do you service all areas of [CITY_NAME]?`,
-                    answer: `Yes! We provide comprehensive ${service.name.toLowerCase()} across all of [CITY_NAME] and the surrounding areas.`
-                  },
-                  {
-                    question: `Is emergency service available?`,
-                    answer: `Absolutely. We have technicians on standby 24/7 in [CITY_NAME] to handle urgent ${service.name.toLowerCase()} needs.`
-                  }
-                ]).map((faq: any, i: number) => (
+                {processedFaqs.map((faq: any, i: number) => (
                   <div key={i} className="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">{faq.question.replace(/\[CITY_NAME\]/g, cityData.name).replace(/\[STATE_CODE\]/g, parentState.code.toUpperCase())}</h3>
-                    <p className="text-gray-600">{faq.answer.replace(/\[CITY_NAME\]/g, cityData.name).replace(/\[STATE_CODE\]/g, parentState.code.toUpperCase())}</p>
+                    <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-start gap-3">
+                      <span className="text-green-500 flex-shrink-0 mt-1">
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </span>
+                      {faq.question}
+                    </h3>
+                    <p className="text-gray-600 pl-8 leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </div>
                 ))}
               </div>
