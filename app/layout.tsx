@@ -135,25 +135,17 @@ export default function RootLayout({
         />
         
         {/* TOP BAR */}
-        <div className="bg-surface-900 text-gray-300 hidden sm:block border-b border-white/5">
+        <div className="bg-red-600 text-white hidden sm:block border-b border-red-700">
             <div className="max-w-7xl mx-auto px-4">
-                <div className="flex flex-col md:flex-row justify-between items-center py-2 text-xs md:text-sm">
-                    {/* Social Icons */}
-                    <div className="flex items-center space-x-3 mb-2 md:mb-0">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 hover:text-accent-400 transition-colors">f</a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 hover:text-accent-400 transition-colors">t</a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/5 rounded-full flex items-center justify-center hover:bg-white/10 hover:text-accent-400 transition-colors">in</a>
+                <div className="flex flex-col md:flex-row justify-between items-center py-2 text-xs md:text-sm font-bold">
+                    <div className="flex items-center space-x-2">
+                        <span className="animate-pulse">🚨</span>
+                        <span>24/7 Emergency Pest Control & Extermination - Fully Licensed & Insured</span>
                     </div>
-                    {/* Contact Info */}
-                    <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-                        <div className="flex items-center group">
-                            <span className="mr-2 text-brand-500 group-hover:text-accent-500 transition-colors">📍</span>
-                            <span className="group-hover:text-white transition-colors">Nationwide Service, USA</span>
-                        </div>
-                        <div className="flex items-center group">
-                            <span className="mr-2 text-brand-500 group-hover:text-accent-500 transition-colors">✉️</span>
-                            <a href="mailto:info@batyspestcontrol.com" className="hover:text-white transition">info@batyspestcontrol.com</a>
-                        </div>
+                    <div className="flex items-center space-x-6">
+                        <a href="tel:614-926-0787" className="hover:text-yellow-200 transition-colors flex items-center gap-2">
+                            <span>📞</span> 614-926-0787
+                        </a>
                     </div>
                 </div>
             </div>
@@ -203,100 +195,40 @@ export default function RootLayout({
             </div>
 
             {/* Mobile Menu Button */}
-            <button className="lg:hidden text-white text-2xl hover:text-accent-400 transition-colors">
-                ☰
+            <button className="lg:hidden text-brand-50 hover:text-white p-2" aria-label="Menu">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
             </button>
             
           </div>
         </header>
 
-        {/* MAIN CONTENT */}
-        <main className="min-h-screen">
-          {children}
-        </main>
-
-        {/* COMPREHENSIVE DARK FOOTER */}
-        <div className="w-full mt-auto">
-            {/* 1. Pre-Footer Banner */}
-            <div className="bg-brand-800 text-white py-12 px-4 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-                    <div>
-                        <h2 className="text-3xl lg:text-4xl font-extrabold mb-2 text-white">Ready to Get Started?</h2>
-                        <p className="text-lg text-brand-50 font-light">Get your free 24/7 emergency pest control services estimate today - no obligation!</p>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-                        <a href="tel:614-926-0787" className="bg-white text-brand-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-50 transition-colors flex items-center justify-center gap-2 shadow-lg hover:-translate-y-1">
-                            📞 614-926-0787
-                        </a>
-                        <a href="/#contact" className="bg-accent-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-accent-400 transition-colors shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2">
-                            Get Free Quote ➔
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            {/* 2. Trust Badges */}
-            <div className="bg-surface-800 py-10 px-4 border-b border-white/5">
-                <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-white">
-                    <div className="flex items-center gap-4 justify-center md:justify-start group">
-                        <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-2xl shrink-0 group-hover:bg-brand-500/20 group-hover:text-brand-400 transition-colors border border-white/5">🛡️</div>
-                        <div>
-                            <div className="font-bold text-sm">Licensed & Trusted</div>
-                            <div className="text-xs text-surface-400">TPCL #0992001</div>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4 justify-center md:justify-start group">
-                        <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-2xl shrink-0 group-hover:bg-accent-500/20 group-hover:text-accent-400 transition-colors border border-white/5">⭐</div>
-                        <div>
-                            <div className="font-bold text-sm">Pet Friendly</div>
-                            <div className="text-xs text-surface-400">Children & Pet Safe</div>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4 justify-center md:justify-start group">
-                        <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-2xl shrink-0 group-hover:bg-brand-500/20 group-hover:text-brand-400 transition-colors border border-white/5">✅</div>
-                        <div>
-                            <div className="font-bold text-sm">Satisfaction Guaranteed</div>
-                            <div className="text-xs text-surface-400">Quality Work Guaranteed</div>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4 justify-center md:justify-start group">
-                        <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-2xl shrink-0 group-hover:bg-accent-500/20 group-hover:text-accent-400 transition-colors border border-white/5">🏠</div>
-                        <div>
-                            <div className="font-bold text-sm">Locally Owned</div>
-                            <div className="text-xs text-surface-400">Nationwide Network</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* 3. Main Dark Footer */}
-            <footer className="bg-surface-900 text-surface-200 py-20 px-4 relative">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+        <div className="min-h-screen flex flex-col">
+            {children}
+            
+            <footer className="bg-[#0a1128] text-white pt-24 pb-20 md:pb-12 border-t border-brand-800 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                <div className="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
+                    
                     {/* Col 1 */}
-                    <div>
-                        <div className="flex items-center gap-2 mb-6">
-                            <div className="w-10 h-10 bg-brand-900 rounded-lg flex items-center justify-center shadow-lg">
-                                <span className="text-2xl">🐞</span>
-                            </div>
-                            <span className="font-extrabold text-2xl text-white">batyspestcontrol</span>
-                        </div>
-                        <p className="text-sm text-surface-400 mb-8 leading-relaxed font-light">
-                            Your trusted local pest control partner. Fast, reliable relief anytime. Licensed & trusted – TPCL #0992001.
+                    <div className="space-y-6">
+                        <Link href="/" className="flex items-center gap-3">
+                           <div className="relative flex items-center justify-center w-12 h-12 bg-brand-900 rounded-xl shadow-lg border border-white/10">
+                             <span className="text-2xl">🛡️</span>
+                           </div>
+                           <div className="flex flex-col justify-center">
+                             <span className="font-extrabold text-2xl tracking-tight leading-none text-white">batyspestcontrol</span>
+                             <span className="font-bold text-xs tracking-[0.2em] text-accent-500 uppercase mt-0.5">Pest Control</span>
+                           </div>
+                        </Link>
+                        <p className="text-surface-400 text-sm leading-relaxed pr-4">
+                            We provide fast, reliable, and eco-friendly pest control services nationwide. Available 24/7 for all your residential and commercial needs.
                         </p>
-                        <div className="space-y-4 text-sm text-surface-300">
-                            <div className="flex items-start gap-4">
-                                <span className="text-accent-500 mt-0.5 text-lg">📍</span>
-                                <span>Serving Texas & Nationwide</span>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <span className="text-accent-500 text-lg">✉️</span>
-                                <a href="mailto:info@batyspestcontrol.com" className="hover:text-white transition-colors">info@batyspestcontrol.com</a>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <span className="text-accent-500 text-lg">📞</span>
-                                <a href="tel:614-926-0787" className="hover:text-white transition-colors">614-926-0787</a>
-                            </div>
+                        <div className="flex items-center gap-4 text-surface-400 text-sm">
+                            <span className="flex items-center gap-2"><span className="text-accent-500">✓</span> Licensed</span>
+                            <span className="flex items-center gap-2"><span className="text-accent-500">✓</span> Insured</span>
+                            <span className="flex items-center gap-2"><span className="text-accent-500">✓</span> Bonded</span>
                         </div>
                     </div>
 
@@ -352,15 +284,22 @@ export default function RootLayout({
                 </div>
             </footer>
             
-            {/* Floating Action Buttons */}
-            <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+            {/* Mobile Sticky CTA Bar */}
+            <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-[0_-5px_15px_rgba(0,0,0,0.1)] p-3">
+                <a href="tel:614-926-0787" className="flex items-center justify-center w-full bg-red-600 hover:bg-red-700 text-white font-black text-lg py-3 rounded-xl uppercase tracking-wider animate-bounce shadow-lg shadow-red-500/30">
+                    <span className="mr-2 text-2xl">📞</span> Call Now For Emergency
+                </a>
+            </div>
+
+            {/* Floating Action Buttons (Desktop Only) */}
+            <div className="hidden md:flex fixed bottom-6 right-6 flex-col gap-3 z-50">
                 <button className="w-14 h-14 bg-brand-800 text-white rounded-full shadow-[0_10px_25px_rgba(4,47,46,0.5)] flex items-center justify-center text-2xl hover:-translate-y-1 transition-transform border border-white/10 relative overflow-hidden group">
                     <span className="relative z-10">💬</span>
                     <div className="absolute inset-0 bg-brand-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </button>
-                <a href="tel:614-926-0787" className="w-14 h-14 bg-accent-500 text-white rounded-full shadow-[0_10px_25px_rgba(245,158,11,0.5)] flex items-center justify-center text-2xl hover:-translate-y-1 transition-transform border border-white/10 relative overflow-hidden group">
-                    <span className="relative z-10">📞</span>
-                    <div className="absolute inset-0 bg-accent-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <a href="tel:614-926-0787" className="w-14 h-14 bg-red-600 text-white rounded-full shadow-[0_10px_25px_rgba(220,38,38,0.5)] flex items-center justify-center text-2xl hover:-translate-y-1 transition-transform border border-white/10 relative overflow-hidden group">
+                    <span className="relative z-10 animate-pulse">📞</span>
+                    <div className="absolute inset-0 bg-red-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </a>
             </div>
         </div>

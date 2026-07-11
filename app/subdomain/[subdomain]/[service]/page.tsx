@@ -150,11 +150,50 @@ export default async function ServicePage({
     }))
   };
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "HomeAndConstructionBusiness", "PestControlService"],
+    "name": `batyspestcontrol - ${cityData.name}`,
+    "description": `Expert ${service.name.toLowerCase()} services in ${cityData.name}, ${parentState.code.toUpperCase()}. Fast, reliable, and affordable.`,
+    "url": `https://${cityData.slug}-${parentState.code.toLowerCase()}.batyspestcontrol.com/${serviceSlug}`,
+    "telephone": "614-926-0787",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": cityData.name,
+      "addressRegion": parentState.code.toUpperCase(),
+      "postalCode": cityData.zip,
+      "addressCountry": "USA"
+    },
+    "image": "https://www.batyspestcontrol.com/logo.png"
+  };
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": `Professional ${service.name} Services in ${cityData.name}, ${parentState.code.toUpperCase()}`,
+    "author": {
+      "@type": "Person",
+      "name": "Robert Baty",
+      "url": "https://www.batyspestcontrol.com/author"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "batyspestcontrol",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.batyspestcontrol.com/logo.png"
+      }
+    },
+    "datePublished": "2026-07-01T08:00:00+08:00",
+    "dateModified": new Date().toISOString()
+  };
+
   return (
     <main className="min-h-screen bg-gray-50">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, localBusinessSchema, articleSchema]) }}
       />
       {/* Hero Section */}
       <div className="relative bg-[#1e293b] text-white overflow-hidden py-24">
