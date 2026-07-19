@@ -1,6 +1,4 @@
 import { notFound } from "next/navigation";
-import fs from "fs";
-import path from "path";
 import Link from "next/link";
 import type { Metadata } from 'next';
 import database from "../../../../data/usa_database.json";
@@ -72,15 +70,6 @@ export default async function ServicePage({
   const resolvedParams = await params;
   const subdomain = resolvedParams.subdomain;
   const serviceSlug = resolvedParams.service;
-
-  const dbPath = path.join(process.cwd(), "data", "usa_database.json");
-  let database: { states: StateData[] } = { states: [] };
-  try {
-    const rawData = fs.readFileSync(dbPath, "utf-8");
-    database = JSON.parse(rawData);
-  } catch (err) {
-    console.error("Failed to load usa_database.json", err);
-  }
 
   const lastDashIndex = subdomain.lastIndexOf("-");
   if (lastDashIndex === -1) {
