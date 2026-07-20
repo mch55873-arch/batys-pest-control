@@ -6,3 +6,11 @@ compatibility_flags = ["nodejs_compat"]
 [assets]
 directory = ".open-next/assets"
 binding = "ASSETS"
+
+[[routes]]
+pattern = "batyspestcontrol.com/*"
+zone_name = "batyspestcontrol.com"
+
+[[routes]]
+pattern = "*.batyspestcontrol.com/*"
+zone_name = "batyspestcontrol.com"

@@ -2,15 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata = {
-  title: "Meet Our Experts & Authors | batyspestcontrol",
-  description: "Get to know the certified entomologists, experienced technicians, and expert authors behind batyspestcontrol.",
+  title: "Meet Our Experts & Authors | Village Plumbers",
+  description: "Get to know the certified entomologists, experienced technicians, and expert authors behind Village Plumbers.",
   alternates: {
     canonical: '/author',
   },
   openGraph: {
-    title: "Meet Our Experts & Authors | batyspestcontrol",
-    description: "Get to know the certified entomologists, experienced technicians, and expert authors behind batyspestcontrol.",
-    url: 'https://www.batyspestcontrol.com/author',
+    title: "Meet Our Experts & Authors | Village Plumbers",
+    description: "Get to know the certified entomologists, experienced technicians, and expert authors behind Village Plumbers.",
+    url: 'https://www.villageplumbers.co.nz/author',
   }
 };
 
@@ -50,7 +50,7 @@ export default function AuthorPage() {
     <div className="bg-white text-gray-900 min-h-screen">
       {/* Hero Banner */}
       <section className="relative pt-32 pb-24 px-4 bg-[#0d1b2a] overflow-hidden flex flex-col items-center justify-center text-center min-h-[350px]">
-        <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cubes.png')" }}></div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2a]/80 to-[#0d1b2a]"></div>
         
         <div className="relative z-10 max-w-4xl mx-auto">
@@ -102,7 +102,7 @@ export default function AuthorPage() {
         <div className="max-w-4xl mx-auto text-center bg-brand-50 rounded-3xl p-12 border border-brand-100">
           <h3 className="text-3xl font-bold text-surface-900 mb-4">Our Editorial Promise</h3>
           <p className="text-surface-700 text-lg mb-8 max-w-2xl mx-auto">
-            Every blog post and service guide published on batyspestcontrol is rigorously fact-checked by our certified entomology team. We believe in providing scientifically accurate, practical, and safe advice for all your pest concerns.
+            Every blog post and service guide published on Village Plumbers is rigorously fact-checked by our certified entomology team. We believe in providing scientifically accurate, practical, and safe advice for all your pest concerns.
           </p>
           <Link href="/blog" className="inline-flex items-center gap-2 bg-[#0d1b2a] text-white px-8 py-4 rounded-full font-bold hover:bg-[#ff7340] hover:-translate-y-1 transition-all shadow-lg hover:shadow-xl">
             Read Our Latest Articles &rarr;

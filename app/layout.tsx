@@ -7,11 +7,11 @@ const inter = Inter({ subsets: ["latin"], variable: '--font-inter', display: 'sw
 const outfit = Outfit({ subsets: ["latin"], variable: '--font-outfit', display: 'swap' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.batyspestcontrol.com'),
-  title: "Nationwide Pest Control | batyspestcontrol",
+  metadataBase: new URL('https://www.villageplumbers.co.nz'),
+  title: "Nationwide Pest Control | Village Plumbers",
   description: "Fast and reliable 24/7 pest control services across the USA. Trusted by thousands.",
   keywords: ["Pest Control", "Exterminators Near Me", "Local Pest Control", "Termite Treatment", "Bed Bug Exterminator"],
-  publisher: "batyspestcontrol",
+  publisher: "Village Plumbers",
   robots: {
     index: true,
     follow: true,
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Nationwide Pest Control | batyspestcontrol",
+    title: "Nationwide Pest Control | Village Plumbers",
     description: "Fast and reliable 24/7 pest control services across the USA.",
-    url: 'https://www.batyspestcontrol.com',
-    siteName: "batyspestcontrol",
+    url: 'https://www.villageplumbers.co.nz',
+    siteName: "Village Plumbers",
     locale: 'en_US',
     type: 'website',
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: '/logo.png',
         width: 800,
         height: 600,
-        alt: "batyspestcontrol Logo",
+        alt: "Village Plumbers Logo",
       },
     ],
   },
@@ -63,19 +63,19 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": ["Person", "Organization"],
-                  "@id": "https://www.batyspestcontrol.com/#person",
-                  "name": "batyspestcontrol",
-                  "url": "https://www.batyspestcontrol.com",
+                  "@id": "https://www.villageplumbers.co.nz/#person",
+                  "name": "Village Plumbers",
+                  "url": "https://www.villageplumbers.co.nz",
                   "logo": {
                     "@type": "ImageObject",
-                    "@id": "https://www.batyspestcontrol.com/#logo",
-                    "url": "https://www.batyspestcontrol.com/logo.png",
-                    "contentUrl": "https://www.batyspestcontrol.com/logo.png",
-                    "caption": "batyspestcontrol",
+                    "@id": "https://www.villageplumbers.co.nz/#logo",
+                    "url": "https://www.villageplumbers.co.nz/logo.png",
+                    "contentUrl": "https://www.villageplumbers.co.nz/logo.png",
+                    "caption": "Village Plumbers",
                     "inLanguage": "en-US"
                   },
                   "image": {
-                    "@id": "https://www.batyspestcontrol.com/#logo"
+                    "@id": "https://www.villageplumbers.co.nz/#logo"
                   },
                   "contactPoint": {
                     "@type": "ContactPoint",
@@ -85,38 +85,38 @@ export default function RootLayout({
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://www.batyspestcontrol.com/#website",
-                  "url": "https://www.batyspestcontrol.com",
+                  "@id": "https://www.villageplumbers.co.nz/#website",
+                  "url": "https://www.villageplumbers.co.nz",
                   "name": "Nationwide Pest Control",
                   "publisher": {
-                    "@id": "https://www.batyspestcontrol.com/#person"
+                    "@id": "https://www.villageplumbers.co.nz/#person"
                   },
                   "inLanguage": "en-US",
                   "potentialAction": {
                     "@type": "SearchAction",
-                    "target": "https://www.batyspestcontrol.com/?s={search_term_string}",
+                    "target": "https://www.villageplumbers.co.nz/?s={search_term_string}",
                     "query-input": "required name=search_term_string"
                   }
                 },
                 {
                   "@type": "WebPage",
-                  "@id": "https://www.batyspestcontrol.com/#webpage",
-                  "url": "https://www.batyspestcontrol.com/",
-                  "name": "Nationwide Pest Control | batyspestcontrol",
+                  "@id": "https://www.villageplumbers.co.nz/#webpage",
+                  "url": "https://www.villageplumbers.co.nz/",
+                  "name": "Nationwide Pest Control | Village Plumbers",
                   "about": {
-                    "@id": "https://www.batyspestcontrol.com/#person"
+                    "@id": "https://www.villageplumbers.co.nz/#person"
                   },
                   "isPartOf": {
-                    "@id": "https://www.batyspestcontrol.com/#website"
+                    "@id": "https://www.villageplumbers.co.nz/#website"
                   },
                   "inLanguage": "en-US"
                 },
                 {
                   "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-                  "@id": "https://www.batyspestcontrol.com/#localbusiness",
-                  "name": "batyspestcontrol",
+                  "@id": "https://www.villageplumbers.co.nz/#localbusiness",
+                  "name": "Village Plumbers",
                   "description": "Fast and reliable 24/7 pest control services across the USA.",
-                  "url": "https://www.batyspestcontrol.com",
+                  "url": "https://www.villageplumbers.co.nz",
                   "telephone": "614-926-0787",
                   "priceRange": "$$",
                   "address": {
@@ -127,7 +127,7 @@ export default function RootLayout({
                     "postalCode": "43215",
                     "addressCountry": "USA"
                   },
-                  "image": "https://www.batyspestcontrol.com/logo.png"
+                  "image": "https://www.villageplumbers.co.nz/logo.png"
                 }
               ]
             })
@@ -168,7 +168,7 @@ export default function RootLayout({
                
                {/* Typography */}
                <div className="flex flex-col justify-center">
-                 <span className="font-extrabold text-xl tracking-tight leading-none text-white">batyspestcontrol</span>
+                 <span className="font-extrabold text-xl tracking-tight leading-none text-white">Village Plumbers</span>
                  <span className="font-bold text-xs tracking-[0.2em] text-accent-400 uppercase mt-0.5">& Pest Control</span>
                </div>
             </Link>
@@ -177,10 +177,10 @@ export default function RootLayout({
             <div className="hidden lg:flex items-center space-x-8 font-medium text-sm text-brand-50">
                <Link href="/" className="hover:text-white hover:text-shadow transition-all relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent-400 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">Home</Link>
                <Link href="/about" className="hover:text-white hover:text-shadow transition-all relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent-400 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">About Us</Link>
-               <Link href="/#services" className="hover:text-white hover:text-shadow transition-all relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent-400 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">Our Services</Link>
+               <Link href="/services" className="hover:text-white hover:text-shadow transition-all relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent-400 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">Our Services</Link>
                <Link href="/#areas-we-serve" className="hover:text-white hover:text-shadow transition-all relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent-400 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">Areas We Serve</Link>
                <Link href="/blog" className="hover:text-white hover:text-shadow transition-all relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent-400 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">Blog</Link>
-               <Link href="/#contact" className="hover:text-white hover:text-shadow transition-all relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent-400 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">Contact</Link>
+               <Link href="/contact" className="hover:text-white hover:text-shadow transition-all relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent-400 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">Contact</Link>
             </div>
             
             {/* Call to Action Bar */}
@@ -208,7 +208,7 @@ export default function RootLayout({
             {children}
             
             <footer className="bg-[#0a1128] text-white pt-24 pb-20 md:pb-12 border-t border-brand-800 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')" }}></div>
                 <div className="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
                     
                     {/* Col 1 */}
@@ -218,7 +218,7 @@ export default function RootLayout({
                              <span className="text-2xl">🛡️</span>
                            </div>
                            <div className="flex flex-col justify-center">
-                             <span className="font-extrabold text-2xl tracking-tight leading-none text-white">batyspestcontrol</span>
+                             <span className="font-extrabold text-2xl tracking-tight leading-none text-white">Village Plumbers</span>
                              <span className="font-bold text-xs tracking-[0.2em] text-accent-500 uppercase mt-0.5">Pest Control</span>
                            </div>
                         </Link>
@@ -241,7 +241,7 @@ export default function RootLayout({
                             <li><Link href="/bed-bug-treatment" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Bed Bug Treatment</Link></li>
                             <li><Link href="/ant-control-services" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Ant & Roach Control</Link></li>
                             <li><Link href="/mosquito-control" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Mosquito Control</Link></li>
-                            <li><Link href="/wildlife-removal" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> View All Services</Link></li>
+                            <li><Link href="/services" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> View All Services</Link></li>
                         </ul>
                     </div>
 
@@ -251,7 +251,7 @@ export default function RootLayout({
                         <ul className="space-y-4 text-sm text-surface-400">
                             <li><Link href="/" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Home</Link></li>
                             <li><Link href="/about" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> About Us</Link></li>
-                            <li><Link href="/#contact" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Contact Us</Link></li>
+                            <li><Link href="/contact" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Contact Us</Link></li>
                             <li><Link href="/privacy-policy" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Privacy Policy</Link></li>
                             <li><Link href="/terms-of-service" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Terms of Service</Link></li>
                             <li><Link href="/author" className="hover:text-accent-400 hover:translate-x-1 transition-all flex items-center gap-3"><span className="text-brand-500 text-[10px]">■</span> Meet Our Team</Link></li>
@@ -277,7 +277,7 @@ export default function RootLayout({
                 
                 {/* Copyright Bar */}
                 <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-surface-500 relative z-10">
-                    <div>&copy; {new Date().getFullYear()} batyspestcontrol. All rights reserved. A subsidiary of Nationwide Home Services LLC.</div>
+                    <div>&copy; {new Date().getFullYear()} Village Plumbers. All rights reserved. A subsidiary of Nationwide Home Services LLC.</div>
                     <div className="flex items-center gap-2">
                         <span className="bg-surface-800 px-2 py-1 rounded border border-white/5">DMCA Protected</span>
                     </div>

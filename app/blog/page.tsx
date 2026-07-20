@@ -1,208 +1,175 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import blogData from '../../data/blog.json';
 
 export const metadata = {
-  title: "Blog & Articles | batyspestcontrol",
-  description: 'Tips, guides, and insights about pest control and home improvement.',
+  title: "Blog & Articles | Village Plumbers",
+  description: 'Expert tips, guides, and insights about pest control and home improvement from Village Plumbers.',
   alternates: {
-    canonical: '/blog',
-  },
-  openGraph: {
-    title: "Blog & Articles | batyspestcontrol",
-    description: 'Tips, guides, and insights about pest control and home improvement.',
-    url: 'https://www.batyspestcontrol.com/blog',
+    canonical: 'https://www.villageplumbers.co.nz/blog',
   }
 };
 
 export default function BlogPage() {
-  const dummyPosts = [
-    { 
-      slug: "pest-control-services-complete-guide",
-      title: "Pest Control Services: Complete Guide to Protecting Your Home and Business", 
-      date: "February 2, 2026", 
-      excerpt: "Professional pest control services help eliminate existing infestations while preventing future pest problems. Whether you're dealing with termites, rodents, bed bugs, cockroaches, ants, or mosquitoes..." 
-    },
-    { 
-      slug: "termite-control-services-protect-your-home",
-      title: "Termite Control Services: Protect Your Home from Costly Termite Damage", 
-      date: "February 2, 2026", 
-      excerpt: "Termites are among the most destructive structural pests. They feed on wood and other cellulose-based materials, often causing extensive damage before homeowners notice any signs of an infestation..." 
-    },
-    { slug: "best-ways-to-handle-termites-in-texas-homes", title: "Best Ways to Handle Termites in Texas Homes", date: "February 2, 2026", excerpt: "Imagine coming home to a weakened structure. Avoiding termites means checking..." },
-    { slug: "quick-rodent-solutions-for-surrounding-areas", title: "Quick Rodent Solutions for Surrounding Areas", date: "February 2, 2026", excerpt: "A sudden scurry in the attic can give anyone a nightmare. But ignoring..." },
-    { slug: "the-hidden-costs-of-ignoring-pest-infestations", title: "The Hidden Costs of Ignoring Pest Infestations", date: "February 2, 2026", excerpt: "A small ant trail might seem harmless, but it can quickly escalate into..." },
-    { slug: "mosquitoes-in-summer-prevention-and-fixes", title: "Mosquitoes in Summer: Prevention and Fixes", date: "February 2, 2026", excerpt: "Imagine waking up to a beautiful summer morning only to discover your yard..." },
-    { slug: "top-5-common-pest-emergencies-in-texas", title: "Top 5 Common Pest Emergencies in Texas", date: "February 2, 2026", excerpt: "Living in Texas means dealing with unpredictable weather that can turn..." },
-    { slug: "how-to-keep-roaches-away-diy-tips", title: "How to Keep Roaches Away: DIY Tips", date: "February 2, 2026", excerpt: "A sudden bug in your kitchen sink or bathroom can ruin your morning..." }
-  ];
+  const posts = blogData;
 
   return (
-    <div className="bg-[#fcfafb] text-gray-900 min-h-screen">
-      {/* 1. Hero Banner */}
-      <section className="relative pt-32 pb-24 px-4 bg-[#0d1b2a] overflow-hidden flex flex-col items-center justify-center text-center min-h-[350px]">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/media__1783510889843.jpg" 
-            alt="Pest Control Blog" 
-            fill
-            sizes="100vw"
-            className="object-cover opacity-30"
+    <main className="bg-surface-50">
+      {/* 1. Hero Section */}
+      <section className="relative bg-brand-900 text-white py-20 md:py-28">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80" 
+            alt="Village Plumbers Blog" 
+            className="w-full h-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2a]/80 via-[#0d1b2a]/60 to-[#0d1b2a]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/90 to-brand-900/70"></div>
         </div>
         
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Blog & Articles
-          </h1>
-          <p className="text-xl text-gray-200 font-light max-w-2xl mx-auto">
-            Tips, guides, and insights about 24/7 emergency pest control services and home improvement.
-          </p>
-        </div>
-      </section>
-
-      {/* Breadcrumb */}
-      <div className="bg-[#f5f5f5] py-3 px-4 border-b border-gray-200 text-sm">
-        <div className="max-w-7xl mx-auto flex items-center gap-2 text-gray-600">
-          <Link href="/" className="hover:text-[#ff7340] transition-colors">Home</Link>
-          <span>›</span>
-          <span className="font-semibold text-gray-900">Blog</span>
-        </div>
-      </div>
-
-      {/* Main Content Area */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
-          {/* Left: Blog Grid */}
-          <div className="lg:col-span-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {dummyPosts.map((post, i) => (
-                <article key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-gray-100 flex flex-col transition-shadow">
-                  {/* Top Image Placeholder */}
-                  <div className="h-48 bg-[#5a626a] flex items-center justify-center">
-                    <h3 className="text-4xl font-bold text-white tracking-wide">Blog Post</h3>
-                  </div>
-                  
-                  {/* Bottom Content */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h2 className="text-xl font-bold text-[#0d1b2a] mb-2 line-clamp-2 hover:text-[#ff7340] cursor-pointer transition-colors">
-                      {post.title}
-                    </h2>
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                      {post.date}
-                    </div>
-                    <p className="text-gray-600 mb-6 text-sm line-clamp-3 leading-relaxed flex-1">
-                      {post.excerpt}
-                    </p>
-                    <Link href={`/blog/${post.slug || 'pest-control-services-complete-guide'}`} className="text-[#b18c95] font-bold text-sm flex items-center gap-1 hover:text-[#0d1b2a] transition-colors">
-                      Read more <span className="text-lg leading-none">→</span>
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            {/* Pagination */}
-            <div className="flex items-center justify-center gap-2 mt-16">
-               <button className="w-10 h-10 rounded border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 bg-white shadow-sm">
-                 ‹
-               </button>
-               <button className="w-10 h-10 rounded border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 bg-white shadow-sm">
-                 1
-               </button>
-               <button className="w-10 h-10 rounded border border-[#ff7340] flex items-center justify-center text-white bg-[#ff7340] font-bold shadow-sm">
-                 2
-               </button>
-               <button className="w-10 h-10 rounded border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 bg-white shadow-sm">
-                 ›
-               </button>
-            </div>
-          </div>
-
-          {/* Right: Sidebar */}
-          <div className="lg:col-span-4 space-y-8">
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <div className="max-w-3xl">
+            {/* Breadcrumb */}
+            <nav className="text-sm mb-6" aria-label="Breadcrumb">
+              <ol className="flex items-center space-x-2">
+                <li>
+                  <Link href="/" className="text-surface-400 hover:text-accent-500 transition">Home</Link>
+                </li>
+                <li><span className="text-surface-600 mx-2">/</span></li>
+                <li>
+                  <span className="text-accent-500 font-medium">Blog</span>
+                </li>
+              </ol>
+            </nav>
             
-            {/* Search Widget */}
-            <div className="bg-[#f5f5f5] rounded-2xl p-6 border border-gray-100 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-4 tracking-wide text-sm uppercase">Search</h3>
-              <div className="flex">
-                <input 
-                  type="text" 
-                  placeholder="Search..." 
-                  className="flex-1 px-4 py-3 rounded-l-lg border border-gray-200 focus:outline-none focus:border-[#b18c95] text-sm"
-                />
-                <button className="bg-[#b18c95] hover:bg-[#a07c85] text-white px-4 rounded-r-lg flex items-center justify-center transition-colors">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            <span className="inline-block bg-accent-500 text-brand-900 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded mb-6 shadow-md">
+              Pest Control Tips & Guides
+            </span>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white leading-tight">
+              Village Plumbers Blog
+            </h1>
+            
+            <p className="text-xl text-surface-300 mb-8 max-w-2xl leading-relaxed">
+              Expert tips, guides, and insights about pest control and home protection from the professionals at Village Plumbers.
+            </p>
+            
+            {/* Search Box */}
+            <form role="search" method="get" action="/blog" className="max-w-xl">
+              <div className="flex gap-2">
+                <input type="search" 
+                       name="s" 
+                       placeholder="Search articles..."
+                       className="flex-1 px-5 py-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-surface-300 focus:outline-none focus:border-accent-500 focus:bg-white/20 transition shadow-inner" />
+                <button type="submit" 
+                        className="px-6 py-4 bg-accent-500 text-brand-900 rounded-xl font-black hover:bg-accent-600 transition shadow-lg">
+                  <span className="sr-only">Search</span>
+                  🔍
                 </button>
               </div>
-            </div>
-
-            {/* Categories Widget */}
-            <div className="bg-[#f5f5f5] rounded-2xl p-6 border border-gray-100 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-4 tracking-wide text-sm uppercase">Categories</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/blog" className="flex items-center text-gray-600 hover:text-[#ff7340] transition-colors text-sm font-medium">
-                    <span className="flex-1">Uncategorized</span>
-                    <span className="text-gray-400">(47)</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Need Help Widget */}
-            <div className="bg-[#0d1b2a] rounded-2xl p-8 text-white relative overflow-hidden shadow-xl">
-              <div className="relative z-10">
-                <h3 className="font-extrabold text-2xl mb-2 text-white tracking-tight">Need Help?</h3>
-                <p className="text-gray-300 text-sm mb-6 leading-relaxed">
-                  Have questions? We're here to help 24/7!
-                </p>
-                <a 
-                  href="tel:614-926-0787" 
-                  className="flex items-center gap-3 text-lg font-bold text-white hover:text-[#ff7340] transition-colors group"
-                >
-                  <svg className="w-6 h-6 text-[#b18c95] group-hover:text-[#ff7340] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  614-926-0787
-                </a>
-              </div>
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
-            </div>
-
+            </form>
           </div>
-
         </div>
       </section>
 
-      {/* 4. Bottom CTA Section */}
-      <section className="bg-[#b18c95] py-16 px-4">
-        <div className="max-w-7xl mx-auto bg-white/10 rounded-3xl p-8 md:p-12 border border-white/20 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 backdrop-blur-sm">
-          <div className="text-left flex-1">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0d1b2a] mb-2 tracking-tight">Ready to Get Started?</h2>
-            <p className="text-lg text-[#0d1b2a]/80 font-medium">
-              Call us for a free 24/7 emergency pest control estimate today - no obligation!
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-            <a 
-              href="tel:614-926-0787" 
-              className="bg-[#0d1b2a] hover:bg-[#1a2b3c] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg flex items-center justify-center gap-3 hover:-translate-y-1 whitespace-nowrap"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              614-926-0787
-            </a>
-            <Link 
-              href="/#contact" 
-              className="bg-white hover:bg-gray-50 text-[#0d1b2a] px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg flex items-center justify-center gap-3 hover:-translate-y-1 whitespace-nowrap"
-            >
-              Get Free Quote <span className="text-xl">→</span>
+      {/* 2. Category Filter */}
+      <section className="bg-white border-b border-surface-200 sticky top-0 z-40 shadow-sm">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="flex items-center gap-4 py-4 overflow-x-auto scrollbar-hide">
+            <span className="text-surface-500 font-bold uppercase tracking-wider text-sm whitespace-nowrap">Filter:</span>
+            
+            <Link href="/blog" 
+                  className="px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap transition bg-accent-500 text-brand-900 shadow-sm">
+              All Posts
+            </Link>
+            
+            <Link href="/blog?category=guides" 
+                  className="px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap transition bg-surface-100 text-surface-700 hover:bg-surface-200">
+              Guides
+            </Link>
+            
+            <Link href="/blog?category=termites" 
+                  className="px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap transition bg-surface-100 text-surface-700 hover:bg-surface-200">
+              Termites
+            </Link>
+            
+            <Link href="/blog?category=rodents" 
+                  className="px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap transition bg-surface-100 text-surface-700 hover:bg-surface-200">
+              Rodents
+            </Link>
+            
+            <Link href="/blog?category=tips" 
+                  className="px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap transition bg-surface-100 text-surface-700 hover:bg-surface-200">
+              Tips
             </Link>
           </div>
         </div>
       </section>
 
-    </div>
+      {/* 3. Blog Posts Grid */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 max-w-7xl">
+          
+          {posts.length === 0 ? (
+            <div className="text-center py-20">
+              <h2 className="text-2xl font-bold text-surface-500">Coming Soon</h2>
+              <p className="text-surface-400 mt-2">We are currently preparing our blog articles. Check back soon!</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post, index) => (
+                <article key={post.slug} className={`bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-surface-100 group flex flex-col ${index === 0 && posts.length > 2 ? 'md:col-span-2 lg:col-span-3 lg:flex-row' : ''}`}>
+                  <Link href={`/blog/${post.slug}`} className={`block flex-grow flex ${index === 0 && posts.length > 2 ? 'flex-col lg:flex-row' : 'flex-col'}`}>
+                    
+                    {/* Thumbnail */}
+                    <div className={`relative overflow-hidden ${index === 0 && posts.length > 2 ? 'lg:w-1/2 aspect-video lg:aspect-auto' : 'aspect-video'}`}>
+                      <img src={post.image || 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80'} 
+                           alt={post.title}
+                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                           loading={index === 0 ? "eager" : "lazy"} />
+                      
+                      {/* Category Badge */}
+                      <span className="absolute top-4 left-4 bg-accent-500 text-brand-900 text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md">
+                        {post.category}
+                      </span>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className={`p-6 lg:p-8 flex flex-col justify-center flex-grow ${index === 0 && posts.length > 2 ? 'lg:w-1/2 bg-white' : ''}`}>
+                      {/* Meta */}
+                      <div className="flex items-center gap-4 text-sm text-surface-500 font-medium mb-4">
+                        <span className="flex items-center">
+                          <span className="mr-2 text-accent-500">📅</span>
+                          <time dateTime={post.date}>{post.date}</time>
+                        </span>
+                        <span className="flex items-center">
+                          <span className="mr-2 text-accent-500">⏱️</span>
+                          {post.readTime || '5 min read'}
+                        </span>
+                      </div>
+                      
+                      {/* Title */}
+                      <h2 className={`${index === 0 && posts.length > 2 ? 'text-2xl lg:text-4xl' : 'text-xl lg:text-2xl'} font-black text-brand-900 mb-4 group-hover:text-brand-600 transition-colors line-clamp-3 leading-tight`}>
+                        {post.title}
+                      </h2>
+                      
+                      {/* Excerpt */}
+                      <p className={`text-surface-600 line-clamp-3 mb-6 flex-grow ${index === 0 && posts.length > 2 ? 'text-lg leading-relaxed' : 'leading-relaxed'}`}>
+                        {post.excerpt}
+                      </p>
+                      
+                      {/* Read More */}
+                      <span className="inline-flex items-center text-accent-500 font-black tracking-wide uppercase text-sm group-hover:text-accent-600 transition-colors mt-auto">
+                        Read More
+                        <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+                      </span>
+                    </div>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          )}
+          
+        </div>
+      </section>
+    </main>
   );
 }

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
-import database from '../data/usa_database.json';
+import database from '../data/nz_database.json';
 
-const DOMAIN = 'batyspestcontrol.com';
+const DOMAIN = 'villageplumbers.co.nz';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapEntries: MetadataRoute.Sitemap = [];
@@ -25,22 +25,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
+    },
+    {
+      url: `https://www.${DOMAIN}/services`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
     }
   );
 
-  // Add Blog Posts
-  const blogPosts = [
-    'pest-control-services-complete-guide',
-    'termite-control-services-protect-your-home',
-    'best-ways-to-handle-termites-in-texas-homes',
-    'quick-rodent-solutions-for-surrounding-areas',
-    'the-hidden-costs-of-ignoring-pest-infestations',
-    'mosquitoes-in-summer-prevention-and-fixes',
-    'top-5-common-pest-emergencies-in-texas',
-    'how-to-keep-roaches-away-diy-tips'
-  ];
+  // Add Services Pages (105 pages)
+  const servicesData = require('../data/services.json');
+  servicesData.forEach((service: any) => {
+    sitemapEntries.push({
+      url: `https://www.${DOMAIN}/${service.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    });
+  });
 
-  blogPosts.forEach((slug) => {
+  // Add Blog Posts
+  const blogData = require('../data/blog.json');
+  const blogPosts = blogData.map((post: any) => post.slug);
+
+  blogPosts.forEach((slug: string) => {
     sitemapEntries.push({
       url: `https://www.${DOMAIN}/blog/${slug}`,
       lastModified: new Date(),
@@ -70,6 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // Next.js sitemap limit is 50,000. Our DB is ~10,000, so one file is perfect.
   return sitemapEntries;
 }
+
+export const dynamic = "force-static";

@@ -1,0 +1,857 @@
+{
+  "country": "New Zealand",
+  "states": [
+    {
+      "name": "Auckland",
+      "code": "auk",
+      "cities": [
+        {
+          "name": "Auckland CBD",
+          "slug": "auckland-cbd"
+        },
+        {
+          "name": "Ponsonby",
+          "slug": "ponsonby"
+        },
+        {
+          "name": "Newmarket",
+          "slug": "newmarket"
+        },
+        {
+          "name": "Parnell",
+          "slug": "parnell"
+        },
+        {
+          "name": "Grey Lynn",
+          "slug": "grey-lynn"
+        },
+        {
+          "name": "Mount Eden",
+          "slug": "mount-eden"
+        },
+        {
+          "name": "Epsom",
+          "slug": "epsom"
+        },
+        {
+          "name": "Remuera",
+          "slug": "remuera"
+        },
+        {
+          "name": "Takapuna",
+          "slug": "takapuna"
+        },
+        {
+          "name": "Albany",
+          "slug": "albany"
+        },
+        {
+          "name": "Henderson",
+          "slug": "henderson"
+        },
+        {
+          "name": "Manukau",
+          "slug": "manukau"
+        },
+        {
+          "name": "Papatoetoe",
+          "slug": "papatoetoe"
+        },
+        {
+          "name": "Howick",
+          "slug": "howick"
+        },
+        {
+          "name": "Botany Downs",
+          "slug": "botany-downs"
+        },
+        {
+          "name": "Pukekohe",
+          "slug": "pukekohe"
+        },
+        {
+          "name": "Orewa",
+          "slug": "orewa"
+        },
+        {
+          "name": "Silverdale",
+          "slug": "silverdale"
+        },
+        {
+          "name": "Whangaparaoa",
+          "slug": "whangaparaoa"
+        },
+        {
+          "name": "Devonport",
+          "slug": "devonport"
+        },
+        {
+          "name": "Onehunga",
+          "slug": "onehunga"
+        },
+        {
+          "name": "Mount Albert",
+          "slug": "mount-albert"
+        },
+        {
+          "name": "Glen Eden",
+          "slug": "glen-eden"
+        },
+        {
+          "name": "Titirangi",
+          "slug": "titirangi"
+        },
+        {
+          "name": "Avondale",
+          "slug": "avondale"
+        },
+        {
+          "name": "New Lynn",
+          "slug": "new-lynn"
+        },
+        {
+          "name": "Hillsborough",
+          "slug": "hillsborough"
+        },
+        {
+          "name": "Mount Roskill",
+          "slug": "mount-roskill"
+        },
+        {
+          "name": "Ellerslie",
+          "slug": "ellerslie"
+        },
+        {
+          "name": "Panmure",
+          "slug": "panmure"
+        },
+        {
+          "name": "Penrose",
+          "slug": "penrose"
+        }
+      ]
+    },
+    {
+      "name": "Wellington",
+      "code": "wgn",
+      "cities": [
+        {
+          "name": "Wellington Central",
+          "slug": "wellington-central"
+        },
+        {
+          "name": "Te Aro",
+          "slug": "te-aro"
+        },
+        {
+          "name": "Mount Victoria",
+          "slug": "mount-victoria"
+        },
+        {
+          "name": "Oriental Bay",
+          "slug": "oriental-bay"
+        },
+        {
+          "name": "Kelburn",
+          "slug": "kelburn"
+        },
+        {
+          "name": "Thorndon",
+          "slug": "thorndon"
+        },
+        {
+          "name": "Newtown",
+          "slug": "newtown"
+        },
+        {
+          "name": "Miramar",
+          "slug": "miramar"
+        },
+        {
+          "name": "Kilbirnie",
+          "slug": "kilbirnie"
+        },
+        {
+          "name": "Island Bay",
+          "slug": "island-bay"
+        },
+        {
+          "name": "Karori",
+          "slug": "karori"
+        },
+        {
+          "name": "Johnsonville",
+          "slug": "johnsonville"
+        },
+        {
+          "name": "Tawa",
+          "slug": "tawa"
+        },
+        {
+          "name": "Porirua",
+          "slug": "porirua"
+        },
+        {
+          "name": "Lower Hutt",
+          "slug": "lower-hutt"
+        },
+        {
+          "name": "Upper Hutt",
+          "slug": "upper-hutt"
+        },
+        {
+          "name": "Petone",
+          "slug": "petone"
+        },
+        {
+          "name": "Eastbourne",
+          "slug": "eastbourne"
+        },
+        {
+          "name": "Wainuiomata",
+          "slug": "wainuiomata"
+        },
+        {
+          "name": "Kapiti",
+          "slug": "kapiti"
+        },
+        {
+          "name": "Paraparaumu",
+          "slug": "paraparaumu"
+        },
+        {
+          "name": "Waikanae",
+          "slug": "waikanae"
+        }
+      ]
+    },
+    {
+      "name": "Canterbury",
+      "code": "can",
+      "cities": [
+        {
+          "name": "Christchurch Central",
+          "slug": "christchurch-central"
+        },
+        {
+          "name": "Riccarton",
+          "slug": "riccarton"
+        },
+        {
+          "name": "Fendalton",
+          "slug": "fendalton"
+        },
+        {
+          "name": "Merivale",
+          "slug": "merivale"
+        },
+        {
+          "name": "St Albans",
+          "slug": "st-albans"
+        },
+        {
+          "name": "Shirley",
+          "slug": "shirley"
+        },
+        {
+          "name": "Papanui",
+          "slug": "papanui"
+        },
+        {
+          "name": "Burnside",
+          "slug": "burnside"
+        },
+        {
+          "name": "Avonhead",
+          "slug": "avonhead"
+        },
+        {
+          "name": "Hornby",
+          "slug": "hornby"
+        },
+        {
+          "name": "Halswell",
+          "slug": "halswell"
+        },
+        {
+          "name": "Cashmere",
+          "slug": "cashmere"
+        },
+        {
+          "name": "Sydenham",
+          "slug": "sydenham"
+        },
+        {
+          "name": "Addington",
+          "slug": "addington"
+        },
+        {
+          "name": "Spreydon",
+          "slug": "spreydon"
+        },
+        {
+          "name": "Woolston",
+          "slug": "woolston"
+        },
+        {
+          "name": "Linwood",
+          "slug": "linwood"
+        },
+        {
+          "name": "New Brighton",
+          "slug": "new-brighton"
+        },
+        {
+          "name": "Sumner",
+          "slug": "sumner"
+        },
+        {
+          "name": "Lyttelton",
+          "slug": "lyttelton"
+        },
+        {
+          "name": "Rolleston",
+          "slug": "rolleston"
+        },
+        {
+          "name": "Lincoln",
+          "slug": "lincoln"
+        },
+        {
+          "name": "Rangiora",
+          "slug": "rangiora"
+        },
+        {
+          "name": "Kaiapoi",
+          "slug": "kaiapoi"
+        },
+        {
+          "name": "Ashburton",
+          "slug": "ashburton"
+        },
+        {
+          "name": "Timaru",
+          "slug": "timaru"
+        }
+      ]
+    },
+    {
+      "name": "Waikato",
+      "code": "wko",
+      "cities": [
+        {
+          "name": "Hamilton Central",
+          "slug": "hamilton-central"
+        },
+        {
+          "name": "Hamilton East",
+          "slug": "hamilton-east"
+        },
+        {
+          "name": "Claudelands",
+          "slug": "claudelands"
+        },
+        {
+          "name": "Chartwell",
+          "slug": "chartwell"
+        },
+        {
+          "name": "Rototuna",
+          "slug": "rototuna"
+        },
+        {
+          "name": "Flagstaff",
+          "slug": "flagstaff"
+        },
+        {
+          "name": "Hillcrest",
+          "slug": "hillcrest"
+        },
+        {
+          "name": "Melville",
+          "slug": "melville"
+        },
+        {
+          "name": "Dinsdale",
+          "slug": "dinsdale"
+        },
+        {
+          "name": "Frankton",
+          "slug": "frankton"
+        },
+        {
+          "name": "Te Rapa",
+          "slug": "te-rapa"
+        },
+        {
+          "name": "Cambridge",
+          "slug": "cambridge"
+        },
+        {
+          "name": "Te Awamutu",
+          "slug": "te-awamutu"
+        },
+        {
+          "name": "Morrinsville",
+          "slug": "morrinsville"
+        },
+        {
+          "name": "Matamata",
+          "slug": "matamata"
+        },
+        {
+          "name": "Huntly",
+          "slug": "huntly"
+        },
+        {
+          "name": "Ngaruawahia",
+          "slug": "ngaruawahia"
+        },
+        {
+          "name": "Taupo",
+          "slug": "taupo"
+        },
+        {
+          "name": "Tokoroa",
+          "slug": "tokoroa"
+        },
+        {
+          "name": "Putaruru",
+          "slug": "putaruru"
+        }
+      ]
+    },
+    {
+      "name": "Bay of Plenty",
+      "code": "bop",
+      "cities": [
+        {
+          "name": "Tauranga Central",
+          "slug": "tauranga-central"
+        },
+        {
+          "name": "Mount Maunganui",
+          "slug": "mount-maunganui"
+        },
+        {
+          "name": "Papamoa",
+          "slug": "papamoa"
+        },
+        {
+          "name": "Greerton",
+          "slug": "greerton"
+        },
+        {
+          "name": "Welcome Bay",
+          "slug": "welcome-bay"
+        },
+        {
+          "name": "Otumoetai",
+          "slug": "otumoetai"
+        },
+        {
+          "name": "Bethlehem",
+          "slug": "bethlehem"
+        },
+        {
+          "name": "Rotorua",
+          "slug": "rotorua"
+        },
+        {
+          "name": "Whakatane",
+          "slug": "whakatane"
+        },
+        {
+          "name": "Te Puke",
+          "slug": "te-puke"
+        },
+        {
+          "name": "Katikati",
+          "slug": "katikati"
+        },
+        {
+          "name": "Opotiki",
+          "slug": "opotiki"
+        },
+        {
+          "name": "Kawerau",
+          "slug": "kawerau"
+        }
+      ]
+    },
+    {
+      "name": "Otago",
+      "code": "ota",
+      "cities": [
+        {
+          "name": "Dunedin Central",
+          "slug": "dunedin-central"
+        },
+        {
+          "name": "North Dunedin",
+          "slug": "north-dunedin"
+        },
+        {
+          "name": "South Dunedin",
+          "slug": "south-dunedin"
+        },
+        {
+          "name": "Mosgiel",
+          "slug": "mosgiel"
+        },
+        {
+          "name": "Green Island",
+          "slug": "green-island"
+        },
+        {
+          "name": "Port Chalmers",
+          "slug": "port-chalmers"
+        },
+        {
+          "name": "Queenstown",
+          "slug": "queenstown"
+        },
+        {
+          "name": "Frankton",
+          "slug": "frankton"
+        },
+        {
+          "name": "Arrowtown",
+          "slug": "arrowtown"
+        },
+        {
+          "name": "Wanaka",
+          "slug": "wanaka"
+        },
+        {
+          "name": "Cromwell",
+          "slug": "cromwell"
+        },
+        {
+          "name": "Alexandra",
+          "slug": "alexandra"
+        },
+        {
+          "name": "Oamaru",
+          "slug": "oamaru"
+        },
+        {
+          "name": "Balclutha",
+          "slug": "balclutha"
+        }
+      ]
+    },
+    {
+      "name": "Manawatu-Whanganui",
+      "code": "mwt",
+      "cities": [
+        {
+          "name": "Palmerston North",
+          "slug": "palmerston-north"
+        },
+        {
+          "name": "Feilding",
+          "slug": "feilding"
+        },
+        {
+          "name": "Levin",
+          "slug": "levin"
+        },
+        {
+          "name": "Whanganui",
+          "slug": "whanganui"
+        },
+        {
+          "name": "Marton",
+          "slug": "marton"
+        },
+        {
+          "name": "Bulls",
+          "slug": "bulls"
+        },
+        {
+          "name": "Dannevirke",
+          "slug": "dannevirke"
+        },
+        {
+          "name": "Pahiatua",
+          "slug": "pahiatua"
+        },
+        {
+          "name": "Taihape",
+          "slug": "taihape"
+        },
+        {
+          "name": "Taumarunui",
+          "slug": "taumarunui"
+        }
+      ]
+    },
+    {
+      "name": "Northland",
+      "code": "ntl",
+      "cities": [
+        {
+          "name": "Whangarei",
+          "slug": "whangarei"
+        },
+        {
+          "name": "Kerikeri",
+          "slug": "kerikeri"
+        },
+        {
+          "name": "Kaitaia",
+          "slug": "kaitaia"
+        },
+        {
+          "name": "Dargaville",
+          "slug": "dargaville"
+        },
+        {
+          "name": "Kaikohe",
+          "slug": "kaikohe"
+        },
+        {
+          "name": "Paihia",
+          "slug": "paihia"
+        },
+        {
+          "name": "Kawakawa",
+          "slug": "kawakawa"
+        },
+        {
+          "name": "Mangawhai",
+          "slug": "mangawhai"
+        }
+      ]
+    },
+    {
+      "name": "Hawkes Bay",
+      "code": "hkb",
+      "cities": [
+        {
+          "name": "Napier Central",
+          "slug": "napier-central"
+        },
+        {
+          "name": "Taradale",
+          "slug": "taradale"
+        },
+        {
+          "name": "Hastings",
+          "slug": "hastings"
+        },
+        {
+          "name": "Havelock North",
+          "slug": "havelock-north"
+        },
+        {
+          "name": "Flaxmere",
+          "slug": "flaxmere"
+        },
+        {
+          "name": "Wairoa",
+          "slug": "wairoa"
+        },
+        {
+          "name": "Waipukurau",
+          "slug": "waipukurau"
+        },
+        {
+          "name": "Waipawa",
+          "slug": "waipawa"
+        }
+      ]
+    },
+    {
+      "name": "Taranaki",
+      "code": "tki",
+      "cities": [
+        {
+          "name": "New Plymouth",
+          "slug": "new-plymouth"
+        },
+        {
+          "name": "Waitara",
+          "slug": "waitara"
+        },
+        {
+          "name": "Inglewood",
+          "slug": "inglewood"
+        },
+        {
+          "name": "Stratford",
+          "slug": "stratford"
+        },
+        {
+          "name": "Hawera",
+          "slug": "hawera"
+        },
+        {
+          "name": "Eltham",
+          "slug": "eltham"
+        },
+        {
+          "name": "Opunake",
+          "slug": "opunake"
+        }
+      ]
+    },
+    {
+      "name": "Southland",
+      "code": "stl",
+      "cities": [
+        {
+          "name": "Invercargill",
+          "slug": "invercargill"
+        },
+        {
+          "name": "Gore",
+          "slug": "gore"
+        },
+        {
+          "name": "Winton",
+          "slug": "winton"
+        },
+        {
+          "name": "Riverton",
+          "slug": "riverton"
+        },
+        {
+          "name": "Bluff",
+          "slug": "bluff"
+        },
+        {
+          "name": "Te Anau",
+          "slug": "te-anau"
+        }
+      ]
+    },
+    {
+      "name": "Nelson",
+      "code": "nsn",
+      "cities": [
+        {
+          "name": "Nelson Central",
+          "slug": "nelson-central"
+        },
+        {
+          "name": "Tahunanui",
+          "slug": "tahunanui"
+        },
+        {
+          "name": "Stoke",
+          "slug": "stoke"
+        },
+        {
+          "name": "Atawhai",
+          "slug": "atawhai"
+        },
+        {
+          "name": "The Wood",
+          "slug": "the-wood"
+        }
+      ]
+    },
+    {
+      "name": "Tasman",
+      "code": "tas",
+      "cities": [
+        {
+          "name": "Richmond",
+          "slug": "richmond"
+        },
+        {
+          "name": "Motueka",
+          "slug": "motueka"
+        },
+        {
+          "name": "Takaka",
+          "slug": "takaka"
+        },
+        {
+          "name": "Wakefield",
+          "slug": "wakefield"
+        },
+        {
+          "name": "Brightwater",
+          "slug": "brightwater"
+        }
+      ]
+    },
+    {
+      "name": "Marlborough",
+      "code": "mbh",
+      "cities": [
+        {
+          "name": "Blenheim",
+          "slug": "blenheim"
+        },
+        {
+          "name": "Picton",
+          "slug": "picton"
+        },
+        {
+          "name": "Renwick",
+          "slug": "renwick"
+        },
+        {
+          "name": "Havelock",
+          "slug": "havelock"
+        }
+      ]
+    },
+    {
+      "name": "Gisborne",
+      "code": "gis",
+      "cities": [
+        {
+          "name": "Gisborne Central",
+          "slug": "gisborne-central"
+        },
+        {
+          "name": "Wainui",
+          "slug": "wainui"
+        },
+        {
+          "name": "Makaraka",
+          "slug": "makaraka"
+        },
+        {
+          "name": "Tolaga Bay",
+          "slug": "tolaga-bay"
+        },
+        {
+          "name": "Ruatoria",
+          "slug": "ruatoria"
+        }
+      ]
+    },
+    {
+      "name": "West Coast",
+      "code": "wtc",
+      "cities": [
+        {
+          "name": "Greymouth",
+          "slug": "greymouth"
+        },
+        {
+          "name": "Westport",
+          "slug": "westport"
+        },
+        {
+          "name": "Hokitika",
+          "slug": "hokitika"
+        },
+        {
+          "name": "Reefton",
+          "slug": "reefton"
+        },
+        {
+          "name": "Runanga",
+          "slug": "runanga"
+        }
+      ]
+    }
+  ]
+}

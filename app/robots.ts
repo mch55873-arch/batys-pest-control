@@ -43,6 +43,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
       },
     ],
-    sitemap: 'https://batyspestcontrol.com/sitemap.xml',
+    sitemap: 'https://villageplumbers.co.nz/sitemap.xml',
   };
 }

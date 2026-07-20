@@ -1,527 +1,107 @@
 [
   {
-    "name": "Pest Control",
-    "slug": "pest-control",
-    "description": "Professional pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Emergency Plumbing",
+    "slug": "emergency-plumbing",
+    "description": "Professional and reliable emergency plumbing services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your emergency plumbing needs."
   },
   {
-    "name": "Exterminator Services",
-    "slug": "exterminator-services",
-    "description": "Professional exterminator services tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Blocked Drains",
+    "slug": "blocked-drains",
+    "description": "Professional and reliable blocked drains services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your blocked drains needs."
   },
   {
-    "name": "Emergency Pest Control",
-    "slug": "emergency-pest-control",
-    "description": "Professional emergency pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Hot Water Cylinders",
+    "slug": "hot-water-cylinders",
+    "description": "Professional and reliable hot water cylinders services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your hot water cylinders needs."
   },
   {
-    "name": "Same Day Pest Control",
-    "slug": "same-day-pest-control",
-    "description": "Professional same day pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Gas Fitting",
+    "slug": "gas-fitting",
+    "description": "Professional and reliable gas fitting services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your gas fitting needs."
   },
   {
-    "name": "Residential Pest Control",
-    "slug": "residential-pest-control",
-    "description": "Professional residential pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Leak Detection",
+    "slug": "leak-detection",
+    "description": "Professional and reliable leak detection services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your leak detection needs."
   },
   {
-    "name": "Commercial Pest Control",
-    "slug": "commercial-pest-control",
-    "description": "Professional commercial pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Burst Pipes",
+    "slug": "burst-pipes",
+    "description": "Professional and reliable burst pipes services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your burst pipes needs."
   },
   {
-    "name": "Eco-Friendly Pest Control",
-    "slug": "ecofriendly-pest-control",
-    "description": "Professional eco-friendly pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Toilet Repairs",
+    "slug": "toilet-repairs",
+    "description": "Professional and reliable toilet repairs services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your toilet repairs needs."
   },
   {
-    "name": "Pest Inspection",
-    "slug": "pest-inspection",
-    "description": "Professional pest inspection tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Shower Repairs",
+    "slug": "shower-repairs",
+    "description": "Professional and reliable shower repairs services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your shower repairs needs."
   },
   {
-    "name": "Pest Prevention",
-    "slug": "pest-prevention",
-    "description": "Professional pest prevention tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Tap Repairs",
+    "slug": "tap-repairs",
+    "description": "Professional and reliable tap repairs services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your tap repairs needs."
   },
   {
-    "name": "Pest Extermination",
-    "slug": "pest-extermination",
-    "description": "Professional pest extermination tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Drain Clearing",
+    "slug": "drain-clearing",
+    "description": "Professional and reliable drain clearing services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your drain clearing needs."
   },
   {
-    "name": "Integrated Pest Management (IPM)",
-    "slug": "integrated-pest-management-ipm",
-    "description": "Professional integrated pest management (ipm) tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "CCTV Drain Inspections",
+    "slug": "cctv-drain-inspections",
+    "description": "Professional and reliable cctv drain inspections services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your cctv drain inspections needs."
   },
   {
-    "name": "Termite Control",
-    "slug": "termite-control",
-    "description": "Professional termite control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Roof Leaks",
+    "slug": "roof-leaks",
+    "description": "Professional and reliable roof leaks services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your roof leaks needs."
   },
   {
-    "name": "Termite Inspection",
-    "slug": "termite-inspection",
-    "description": "Professional termite inspection tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Spouting and Guttering",
+    "slug": "spouting-and-guttering",
+    "description": "Professional and reliable spouting and guttering services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your spouting and guttering needs."
   },
   {
-    "name": "Termite Treatment",
-    "slug": "termite-treatment",
-    "description": "Professional termite treatment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Commercial Plumbing",
+    "slug": "commercial-plumbing",
+    "description": "Professional and reliable commercial plumbing services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your commercial plumbing needs."
   },
   {
-    "name": "Termite Extermination",
-    "slug": "termite-extermination",
-    "description": "Professional termite extermination tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Bathroom Renovations",
+    "slug": "bathroom-renovations",
+    "description": "Professional and reliable bathroom renovations services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your bathroom renovations needs."
   },
   {
-    "name": "Termite Prevention",
-    "slug": "termite-prevention",
-    "description": "Professional termite prevention tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Kitchen Plumbing",
+    "slug": "kitchen-plumbing",
+    "description": "Professional and reliable kitchen plumbing services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your kitchen plumbing needs."
   },
   {
-    "name": "Drywood Termite Treatment",
-    "slug": "drywood-termite-treatment",
-    "description": "Professional drywood termite treatment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Water Filtration Systems",
+    "slug": "water-filtration-systems",
+    "description": "Professional and reliable water filtration systems services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your water filtration systems needs."
   },
   {
-    "name": "Subterranean Termite Treatment",
-    "slug": "subterranean-termite-treatment",
-    "description": "Professional subterranean termite treatment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Pipe Relining",
+    "slug": "pipe-relining",
+    "description": "Professional and reliable pipe relining services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your pipe relining needs."
   },
   {
-    "name": "Pre-Construction Termite Treatment",
-    "slug": "preconstruction-termite-treatment",
-    "description": "Professional pre-construction termite treatment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Water Mains Repair",
+    "slug": "water-mains-repair",
+    "description": "Professional and reliable water mains repair services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your water mains repair needs."
   },
   {
-    "name": "Post-Construction Termite Treatment",
-    "slug": "postconstruction-termite-treatment",
-    "description": "Professional post-construction termite treatment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Dishwasher Installation",
+    "slug": "dishwasher-installation",
+    "description": "Professional and reliable dishwasher installation services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your dishwasher installation needs."
   },
   {
-    "name": "Rodent Control",
-    "slug": "rodent-control",
-    "description": "Professional rodent control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Rat Removal",
-    "slug": "rat-removal",
-    "description": "Professional rat removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Mouse Removal",
-    "slug": "mouse-removal",
-    "description": "Professional mouse removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Rat Extermination",
-    "slug": "rat-extermination",
-    "description": "Professional rat extermination tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Rodent Exclusion",
-    "slug": "rodent-exclusion",
-    "description": "Professional rodent exclusion tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Crawl Space Rodent Removal",
-    "slug": "crawl-space-rodent-removal",
-    "description": "Professional crawl space rodent removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Attic Rodent Removal",
-    "slug": "attic-rodent-removal",
-    "description": "Professional attic rodent removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Bed Bug Treatment",
-    "slug": "bed-bug-treatment",
-    "description": "Professional bed bug treatment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Bed Bug Heat Treatment",
-    "slug": "bed-bug-heat-treatment",
-    "description": "Professional bed bug heat treatment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Bed Bug Inspection",
-    "slug": "bed-bug-inspection",
-    "description": "Professional bed bug inspection tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Bed Bug Extermination",
-    "slug": "bed-bug-extermination",
-    "description": "Professional bed bug extermination tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Cockroach Control",
-    "slug": "cockroach-control",
-    "description": "Professional cockroach control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "German Cockroach Treatment",
-    "slug": "german-cockroach-treatment",
-    "description": "Professional german cockroach treatment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Roach Extermination",
-    "slug": "roach-extermination",
-    "description": "Professional roach extermination tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Ant Control",
-    "slug": "ant-control",
-    "description": "Professional ant control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Carpenter Ant Control",
-    "slug": "carpenter-ant-control",
-    "description": "Professional carpenter ant control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Fire Ant Control",
-    "slug": "fire-ant-control",
-    "description": "Professional fire ant control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Ant Extermination",
-    "slug": "ant-extermination",
-    "description": "Professional ant extermination tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Mosquito Control",
-    "slug": "mosquito-control",
-    "description": "Professional mosquito control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Mosquito Fogging",
-    "slug": "mosquito-fogging",
-    "description": "Professional mosquito fogging tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Mosquito Yard Treatment",
-    "slug": "mosquito-yard-treatment",
-    "description": "Professional mosquito yard treatment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Mosquito Prevention",
-    "slug": "mosquito-prevention",
-    "description": "Professional mosquito prevention tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Bee Removal",
-    "slug": "bee-removal",
-    "description": "Professional bee removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Bee Hive Removal",
-    "slug": "bee-hive-removal",
-    "description": "Professional bee hive removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Honey Bee Relocation",
-    "slug": "honey-bee-relocation",
-    "description": "Professional honey bee relocation tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Wasp Removal",
-    "slug": "wasp-removal",
-    "description": "Professional wasp removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Wasp Nest Removal",
-    "slug": "wasp-nest-removal",
-    "description": "Professional wasp nest removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Hornet Removal",
-    "slug": "hornet-removal",
-    "description": "Professional hornet removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Yellow Jacket Removal",
-    "slug": "yellow-jacket-removal",
-    "description": "Professional yellow jacket removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Carpenter Bee Removal",
-    "slug": "carpenter-bee-removal",
-    "description": "Professional carpenter bee removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Wildlife Removal",
-    "slug": "wildlife-removal",
-    "description": "Professional wildlife removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Animal Removal",
-    "slug": "animal-removal",
-    "description": "Professional animal removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Raccoon Removal",
-    "slug": "raccoon-removal",
-    "description": "Professional raccoon removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Squirrel Removal",
-    "slug": "squirrel-removal",
-    "description": "Professional squirrel removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Bat Removal",
-    "slug": "bat-removal",
-    "description": "Professional bat removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Bird Control",
-    "slug": "bird-control",
-    "description": "Professional bird control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Pigeon Control",
-    "slug": "pigeon-control",
-    "description": "Professional pigeon control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Snake Removal",
-    "slug": "snake-removal",
-    "description": "Professional snake removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Skunk Removal",
-    "slug": "skunk-removal",
-    "description": "Professional skunk removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Opossum Removal",
-    "slug": "opossum-removal",
-    "description": "Professional opossum removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Mole Control",
-    "slug": "mole-control",
-    "description": "Professional mole control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Gopher Control",
-    "slug": "gopher-control",
-    "description": "Professional gopher control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Groundhog Removal",
-    "slug": "groundhog-removal",
-    "description": "Professional groundhog removal tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Spider Control",
-    "slug": "spider-control",
-    "description": "Professional spider control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Flea Control",
-    "slug": "flea-control",
-    "description": "Professional flea control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Tick Control",
-    "slug": "tick-control",
-    "description": "Professional tick control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Silverfish Control",
-    "slug": "silverfish-control",
-    "description": "Professional silverfish control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Cricket Control",
-    "slug": "cricket-control",
-    "description": "Professional cricket control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Earwig Control",
-    "slug": "earwig-control",
-    "description": "Professional earwig control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Centipede Control",
-    "slug": "centipede-control",
-    "description": "Professional centipede control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Millipede Control",
-    "slug": "millipede-control",
-    "description": "Professional millipede control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Stink Bug Control",
-    "slug": "stink-bug-control",
-    "description": "Professional stink bug control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Boxelder Bug Control",
-    "slug": "boxelder-bug-control",
-    "description": "Professional boxelder bug control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Aphid Control",
-    "slug": "aphid-control",
-    "description": "Professional aphid control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Beetle Control",
-    "slug": "beetle-control",
-    "description": "Professional beetle control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Carpet Beetle Control",
-    "slug": "carpet-beetle-control",
-    "description": "Professional carpet beetle control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Pantry Pest Control",
-    "slug": "pantry-pest-control",
-    "description": "Professional pantry pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Clothes Moth Control",
-    "slug": "clothes-moth-control",
-    "description": "Professional clothes moth control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Weevil Control",
-    "slug": "weevil-control",
-    "description": "Professional weevil control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Mite Control",
-    "slug": "mite-control",
-    "description": "Professional mite control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Drain Fly Control",
-    "slug": "drain-fly-control",
-    "description": "Professional drain fly control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Fruit Fly Control",
-    "slug": "fruit-fly-control",
-    "description": "Professional fruit fly control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Fly Control",
-    "slug": "fly-control",
-    "description": "Professional fly control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Gnat Control",
-    "slug": "gnat-control",
-    "description": "Professional gnat control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Restaurant Pest Control",
-    "slug": "restaurant-pest-control",
-    "description": "Professional restaurant pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Hotel Pest Control",
-    "slug": "hotel-pest-control",
-    "description": "Professional hotel pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Apartment Pest Control",
-    "slug": "apartment-pest-control",
-    "description": "Professional apartment pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Office Pest Control",
-    "slug": "office-pest-control",
-    "description": "Professional office pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "School Pest Control",
-    "slug": "school-pest-control",
-    "description": "Professional school pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Hospital Pest Control",
-    "slug": "hospital-pest-control",
-    "description": "Professional hospital pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Warehouse Pest Control",
-    "slug": "warehouse-pest-control",
-    "description": "Professional warehouse pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Food Processing Pest Control",
-    "slug": "food-processing-pest-control",
-    "description": "Professional food processing pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Manufacturing Facility Pest Control",
-    "slug": "manufacturing-facility-pest-control",
-    "description": "Professional manufacturing facility pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Crawl Space Pest Control",
-    "slug": "crawl-space-pest-control",
-    "description": "Professional crawl space pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Attic Pest Control",
-    "slug": "attic-pest-control",
-    "description": "Professional attic pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Basement Pest Control",
-    "slug": "basement-pest-control",
-    "description": "Professional basement pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Yard Pest Control",
-    "slug": "yard-pest-control",
-    "description": "Professional yard pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Lawn Pest Control",
-    "slug": "lawn-pest-control",
-    "description": "Professional lawn pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Outdoor Pest Control",
-    "slug": "outdoor-pest-control",
-    "description": "Professional outdoor pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Indoor Pest Control",
-    "slug": "indoor-pest-control",
-    "description": "Professional indoor pest control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Perimeter Pest Treatment",
-    "slug": "perimeter-pest-treatment",
-    "description": "Professional perimeter pest treatment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Fumigation Services",
-    "slug": "fumigation-services",
-    "description": "Professional fumigation services tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Crawl Space Encapsulation",
-    "slug": "crawl-space-encapsulation",
-    "description": "Professional crawl space encapsulation tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Moisture Control",
-    "slug": "moisture-control",
-    "description": "Professional moisture control tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
-  },
-  {
-    "name": "Pest Damage Assessment",
-    "slug": "pest-damage-assessment",
-    "description": "Professional pest damage assessment tailored to protect your property. We guarantee fast response times, expert technicians, and complete elimination of pests to restore your peace of mind."
+    "name": "Washing Machine Installation",
+    "slug": "washing-machine-installation",
+    "description": "Professional and reliable washing machine installation services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your washing machine installation needs."
   }
 ]
