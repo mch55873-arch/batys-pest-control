@@ -1,21 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/',
-        has: [{ type: 'host', value: 'www.batyspestcontrol.com' }],
-        destination: 'https://batyspestcontrol.com/',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.batyspestcontrol.com' }],
-        destination: 'https://batyspestcontrol.com/:path*',
-        permanent: true,
-      },
-    ];
-  },
-};
+const nextConfig = {};
 
 export default nextConfig;
