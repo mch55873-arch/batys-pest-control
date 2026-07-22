@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     urls.push(item);
   };
 
-  [
+  const corePages = [
     SITE.url,
     `${SITE.url}/services`,
     `${SITE.url}/locations`,
@@ -25,7 +25,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     `${SITE.url}/about`,
     `${SITE.url}/contact`,
     `${SITE.url}/privacy-policy`,
-  ].forEach((url, index) => add({ url, changeFrequency: index === 0 ? 'weekly' : 'monthly', priority: index === 0 ? 1 : 0.8 }));
+    `${SITE.url}/terms`,
+    `${SITE.url}/disclaimer`,
+    `${SITE.url}/cookie-policy`,
+    `${SITE.url}/editorial-policy`,
+    `${SITE.url}/provider-disclosure`,
+    `${SITE.url}/accessibility`,
+  ];
+
+  corePages.forEach((url, index) => add({
+    url,
+    changeFrequency: index === 0 ? 'weekly' : index < 6 ? 'monthly' : 'yearly',
+    priority: index === 0 ? 1 : index < 6 ? 0.8 : 0.4,
+  }));
 
   for (const service of pestServices) {
     add({ url: `${SITE.url}/services/${service.slug}`, changeFrequency: 'monthly', priority: 0.8 });
