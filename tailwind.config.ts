@@ -35,8 +35,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
-        heading: ["var(--font-outfit)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        heading: ["Arial Narrow", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       animation: {
         float: "float 6s ease-in-out infinite",

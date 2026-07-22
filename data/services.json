@@ -1,107 +1,82 @@
 [
-  {
-    "name": "Emergency Plumbing",
-    "slug": "emergency-plumbing",
-    "description": "Professional and reliable emergency plumbing services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your emergency plumbing needs."
-  },
-  {
-    "name": "Blocked Drains",
-    "slug": "blocked-drains",
-    "description": "Professional and reliable blocked drains services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your blocked drains needs."
-  },
-  {
-    "name": "Hot Water Cylinders",
-    "slug": "hot-water-cylinders",
-    "description": "Professional and reliable hot water cylinders services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your hot water cylinders needs."
-  },
-  {
-    "name": "Gas Fitting",
-    "slug": "gas-fitting",
-    "description": "Professional and reliable gas fitting services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your gas fitting needs."
-  },
-  {
-    "name": "Leak Detection",
-    "slug": "leak-detection",
-    "description": "Professional and reliable leak detection services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your leak detection needs."
-  },
-  {
-    "name": "Burst Pipes",
-    "slug": "burst-pipes",
-    "description": "Professional and reliable burst pipes services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your burst pipes needs."
-  },
-  {
-    "name": "Toilet Repairs",
-    "slug": "toilet-repairs",
-    "description": "Professional and reliable toilet repairs services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your toilet repairs needs."
-  },
-  {
-    "name": "Shower Repairs",
-    "slug": "shower-repairs",
-    "description": "Professional and reliable shower repairs services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your shower repairs needs."
-  },
-  {
-    "name": "Tap Repairs",
-    "slug": "tap-repairs",
-    "description": "Professional and reliable tap repairs services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your tap repairs needs."
-  },
-  {
-    "name": "Drain Clearing",
-    "slug": "drain-clearing",
-    "description": "Professional and reliable drain clearing services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your drain clearing needs."
-  },
-  {
-    "name": "CCTV Drain Inspections",
-    "slug": "cctv-drain-inspections",
-    "description": "Professional and reliable cctv drain inspections services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your cctv drain inspections needs."
-  },
-  {
-    "name": "Roof Leaks",
-    "slug": "roof-leaks",
-    "description": "Professional and reliable roof leaks services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your roof leaks needs."
-  },
-  {
-    "name": "Spouting and Guttering",
-    "slug": "spouting-and-guttering",
-    "description": "Professional and reliable spouting and guttering services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your spouting and guttering needs."
-  },
-  {
-    "name": "Commercial Plumbing",
-    "slug": "commercial-plumbing",
-    "description": "Professional and reliable commercial plumbing services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your commercial plumbing needs."
-  },
-  {
-    "name": "Bathroom Renovations",
-    "slug": "bathroom-renovations",
-    "description": "Professional and reliable bathroom renovations services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your bathroom renovations needs."
-  },
-  {
-    "name": "Kitchen Plumbing",
-    "slug": "kitchen-plumbing",
-    "description": "Professional and reliable kitchen plumbing services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your kitchen plumbing needs."
-  },
-  {
-    "name": "Water Filtration Systems",
-    "slug": "water-filtration-systems",
-    "description": "Professional and reliable water filtration systems services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your water filtration systems needs."
-  },
-  {
-    "name": "Pipe Relining",
-    "slug": "pipe-relining",
-    "description": "Professional and reliable pipe relining services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your pipe relining needs."
-  },
-  {
-    "name": "Water Mains Repair",
-    "slug": "water-mains-repair",
-    "description": "Professional and reliable water mains repair services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your water mains repair needs."
-  },
-  {
-    "name": "Dishwasher Installation",
-    "slug": "dishwasher-installation",
-    "description": "Professional and reliable dishwasher installation services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your dishwasher installation needs."
-  },
-  {
-    "name": "Washing Machine Installation",
-    "slug": "washing-machine-installation",
-    "description": "Professional and reliable washing machine installation services in New Zealand. Our certified plumbers provide fast response times and guaranteed workmanship for all your washing machine installation needs."
-  }
+  {"name":"General Pest Control","slug":"general-pest-control","category":"General","description":"Inspection-led pest control options for common household and commercial pest concerns."},
+  {"name":"Residential Pest Control","slug":"residential-pest-control","category":"General","description":"Pest assessment and treatment options designed for houses, apartments, and residential properties."},
+  {"name":"Commercial Pest Control","slug":"commercial-pest-control","category":"General","description":"Pest management referrals for offices, retail locations, hospitality, and other commercial properties."},
+  {"name":"Emergency Pest Control","slug":"emergency-pest-control","category":"General","description":"Help locating available pest professionals for urgent infestations and time-sensitive pest concerns."},
+  {"name":"Pest Inspection","slug":"pest-inspection","category":"General","description":"Professional inspection options to identify pest activity, entry points, and treatment priorities."},
+  {"name":"Pest Prevention","slug":"pest-prevention","category":"General","description":"Preventive pest management focused on reducing entry points, attractants, and recurring activity."},
+  {"name":"Seasonal Pest Control","slug":"seasonal-pest-control","category":"General","description":"Seasonal pest-control planning based on the pests commonly active throughout the year."},
+  {"name":"Integrated Pest Management","slug":"integrated-pest-management","category":"General","description":"Integrated pest management options combining monitoring, prevention, exclusion, and targeted treatment."},
+  {"name":"One-Time Pest Treatment","slug":"one-time-pest-treatment","category":"General","description":"One-time assessment and treatment referrals for a specific, currently active pest problem."},
+  {"name":"Recurring Pest Control","slug":"recurring-pest-control","category":"General","description":"Ongoing pest management options for properties that need scheduled monitoring and prevention."},
+
+  {"name":"Ant Control","slug":"ant-control","category":"Ants","description":"Identification and treatment options for indoor and outdoor ant activity."},
+  {"name":"Carpenter Ant Control","slug":"carpenter-ant-control","category":"Ants","description":"Inspection and control options for carpenter ants nesting in or around structures."},
+  {"name":"Fire Ant Control","slug":"fire-ant-control","category":"Ants","description":"Yard and property treatment options for active fire-ant mounds and colonies."},
+  {"name":"Pavement Ant Control","slug":"pavement-ant-control","category":"Ants","description":"Targeted control for pavement ants entering through cracks, slabs, and foundations."},
+  {"name":"Odorous House Ant Control","slug":"odorous-house-ant-control","category":"Ants","description":"Colony-focused treatment options for odorous house ants inside residential properties."},
+
+  {"name":"Cockroach Control","slug":"cockroach-control","category":"Cockroaches","description":"Inspection and treatment options for cockroach activity in homes and businesses."},
+  {"name":"German Cockroach Control","slug":"german-cockroach-control","category":"Cockroaches","description":"Targeted treatment for German cockroaches commonly found near kitchens and food sources."},
+  {"name":"American Cockroach Control","slug":"american-cockroach-control","category":"Cockroaches","description":"Control options for American cockroaches around drains, basements, and utility areas."},
+  {"name":"Oriental Cockroach Control","slug":"oriental-cockroach-control","category":"Cockroaches","description":"Moisture-focused inspection and treatment for Oriental cockroach activity."},
+
+  {"name":"Bed Bug Treatment","slug":"bed-bug-treatment","category":"Bed Bugs","description":"Professional bed bug inspection and treatment options for homes, rentals, and hospitality properties."},
+  {"name":"Bed Bug Inspection","slug":"bed-bug-inspection","category":"Bed Bugs","description":"Detailed inspection options to confirm bed bug activity and identify affected areas."},
+  {"name":"Bed Bug Heat Treatment","slug":"bed-bug-heat-treatment","category":"Bed Bugs","description":"Help locating providers that offer whole-room or targeted bed bug heat-treatment services."},
+  {"name":"Bed Bug Chemical Treatment","slug":"bed-bug-chemical-treatment","category":"Bed Bugs","description":"Provider options for label-compliant, professionally applied bed bug treatment programs."},
+
+  {"name":"Termite Control","slug":"termite-control","category":"Termites","description":"Termite assessment and control options based on the species, structure, and level of activity."},
+  {"name":"Termite Inspection","slug":"termite-inspection","category":"Termites","description":"Inspection options for signs of termites, conducive conditions, and potential structural activity."},
+  {"name":"Termite Treatment","slug":"termite-treatment","category":"Termites","description":"Professional termite treatment referrals for active infestations and affected structures."},
+  {"name":"Termite Prevention","slug":"termite-prevention","category":"Termites","description":"Preventive termite protection options for existing homes and new construction."},
+  {"name":"Termite Baiting Systems","slug":"termite-baiting-systems","category":"Termites","description":"Monitoring and baiting-system options designed to manage termite colonies over time."},
+  {"name":"Termite Fumigation","slug":"termite-fumigation","category":"Termites","description":"Help locating properly licensed providers for fumigation where inspection findings support it."},
+
+  {"name":"Rodent Control","slug":"rodent-control","category":"Rodents","description":"Inspection, trapping, exclusion, and sanitation recommendations for rodent activity."},
+  {"name":"Mouse Control","slug":"mouse-control","category":"Rodents","description":"Mouse-control options focused on removal, entry-point identification, and prevention."},
+  {"name":"Rat Control","slug":"rat-control","category":"Rodents","description":"Rat inspection and control options for residential and commercial properties."},
+  {"name":"Rodent Exclusion","slug":"rodent-exclusion","category":"Rodents","description":"Entry-point sealing and exclusion options intended to reduce recurring rodent access."},
+  {"name":"Rodent Removal","slug":"rodent-removal","category":"Rodents","description":"Help finding professionals for active rat or mouse removal and follow-up prevention."},
+  {"name":"Rodent Inspection","slug":"rodent-inspection","category":"Rodents","description":"Inspection options to identify droppings, nesting, damage, travel paths, and entry points."},
+
+  {"name":"Mosquito Control","slug":"mosquito-control","category":"Mosquitoes & Ticks","description":"Outdoor mosquito-management options for yards, patios, and common gathering areas."},
+  {"name":"Mosquito Yard Treatment","slug":"mosquito-yard-treatment","category":"Mosquitoes & Ticks","description":"Targeted yard-treatment options addressing mosquito resting and breeding areas."},
+  {"name":"Tick Control","slug":"tick-control","category":"Mosquitoes & Ticks","description":"Property treatment and habitat-management options intended to reduce tick activity."},
+  {"name":"Flea Control","slug":"flea-control","category":"Mosquitoes & Ticks","description":"Indoor and outdoor flea-control options coordinated with appropriate pet care."},
+  {"name":"Flea and Tick Yard Treatment","slug":"flea-and-tick-yard-treatment","category":"Mosquitoes & Ticks","description":"Yard-treatment options for outdoor flea and tick pressure around residential properties."},
+
+  {"name":"Wasp Control","slug":"wasp-control","category":"Stinging Pests","description":"Assessment and control options for wasp activity and accessible nests."},
+  {"name":"Hornet Control","slug":"hornet-control","category":"Stinging Pests","description":"Professional help for hornet nests located around homes and commercial properties."},
+  {"name":"Yellow Jacket Control","slug":"yellow-jacket-control","category":"Stinging Pests","description":"Treatment options for ground, wall-void, and structural yellow-jacket nests."},
+  {"name":"Bee Removal","slug":"bee-removal","category":"Stinging Pests","description":"Help locating appropriate bee-removal or relocation providers for the situation and location."},
+
+  {"name":"Spider Control","slug":"spider-control","category":"Spiders","description":"Interior and exterior spider-control options focused on webs, harborage, and insect prey."},
+  {"name":"Black Widow Spider Control","slug":"black-widow-spider-control","category":"Spiders","description":"Inspection and treatment options for suspected black widow spider activity."},
+  {"name":"Brown Recluse Spider Control","slug":"brown-recluse-spider-control","category":"Spiders","description":"Monitoring and control options for suspected brown recluse activity in relevant regions."},
+
+  {"name":"Silverfish Control","slug":"silverfish-control","category":"Household Pests","description":"Moisture and harborage-focused control options for silverfish activity."},
+  {"name":"Earwig Control","slug":"earwig-control","category":"Household Pests","description":"Indoor and perimeter treatment options for recurring earwig activity."},
+  {"name":"Centipede Control","slug":"centipede-control","category":"Household Pests","description":"Property assessment and treatment options for centipedes and related moisture conditions."},
+  {"name":"Millipede Control","slug":"millipede-control","category":"Household Pests","description":"Perimeter and moisture-management options for seasonal millipede invasions."},
+  {"name":"Pantry Pest Control","slug":"pantry-pest-control","category":"Household Pests","description":"Identification, source removal, and treatment options for insects infesting stored foods."},
+  {"name":"Clothes Moth Control","slug":"clothes-moth-control","category":"Household Pests","description":"Inspection and control options for clothes moths affecting fabrics and stored items."},
+  {"name":"Carpet Beetle Control","slug":"carpet-beetle-control","category":"Household Pests","description":"Source-focused carpet beetle treatment for larvae found around fabrics and natural fibers."},
+  {"name":"Fly Control","slug":"fly-control","category":"Household Pests","description":"Fly identification and control options for homes, restaurants, and commercial facilities."},
+  {"name":"Drain Fly Control","slug":"drain-fly-control","category":"Household Pests","description":"Drain inspection and sanitation-focused options for drain fly breeding sites."},
+  {"name":"Fruit Fly Control","slug":"fruit-fly-control","category":"Household Pests","description":"Source removal and monitoring options for fruit flies in kitchens and food-service areas."},
+  {"name":"Stink Bug Control","slug":"stink-bug-control","category":"Household Pests","description":"Exclusion and treatment options for seasonal stink bug entry and overwintering."},
+  {"name":"Boxelder Bug Control","slug":"boxelder-bug-control","category":"Household Pests","description":"Exterior exclusion and treatment options for boxelder bug aggregations."},
+  {"name":"Beetle Control","slug":"beetle-control","category":"Household Pests","description":"Identification-led treatment options for beetles affecting structures, fabrics, or stored goods."},
+  {"name":"Stored Product Pest Control","slug":"stored-product-pest-control","category":"Household Pests","description":"Inspection and control for moths, beetles, and other pests found in stored products."},
+
+  {"name":"Restaurant Pest Control","slug":"restaurant-pest-control","category":"Commercial","description":"Pest-management referrals for restaurants, kitchens, and other food-service operations."},
+  {"name":"Hotel Pest Control","slug":"hotel-pest-control","category":"Commercial","description":"Pest monitoring and treatment options for hotels, motels, and hospitality properties."},
+  {"name":"Apartment Pest Control","slug":"apartment-pest-control","category":"Commercial","description":"Pest-management options for apartments, multifamily buildings, and property managers."},
+  {"name":"Warehouse Pest Control","slug":"warehouse-pest-control","category":"Commercial","description":"Monitoring and pest-control options for warehouses, storage buildings, and distribution sites."},
+  {"name":"Office Pest Control","slug":"office-pest-control","category":"Commercial","description":"Discreet pest-management referrals for offices and professional workplaces."},
+  {"name":"Retail Pest Control","slug":"retail-pest-control","category":"Commercial","description":"Pest prevention and response options for stores, shopping centers, and retail facilities."},
+  {"name":"Healthcare Pest Control","slug":"healthcare-pest-control","category":"Commercial","description":"Provider referrals for pest-management programs in healthcare and care environments."},
+  {"name":"School Pest Control","slug":"school-pest-control","category":"Commercial","description":"Integrated pest-management referrals for schools, childcare facilities, and campuses."},
+  {"name":"Property Management Pest Control","slug":"property-management-pest-control","category":"Commercial","description":"Multi-property pest-management options for landlords and property management teams."}
 ]
