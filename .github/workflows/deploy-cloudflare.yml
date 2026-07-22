@@ -52,9 +52,18 @@ jobs:
           set -o pipefail
           node scripts/fix-cloudflare-redirects.mjs 2>&1 | tee cloudflare-redirect-cleanup.log
 
+      - name: Apply canonical routing patch
+        id: route_patch
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/patch-worker-routing.mjs 2>&1 | tee worker-routing-patch.log
+
       - name: Build OpenNext application
         id: opennext
-        if: steps.install.outcome == 'success'
+        if: steps.install.outcome == 'success' && steps.route_patch.outcome == 'success'
         continue-on-error: true
         shell: bash
         run: |
@@ -85,6 +94,7 @@ jobs:
         env:
           INSTALL_OUTCOME: ${{ steps.install.outcome }}
           REDIRECT_CLEANUP_OUTCOME: ${{ steps.redirect_cleanup.outcome }}
+          ROUTE_PATCH_OUTCOME: ${{ steps.route_patch.outcome }}
           OPENNEXT_OUTCOME: ${{ steps.opennext.outcome }}
           ASSETS_OUTCOME: ${{ steps.assets.outcome }}
           DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
@@ -97,10 +107,11 @@ jobs:
             echo "- Generated: \`$(date -u +'%Y-%m-%dT%H:%M:%SZ')\`"
             echo "- npm install: **${INSTALL_OUTCOME:-skipped}**"
             echo "- Redirect cleanup: **${REDIRECT_CLEANUP_OUTCOME:-skipped}**"
+            echo "- Canonical route patch: **${ROUTE_PATCH_OUTCOME:-skipped}**"
             echo "- OpenNext build: **${OPENNEXT_OUTCOME:-skipped}**"
             echo "- Worker assets: **${ASSETS_OUTCOME:-skipped}**"
             echo "- Wrangler deploy: **${DEPLOY_OUTCOME:-skipped}**"
-            for log in npm-install.log cloudflare-redirect-cleanup.log opennext-build.log worker-assets.log wrangler-deploy.log; do
+            for log in npm-install.log cloudflare-redirect-cleanup.log worker-routing-patch.log opennext-build.log worker-assets.log wrangler-deploy.log; do
               if [ -f "$log" ]; then
                 echo
                 echo "## $log (last 160 lines)"
@@ -130,6 +141,7 @@ jobs:
           path: |
             npm-install.log
             cloudflare-redirect-cleanup.log
+            worker-routing-patch.log
             opennext-build.log
             worker-assets.log
             wrangler-deploy.log
@@ -142,11 +154,12 @@ jobs:
         shell: bash
         env:
           INSTALL_OUTCOME: ${{ steps.install.outcome }}
+          ROUTE_PATCH_OUTCOME: ${{ steps.route_patch.outcome }}
           OPENNEXT_OUTCOME: ${{ steps.opennext.outcome }}
           ASSETS_OUTCOME: ${{ steps.assets.outcome }}
           DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
         run: |
-          if [ "$INSTALL_OUTCOME" != "success" ] || [ "$OPENNEXT_OUTCOME" != "success" ] || [ "$ASSETS_OUTCOME" != "success" ] || [ "$DEPLOY_OUTCOME" != "success" ]; then
+          if [ "$INSTALL_OUTCOME" != "success" ] || [ "$ROUTE_PATCH_OUTCOME" != "success" ] || [ "$OPENNEXT_OUTCOME" != "success" ] || [ "$ASSETS_OUTCOME" != "success" ] || [ "$DEPLOY_OUTCOME" != "success" ]; then
             echo "Deployment failed. Check deployment-report.md."
             exit 1
           fi
