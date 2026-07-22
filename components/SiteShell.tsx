@@ -34,7 +34,7 @@ export function SiteHeader() {
             <Link href="/services" className="transition hover:text-sky-600">Services</Link>
             <Link href="/locations" className="transition hover:text-sky-600">Service Areas</Link>
             <Link href="/about" className="transition hover:text-sky-600">About</Link>
-            <Link href="/articles" className="transition hover:text-sky-600">Articles</Link>
+            <Link href="/articles" className="transition hover:text-sky-600">Blog</Link>
             <Link href="/contact" className="transition hover:text-sky-600">Contact</Link>
           </nav>
           <a href={SITE.phoneHref} className="group rounded-lg bg-[#f47b20] px-4 py-2.5 text-center text-xs font-black text-white shadow-[0_8px_22px_rgba(244,123,32,.25)] transition hover:-translate-y-0.5 hover:bg-[#dd6814] md:px-5">
