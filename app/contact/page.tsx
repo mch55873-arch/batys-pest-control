@@ -1,22 +1,23 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Request Pest-Control Availability',
-  description: 'Browse current Batys Pest Control location and service coverage.',
+  title: 'Contact Batys Pest Control',
+  description: 'Call Batys Pest Control to check independent local provider availability or browse pest-control services and locations.',
   alternates: { canonical: '/contact' },
 };
 
 export default function ContactPage() {
-  return (
-    <div className="mx-auto max-w-4xl px-4 py-20 text-center">
-      <p className="font-bold uppercase tracking-widest text-emerald-700">Coverage is growing</p>
-      <h1 className="mt-3 font-heading text-5xl font-black">Find the right location and service page</h1>
-      <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">Lead routing is not active yet. Until a verified contact channel and independent provider coverage are connected, Batys will not collect personal service-request information through a nonfunctional form.</p>
-      <div className="mt-9 flex flex-wrap justify-center gap-4">
-        <Link href="/locations" className="rounded-xl bg-emerald-900 px-6 py-4 font-bold text-white">Browse locations</Link>
-        <Link href="/services" className="rounded-xl border border-slate-300 px-6 py-4 font-bold">Browse services</Link>
-      </div>
-    </div>
-  );
+  return <>
+    <section className="bg-[#092e27] px-4 py-20 text-white"><div className="mx-auto max-w-7xl"><p className="text-xs font-black uppercase tracking-[.2em] text-emerald-300">Contact Us</p><h1 className="mt-4 max-w-4xl font-heading text-5xl font-black sm:text-6xl">Tell us what pest problem you are dealing with</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-emerald-50/80">Call to check independent-provider availability. Be ready to describe the pest signs, affected rooms or exterior areas, how long activity has been present, and whether children, pets, food areas, or sensitive occupants are involved.</p></div></section>
+
+    <section className="px-4 py-20"><div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.9fr_1.1fr]"><aside className="rounded-3xl bg-[#0b263e] p-8 text-white sm:p-10"><p className="text-xs font-black uppercase tracking-[.18em] text-emerald-300">Fastest contact option</p><h2 className="mt-3 font-heading text-4xl font-black">Call {SITE.phoneDisplay}</h2><p className="mt-5 leading-7 text-slate-300">Phone availability and service coverage vary by city, pest type, season, urgency, and provider capacity.</p><a href={SITE.phoneHref} className="mt-8 inline-flex rounded-lg bg-emerald-500 px-6 py-4 font-black">Call Now</a><div className="mt-10 space-y-5 border-t border-white/10 pt-8">{[['Service scope','Residential and commercial pest-control topics'],['Coverage','State and city routes across the United States'],['Provider model','Independent local companies'],['Before hiring','Verify license, insurance, products, price, and warranty']].map(([a,b])=><div key={a}><p className="text-xs font-black uppercase tracking-wider text-emerald-300">{a}</p><p className="mt-1 text-sm text-slate-300">{b}</p></div>)}</div></aside>
+
+      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl sm:p-10"><p className="text-xs font-black uppercase tracking-[.18em] text-emerald-700">Prepare for the call</p><h2 className="mt-3 font-heading text-4xl font-black text-[#10233b]">Information that helps a provider assess the request</h2><div className="mt-8 grid gap-4 sm:grid-cols-2">{['Your city and ZIP code','Pest seen or suspected','Rooms or exterior areas affected','When activity is most noticeable','Damage, droppings, nests, bites, or odors','Previous products or treatments used','Children, pets, allergies, or sensitivities','Preferred inspection or service timing'].map((item)=><div key={item} className="flex gap-3 rounded-xl bg-slate-50 p-4 text-sm font-bold text-slate-700"><span className="text-emerald-600">✓</span>{item}</div>)}</div><div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-950"><strong>Important:</strong> Batys does not guarantee that a provider is available in every location. Confirm the company name, service area, licensing, inspection findings, written treatment scope, total price, preparation requirements, safety instructions, warranty, and follow-up before authorizing work.</div></div></div></section>
+
+    <section className="bg-slate-50 px-4 py-20"><div className="mx-auto max-w-7xl"><div className="text-center"><p className="text-xs font-black uppercase tracking-[.18em] text-emerald-700">Other ways to start</p><h2 className="mt-3 font-heading text-4xl font-black text-[#10233b]">Browse before you call</h2></div><div className="mt-10 grid gap-6 md:grid-cols-3"><Link href="/services" className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><h3 className="font-heading text-2xl font-black text-[#10233b]">Pest Services</h3><p className="mt-3 leading-7 text-slate-600">Review inspections, treatments, removal, exclusion, and prevention topics.</p><span className="mt-5 inline-flex font-black text-emerald-700">Browse services →</span></Link><Link href="/locations" className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><h3 className="font-heading text-2xl font-black text-[#10233b]">Service Areas</h3><p className="mt-3 leading-7 text-slate-600">Choose your state and city to preserve local context.</p><span className="mt-5 inline-flex font-black text-emerald-700">Browse locations →</span></Link><Link href="/articles" className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><h3 className="font-heading text-2xl font-black text-[#10233b]">Pest Guides</h3><p className="mt-3 leading-7 text-slate-600">Learn about signs, inspection, treatment preparation, and prevention.</p><span className="mt-5 inline-flex font-black text-emerald-700">Read guides →</span></Link></div></div></section>
+
+    <section className="bg-emerald-500 px-4 py-14 text-white"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 md:flex-row md:items-center"><div><h2 className="font-heading text-3xl font-black">Need to check local availability?</h2><p className="mt-2 text-emerald-50">Call and describe the location, pest signs, and urgency.</p></div><a href={SITE.phoneHref} className="rounded-lg bg-white px-7 py-4 font-black text-[#10233b]">Call {SITE.phoneDisplay}</a></div></section>
+  </>;
 }
