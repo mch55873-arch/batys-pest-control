@@ -2,6 +2,8 @@ export const SITE = {
   name: 'Batys Pest Control',
   domain: 'batyspestcontrol.com',
   url: 'https://batyspestcontrol.com',
+  phoneDisplay: '(614) 926-0787',
+  phoneHref: 'tel:+16149260787',
   description:
     'Pest-control information and independent local provider referrals across the United States.',
 } as const;

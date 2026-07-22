@@ -8,7 +8,7 @@ export function SiteHeader() {
       <div className="bg-lime-400 text-emerald-950">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-5 gap-y-1 px-4 py-2 text-center text-xs font-black sm:justify-between sm:text-sm">
           <p>📍 Serving All 50 States + DC <span className="mx-3 hidden sm:inline">|</span> <span className="hidden sm:inline">Nationwide Pest-Control Directory</span></p>
-          <p>Independent Provider Network <span className="mx-3">|</span> Coverage Varies by Area</p>
+          <p>Independent Provider Network <span className="mx-3">|</span> <a href={SITE.phoneHref}>☎ {SITE.phoneDisplay}</a></p>
         </div>
       </div>
       <div className="border-b border-white/10 bg-[#07172d] shadow-xl">
@@ -24,10 +24,10 @@ export function SiteHeader() {
             <Link href="/locations" className="hover:text-lime-300">Locations</Link>
             <Link href="/contact" className="hover:text-lime-300">Contact Us</Link>
           </nav>
-          <Link href="/contact" className="rounded-xl bg-white px-4 py-3 text-center text-xs font-black uppercase tracking-wide text-[#07172d] shadow md:px-6">
-            <span className="block text-[10px] text-slate-500">Find help near you</span>
-            Request Availability
-          </Link>
+          <a href={SITE.phoneHref} className="rounded-xl bg-white px-4 py-3 text-center text-xs font-black uppercase tracking-wide text-[#07172d] shadow md:px-6">
+            <span className="block text-[10px] text-slate-500">Call for availability</span>
+            {SITE.phoneDisplay}
+          </a>
         </div>
       </div>
     </header>
@@ -48,6 +48,7 @@ export function SiteFooter() {
             Helping people understand pest problems and connect with available independent pest-control providers serving their area.
           </p>
           <p className="mt-5 text-sm font-bold text-lime-300">Nationwide USA information & referral network</p>
+          <a href={SITE.phoneHref} className="mt-3 inline-flex text-sm font-black text-white">☎ {SITE.phoneDisplay}</a>
         </div>
         <div>
           <h2 className="border-b border-white/10 pb-4 font-heading text-lg font-black text-white">Navigation</h2>

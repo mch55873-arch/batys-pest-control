@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { pestServices, states, statePath } from '@/lib/locations';
+import { SITE } from '@/lib/site';
 
 const cityCount = states.reduce((total, state) => total + state.cities.length, 0);
 const featuredSlugs = ['emergency-pest-control', 'pest-inspection', 'termite-control', 'bed-bug-treatment', 'rodent-control', 'cockroach-control'];
@@ -22,7 +23,7 @@ export default function HomePage() {
             <h1 className="max-w-4xl font-heading text-5xl font-black leading-[1.05] md:text-7xl">Pest Control Services Across the United States</h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">Understand your pest problem, compare treatment topics, and request availability from independent local pest-control providers serving your area.</p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/locations" className="rounded-xl bg-lime-400 px-6 py-4 font-black text-emerald-950 hover:bg-lime-300">Find Local Pest Help</Link>
+              <a href={SITE.phoneHref} className="rounded-xl bg-lime-400 px-6 py-4 font-black text-emerald-950 hover:bg-lime-300">Call {SITE.phoneDisplay}</a>
               <Link href="/services" className="rounded-xl border border-white/25 px-6 py-4 font-black hover:border-lime-300 hover:text-lime-300">View Pest Services</Link>
             </div>
             <div className="mt-8 flex flex-wrap gap-x-7 gap-y-2 text-sm font-bold text-slate-300">
@@ -145,7 +146,7 @@ export default function HomePage() {
       </section>
 
       <section className="bg-lime-400 px-4 py-10 text-emerald-950">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 md:flex-row md:items-center"><div><h2 className="font-heading text-3xl font-black">Need Pest-Control Help in Your Area?</h2><p className="mt-2 font-medium">Choose your location and service to check independent provider availability.</p></div><div className="flex gap-3"><Link href="/locations" className="rounded-xl bg-[#07172d] px-6 py-4 font-black text-white">Find Local Help</Link><Link href="/contact" className="rounded-xl bg-white px-6 py-4 font-black">Request Availability</Link></div></div>
+          <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 md:flex-row md:items-center"><div><h2 className="font-heading text-3xl font-black">Need Pest-Control Help in Your Area?</h2><p className="mt-2 font-medium">Choose your location and service or call to check independent provider availability.</p></div><div className="flex flex-wrap gap-3"><a href={SITE.phoneHref} className="rounded-xl bg-[#07172d] px-6 py-4 font-black text-white">Call {SITE.phoneDisplay}</a><Link href="/contact" className="rounded-xl bg-white px-6 py-4 font-black">Request Availability</Link></div></div>
       </section>
     </>
   );
