@@ -1,30 +1,30 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'How Batys Pest Control Works',
-  description: 'Learn how Batys organizes pest information and independent provider referrals across US states and cities.',
+  title: 'About Batys Pest Control',
+  description: 'Learn how Batys Pest Control helps property owners research pest problems and connect with independent local providers across the United States.',
   alternates: { canonical: '/about' },
 };
 
+const values = [
+  ['Clear information', 'We organize pest signs, inspection questions, treatment options, preparation steps, and prevention guidance in plain language.'],
+  ['Location-first coverage', 'Every state and city route keeps the service and geographic context connected so visitors can research locally relevant options.'],
+  ['Provider verification', 'Visitors are told to confirm licensing, insurance, products, written scope, pricing, warranties, and follow-up directly with the provider.'],
+  ['No invented claims', 'Batys is a directory and information platform. Independent companies remain responsible for inspection findings, recommendations, contracts, and work.'],
+];
+
 export default function AboutPage() {
-  return (
-    <div className="mx-auto max-w-5xl px-4 py-16">
-      <p className="font-bold uppercase tracking-widest text-emerald-700">How it works</p>
-      <h1 className="mt-2 font-heading text-5xl font-black">A location-first pest information and referral platform</h1>
-      <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">Batys Pest Control organizes common pest problems by entity, service intent, state, and city. The goal is to help visitors understand the next sensible step and, where coverage exists, connect with an independent provider.</p>
-      <div className="mt-14 grid gap-6 md:grid-cols-3">
-        {[
-          ['1', 'Identify the topic', 'Start with the pest, inspection need, treatment type, or commercial setting.'],
-          ['2', 'Choose a location', 'Browse the state and city hierarchy to keep local requirements and availability clear.'],
-          ['3', 'Verify the provider', 'Confirm licensing, scope, products, pricing, preparation, and follow-up before work begins.'],
-        ].map(([number, title, copy]) => <section key={number} className="rounded-2xl border border-slate-200 p-6"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-lime-300 font-black text-emerald-950">{number}</span><h2 className="mt-5 font-heading text-2xl font-bold">{title}</h2><p className="mt-3 leading-7 text-slate-600">{copy}</p></section>)}
-      </div>
-      <section className="mt-14 rounded-3xl bg-emerald-950 p-8 text-white md:p-12">
-        <h2 className="font-heading text-3xl font-bold">Clear role, no invented claims</h2>
-        <p className="mt-4 max-w-3xl leading-7 text-emerald-50/80">Batys does not present itself as the licensed applicator performing work in every location. Independent providers are responsible for confirming their coverage, credentials, treatment recommendations, contracts, and service delivery.</p>
-        <Link href="/locations" className="mt-7 inline-block rounded-xl bg-lime-400 px-5 py-3 font-bold text-emerald-950">Browse locations</Link>
-      </section>
-    </div>
-  );
+  return <>
+    <section className="bg-[#092e27] px-4 py-20 text-white sm:py-24"><div className="mx-auto max-w-7xl"><p className="text-xs font-black uppercase tracking-[.2em] text-emerald-300">About Batys Pest Control</p><h1 className="mt-4 max-w-4xl font-heading text-5xl font-black leading-tight sm:text-6xl">A clearer way to research pest problems and local service options</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-emerald-50/80">Batys organizes pest-control information by problem, service, state, and city. The goal is simple: help property owners understand the next sensible step before speaking with an independent provider.</p><div className="mt-9 flex flex-wrap gap-4"><a href={SITE.phoneHref} className="rounded-lg bg-emerald-500 px-6 py-4 font-black text-white">Call {SITE.phoneDisplay}</a><Link href="/services" className="rounded-lg border border-white/25 bg-white/10 px-6 py-4 font-black">Explore Services</Link></div></div></section>
+
+    <section className="px-4 py-20"><div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2"><div className="rounded-3xl bg-slate-100 p-8 sm:p-12"><div className="grid grid-cols-2 gap-4"><div className="rounded-2xl bg-white p-7 shadow-sm"><strong className="font-heading text-4xl font-black text-emerald-700">50</strong><p className="mt-2 font-bold text-slate-700">States covered</p></div><div className="rounded-2xl bg-[#0b3b31] p-7 text-white"><strong className="font-heading text-4xl font-black text-emerald-300">70+</strong><p className="mt-2 font-bold">Service topics</p></div><div className="col-span-2 rounded-2xl bg-white p-7 shadow-sm"><p className="text-sm font-black uppercase tracking-wider text-emerald-700">Our role</p><p className="mt-3 text-lg leading-8 text-slate-600">Educational content, local navigation, and independent-provider availability—not fabricated local offices or unverified technician claims.</p></div></div></div><div><p className="text-xs font-black uppercase tracking-[.18em] text-emerald-700">Why the platform exists</p><h2 className="mt-3 font-heading text-4xl font-black text-[#10233b]">Pest-control decisions should start with accurate identification</h2><p className="mt-5 leading-8 text-slate-600">Termites, carpenter ants, rodents, bed bugs, cockroaches, mosquitoes, fleas, ticks, spiders, and wildlife require different inspection methods and treatment plans. Generic advice creates bad decisions. Batys separates those entities and connects them to appropriate service intents.</p><p className="mt-5 leading-8 text-slate-600">The platform also preserves local context. State rules, seasonal pressure, building type, provider availability, and treatment constraints can differ. Visitors should use the information as a research framework, then verify every material detail with the company they hire.</p></div></div></section>
+
+    <section className="bg-slate-50 px-4 py-20"><div className="mx-auto max-w-7xl"><p className="text-center text-xs font-black uppercase tracking-[.18em] text-emerald-700">What guides the site</p><h2 className="mx-auto mt-3 max-w-3xl text-center font-heading text-4xl font-black text-[#10233b]">Useful information without misleading local-business claims</h2><div className="mt-12 grid gap-6 md:grid-cols-2">{values.map(([title,copy],i)=><article key={title} className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"><span className="grid h-11 w-11 place-items-center rounded-full bg-emerald-100 font-black text-emerald-800">0{i+1}</span><h3 className="mt-5 font-heading text-2xl font-black text-[#10233b]">{title}</h3><p className="mt-3 leading-7 text-slate-600">{copy}</p></article>)}</div></div></section>
+
+    <section className="bg-[#0b263e] px-4 py-20 text-white"><div className="mx-auto max-w-7xl"><p className="text-xs font-black uppercase tracking-[.18em] text-emerald-300">How it works</p><h2 className="mt-3 font-heading text-4xl font-black">From first sign to a better-informed service call</h2><div className="mt-10 grid gap-8 md:grid-cols-4">{[['Identify','Review likely pest signs and affected areas.'],['Research','Understand inspection and treatment options.'],['Locate','Choose the relevant state and city route.'],['Verify','Confirm credentials, scope, price, safety, and follow-up.']].map(([t,c],i)=><div key={t}><span className="text-5xl font-black text-white/15">0{i+1}</span><h3 className="mt-3 text-xl font-black">{t}</h3><p className="mt-2 text-sm leading-6 text-slate-300">{c}</p></div>)}</div></div></section>
+
+    <section className="bg-emerald-500 px-4 py-14 text-white"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 md:flex-row md:items-center"><div><h2 className="font-heading text-3xl font-black">Start with the pest problem you need to solve</h2><p className="mt-2 text-emerald-50">Browse service guidance or call to check independent-provider availability.</p></div><div className="flex gap-3"><Link href="/services" className="rounded-lg bg-[#10233b] px-6 py-4 font-black">View Services</Link><a href={SITE.phoneHref} className="rounded-lg bg-white px-6 py-4 font-black text-[#10233b]">Call Now</a></div></div></section>
+  </>;
 }
