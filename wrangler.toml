@@ -1,19 +1,13 @@
 name = "batys-pest-control"
-main = ".open-next/worker.js"
+main = "src/worker.ts"
 compatibility_date = "2026-07-14"
 compatibility_flags = ["nodejs_compat"]
 
 [assets]
-directory = ".open-next/assets"
+directory = "dist"
 binding = "ASSETS"
-
-[[services]]
-binding = "WORKER_SELF_REFERENCE"
-service = "batys-pest-control"
-
-[[r2_buckets]]
-binding = "NEXT_INC_CACHE_R2_BUCKET"
-bucket_name = "batys-pest-control-opennext-cache"
+run_worker_first = true
+not_found_handling = "404-page"
 
 [[routes]]
 pattern = "batyspestcontrol.com/*"

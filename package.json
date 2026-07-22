@@ -10,8 +10,10 @@
     "build": "next build --webpack",
     "start": "next start",
     "cf:build": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion",
+    "worker:assets": "node scripts/build-worker-assets.mjs",
+    "worker:build": "npm run cf:build && npm run worker:assets",
     "preview": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion && opennextjs-cloudflare deploy"
+    "deploy": "npm run worker:build && wrangler deploy"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.20.1",

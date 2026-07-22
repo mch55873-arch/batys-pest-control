@@ -35,11 +35,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Ensure OpenNext cache bucket exists
-        run: npx wrangler r2 bucket create batys-pest-control-opennext-cache || true
-
-      - name: Build OpenNext Worker
-        run: npm run cf:build
+      - name: Build static pages and lightweight Worker assets
+        run: npm run worker:build
 
       - name: Deploy to Cloudflare Workers
-        run: npx opennextjs-cloudflare deploy
+        run: npx wrangler deploy
