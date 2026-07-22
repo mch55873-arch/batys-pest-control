@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { LeadPopup } from '@/components/LeadPopup';
 import { SiteFooter, SiteHeader } from '@/components/SiteShell';
 import { SITE } from '@/lib/site';
 import './globals.css';
@@ -30,6 +31,7 @@ const organizationSchema = {
       name: SITE.name,
       url: SITE.url,
       description: SITE.description,
+      telephone: SITE.phoneDisplay,
     },
     {
       '@type': 'WebSite',
@@ -46,10 +48,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className="bg-white font-sans text-slate-900 antialiased">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema).replace(/</g, '\\u003c') }} />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <LeadPopup />
       </body>
     </html>
   );
