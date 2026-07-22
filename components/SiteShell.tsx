@@ -16,28 +16,28 @@ function BrandMark({ compact = false }: { compact?: boolean }) {
 
 export function SiteHeader() {
   return (
-    <header className="relative z-50 text-white">
-      <div className="bg-lime-300 text-emerald-950">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-5 gap-y-1 px-4 py-2 text-center text-[11px] font-black uppercase tracking-[0.08em] sm:justify-between sm:text-xs">
-          <p className="flex items-center gap-2"><span className="inline-block h-2 w-2 rounded-full bg-emerald-700" /> Serving all 50 states + Washington, DC</p>
-          <p>Independent provider network <span className="mx-2 text-emerald-700/50">|</span> <a className="hover:underline" href={SITE.phoneHref}>Call {SITE.phoneDisplay}</a></p>
+    <header className="relative z-50 bg-white text-slate-900">
+      <div className="bg-[#12345b] text-white">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-5 gap-y-1 px-4 py-2.5 text-center text-[11px] font-extrabold sm:justify-between sm:text-xs">
+          <p className="flex items-center gap-2"><span className="inline-block h-2 w-2 rounded-full bg-[#f6a619]" /> Nationwide pest-control provider network</p>
+          <p>Available 24/7 <span className="mx-2 text-white/30">|</span> <a className="font-black text-[#ffc24a] hover:underline" href={SITE.phoneHref}>Call {SITE.phoneDisplay}</a></p>
         </div>
       </div>
-      <div className="border-b border-white/10 bg-[#061426]/95 shadow-[0_12px_35px_rgba(2,13,32,.2)] backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4">
+      <div className="border-b border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,.08)]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4.5">
           <Link href="/" className="flex min-w-max items-center gap-3" aria-label={`${SITE.name} home`}>
             <BrandMark />
-            <span className="font-heading text-xl font-black tracking-tight sm:text-2xl">Batys <span className="text-lime-300">Pest Control</span><small className="block font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">Nationwide Provider Network</small></span>
+            <span className="font-heading text-xl font-black tracking-tight text-[#12345b] sm:text-2xl">Batys <span className="text-[#e98b00]">Pest Control</span><small className="block font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">Nationwide Provider Network</small></span>
           </Link>
-          <nav className="hidden items-center gap-7 text-sm font-bold text-slate-200 lg:flex" aria-label="Main navigation">
-            <Link href="/" className="text-lime-300">Home</Link>
-            <Link href="/about" className="transition hover:text-lime-300">About</Link>
-            <Link href="/services" className="transition hover:text-lime-300">Pest Services</Link>
-            <Link href="/locations" className="transition hover:text-lime-300">Locations</Link>
-            <Link href="/blog" className="transition hover:text-lime-300">Guides</Link>
+          <nav className="hidden items-center gap-7 text-sm font-extrabold text-slate-700 lg:flex" aria-label="Main navigation">
+            <Link href="/" className="text-[#e98b00]">Home</Link>
+            <Link href="/about" className="transition hover:text-[#e98b00]">About</Link>
+            <Link href="/services" className="transition hover:text-[#e98b00]">Services</Link>
+            <Link href="/locations" className="transition hover:text-[#e98b00]">Areas</Link>
+            <Link href="/blog" className="transition hover:text-[#e98b00]">Blog</Link>
           </nav>
-          <a href={SITE.phoneHref} className="group rounded-xl border border-white/10 bg-white px-4 py-2.5 text-center text-xs font-black text-[#07172d] shadow-lg transition hover:-translate-y-0.5 hover:bg-lime-300 md:px-5">
-            <span className="block text-[9px] uppercase tracking-wider text-emerald-700">Check availability</span>
+          <a href={SITE.phoneHref} className="group rounded-md bg-[#ef9415] px-4 py-2.5 text-center text-xs font-black text-white shadow-[0_8px_22px_rgba(239,148,21,.28)] transition hover:-translate-y-0.5 hover:bg-[#d87f08] md:px-5">
+            <span className="block text-[9px] uppercase tracking-wider text-white/80">Call now — 24/7</span>
             {SITE.phoneDisplay}
           </a>
         </div>
@@ -49,8 +49,8 @@ export function SiteHeader() {
 export function SiteFooter() {
   const popular = pestServices.slice(0, 5);
   return (
-    <footer className="bg-[#020b1b] text-slate-200">
-      <div className="h-1 bg-gradient-to-r from-emerald-600 via-lime-300 to-emerald-600" />
+    <footer className="bg-[#0d2a4a] text-slate-200">
+      <div className="h-1 bg-[#ef9415]" />
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 lg:grid-cols-[1.25fr_.8fr_.9fr_1.25fr]">
         <div>
           <Link href="/" className="flex items-center gap-3">
