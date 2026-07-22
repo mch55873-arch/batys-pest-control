@@ -31,10 +31,11 @@ export const articles: Article[] = [
  {slug:'seasonal-pest-prevention-calendar',title:'Seasonal Pest Prevention Calendar for Property Owners',category:'Prevention',pest:'seasonal pests',serviceSlug:'preventative-pest-control',summary:'Plan spring, summer, fall, and winter inspections for insects, rodents, mosquitoes, stinging pests, and wildlife.',signs:['spring swarmers','summer mosquito pressure','fall rodent entry','winter indoor harborages'],causes:['temperature shifts','rain and moisture','breeding cycles','seasonal shelter seeking'],methods:['seasonal inspection','exterior maintenance','monitoring','targeted prevention'],prevention:['clean gutters','seal gaps before fall','manage standing water','inspect stored items']},
 ];
 
+const list=(items:string[])=>items.join(', ');
+
 export function findArticle(slug:string){return articles.find(a=>a.slug===slug)}
 
 export function articleSections(a:Article){
- const list=(items:string[])=>items.map(x=>x).join(', ');
  return [
   {heading:`Understanding ${a.pest} and the purpose of this guide`,paragraphs:[`${a.summary} The first priority is not choosing a pesticide or copying a treatment seen online. The first priority is establishing what pest is present, where activity is concentrated, how extensive the problem may be, and which conditions are supporting it. A reliable inspection separates confirmed evidence from assumptions and creates a defensible basis for treatment, exclusion, cleanup, monitoring, and prevention.`,`${a.pest} problems are rarely explained by a single visible insect, dropping, bite, noise, or damaged material. The useful evidence is the pattern: location, frequency, time of day, season, moisture, food access, structural openings, nesting material, travel history, neighboring activity, and previous control attempts. Record those details before disturbing the area because cleaning, spraying, moving furniture, sealing an active opening, or discarding items can remove evidence or spread activity.`]},
   {heading:`Common signs associated with ${a.pest}`,paragraphs:[`Important signs include ${list(a.signs)}. None of these signs should be interpreted in isolation. Similar evidence may be produced by another insect, rodent, wildlife species, moisture problem, fungal condition, or ordinary building wear. Photographs and dated notes help establish whether activity is increasing, moving, seasonal, or responding to corrective work.`,`Inspect both the immediate activity zone and the conditions around it. Look above, below, behind, and outside the affected area. Check plumbing penetrations, wall-floor junctions, utility lines, roof edges, crawl spaces, attics, storage zones, exterior vegetation, waste areas, drains, doors, windows, vents, and neighboring rooms. The source is frequently separated from the place where the pest was first noticed.`]},
@@ -56,4 +57,4 @@ export function articleFaqs(a:Article){return [
  ['How many visits will be required?','The number of visits depends on pest biology, infestation extent, treatment method, building conditions, monitoring results, and whether neighboring or exterior sources remain active.'],
  ['What should I get in writing?','Request inspection findings, target pest, scope, products or methods, preparation, safety instructions, visits, exclusions, total price, warranty, and follow-up.'],
  ['How can I prevent recurrence?',`Prioritize ${list(a.prevention)} and verify that the original source and entry conditions have been corrected.`],
- ];}
+];}
