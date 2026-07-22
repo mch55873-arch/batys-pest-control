@@ -1,8 +1,8 @@
 # Cloudflare Deployment Report
 
-- Source commit: `20a0bd3bcb3e8c77110b047a88545fbad877d57c`
-- Run: `29945475024`
-- Generated: `2026-07-22T18:11:12Z`
+- Source commit: `d721da7a7f892cbdc02428d8f9d7b1397a41c492`
+- Run: `29946068752`
+- Generated: `2026-07-22T18:19:22Z`
 - npm install: **success**
 - OpenNext build: **success**
 - Worker assets: **success**
@@ -13,7 +13,7 @@
 npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
 npm warn deprecated glob@9.3.5: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
-added 671 packages, and audited 672 packages in 15s
+added 671 packages, and audited 672 packages in 14s
 
 201 packages are looking for funding
   run `npm fund` for details
@@ -56,7 +56,7 @@ workerd compatibility_date: 2026-07-14
 
 ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
   Creating an optimized production build ...
-✓ Compiled successfully in 8.1s
+✓ Compiled successfully in 7.7s
   Running TypeScript ...
   Finished TypeScript in 4.7s ...
   Collecting page data using 3 workers ...
@@ -64,7 +64,7 @@ workerd compatibility_date: 2026-07-14
   Generating static pages using 3 workers (41/164) 
   Generating static pages using 3 workers (82/164) 
   Generating static pages using 3 workers (123/164) 
-✓ Generating static pages using 3 workers (164/164) in 4.0s
+✓ Generating static pages using 3 workers (164/164) in 3.9s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -121,7 +121,7 @@ Bundling middleware function...
 Bundling static assets...
 Bundling cache assets...
 Building server function: default...
-Applying code patches: 3.809s
+Applying code patches: 3.865s
 # copyPackageTemplateFiles
 [35m⚙️ Bundling the OpenNext server...
 [0m
@@ -160,63 +160,8 @@ Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more
 🌀 Building list of assets...
 ✨ Read 414 files from the assets directory /home/runner/work/batys-pest-control/batys-pest-control/dist
 🌀 Starting asset upload...
-🌀 Found 163 new or modified static assets to upload. Proceeding with upload...
+🌀 Found 162 new or modified static assets to upload. Proceeding with upload...
 + /BUILD_ID
-+ /404.html
-+ /cookie-policy/index.html
-+ /contact/index.html
-+ /privacy-policy/index.html
-+ /district-of-columbia/index.html
-+ /services/hornet-control/index.html
-+ /services/yellow-jacket-control/index.html
-+ /services/cockroach-control/index.html
-+ /services/rat-control/index.html
-+ /services/brown-recluse-spider-control/index.html
-+ /services/mouse-control/index.html
-+ /services/bed-bug-heat-treatment/index.html
-+ /services/rodent-exclusion/index.html
-+ /services/bed-bug-chemical-treatment/index.html
-+ /services/silverfish-control/index.html
-+ /services/mosquito-yard-treatment/index.html
-+ /services/boxelder-bug-control/index.html
-+ /services/termite-control/index.html
-+ /services/centipede-control/index.html
-+ /services/clothes-moth-control/index.html
-+ /services/pest-inspection/index.html
-+ /services/school-pest-control/index.html
-+ /services/flea-and-tick-yard-treatment/index.html
-+ /services/termite-baiting-systems/index.html
-+ /services/healthcare-pest-control/index.html
-+ /services/warehouse-pest-control/index.html
-+ /services/stored-product-pest-control/index.html
-+ /services/integrated-pest-management/index.html
-+ /articles/index.html
-+ /articles/seasonal-pest-prevention-calendar/index.html
-+ /articles/mosquito-breeding-sites-yard/index.html
-+ /articles/carpet-beetle-damage-guide/index.html
-+ /articles/ant-infestation-source-control/index.html
-+ /articles/termite-treatment-options-explained/index.html
-+ /articles/bed-bug-heat-treatment-guide/index.html
-+ /articles/how-to-prepare-for-bed-bug-inspection/index.html
-+ /articles/integrated-pest-management-home/index.html
-+ /rhode-island/index.html
-+ /wyoming/index.html
-+ /idaho/index.html
-+ /connecticut/index.html
-+ /montana/index.html
-+ /north-dakota/index.html
-+ /maryland/index.html
-+ /louisiana/index.html
-+ /massachusetts/index.html
-+ /alabama/index.html
-+ /arkansas/index.html
-+ /indiana/index.html
-+ /north-carolina/index.html
-+ /virginia/index.html
-+ /missouri/index.html
-+ /illinois/index.html
-+ /pennsylvania/index.html
-+ /blog/index.html
 + /accessibility/index.html
 + /provider-disclosure/index.html
 + /terms/index.html
@@ -261,26 +206,81 @@ Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more
 + /south-dakota/index.html
 + /south-carolina/index.html
 + /mississippi/index.html
++ /washington/index.html
++ /florida/index.html
++ /oklahoma/index.html
++ /kansas/index.html
++ /west-virginia/index.html
++ /kentucky/index.html
++ /michigan/index.html
++ /ohio/index.html
++ /texas/index.html
++ /blog/index.html
++ /disclaimer/index.html
++ /editorial-policy/index.html
++ /about/index.html
++ /locations/index.html
++ /services/spider-control/index.html
++ /services/ant-control/index.html
++ /services/flea-control/index.html
++ /services/bed-bug-inspection/index.html
++ /services/bed-bug-treatment/index.html
++ /services/earwig-control/index.html
++ /services/rodent-removal/index.html
++ /services/oriental-cockroach-control/index.html
++ /services/german-cockroach-control/index.html
++ /services/american-cockroach-control/index.html
++ /services/drain-fly-control/index.html
++ /services/rodent-inspection/index.html
++ /services/termite-prevention/index.html
++ /services/odorous-house-ant-control/index.html
++ /services/office-pest-control/index.html
++ /services/pantry-pest-control/index.html
++ /services/termite-fumigation/index.html
++ /services/termite-inspection/index.html
++ /services/carpet-beetle-control/index.html
++ /services/apartment-pest-control/index.html
++ /services/recurring-pest-control/index.html
++ /services/emergency-pest-control/index.html
++ /services/commercial-pest-control/index.html
++ /index.html
++ /articles/wasp-nest-removal-safety/index.html
++ /articles/german-cockroach-treatment-plan/index.html
++ /articles/pantry-pest-identification/index.html
++ /articles/tick-control-property-guide/index.html
++ /articles/mouse-entry-points-homeowners-miss/index.html
++ /articles/cockroach-infestation-signs/index.html
++ /articles/pest-inspection-checklist/index.html
++ /articles/carpenter-ant-damage-vs-termites/index.html
++ /delaware/index.html
++ /nevada/index.html
++ /utah/index.html
++ /arizona/index.html
++ /new-mexico/index.html
++ /oregon/index.html
++ /colorado/index.html
++ /maine/index.html
++ /nebraska/index.html
    (truncating changed assets log, set `WRANGLER_LOG=debug` environment variable to see full diff)
-Uploaded 54 of 163 assets
-Uploaded 108 of 163 assets
-Uploaded 163 of 163 assets
-✨ Success! Uploaded 163 files (56 already uploaded) (3.22 sec)
+Uploaded 54 of 162 assets
+Uploaded 108 of 162 assets
+Uploaded 162 of 162 assets
+✨ Success! Uploaded 162 files (57 already uploaded) (3.48 sec)
 
 Total Upload: 47.92 KiB / gzip: 13.32 KiB
-Worker Startup Time: 5 ms
+Worker Startup Time: 4 ms
 Your Worker has access to the following bindings:
 Binding            Resource      
 env.ASSETS         Assets        
 
-Uploaded batys-pest-control (8.35 sec)
+Uploaded batys-pest-control (6.99 sec)
 The current authentication token does not have 'All Zones' permissions.
 Falling back to using the zone-based API endpoint to update each route individually.
 Note that there is no access to routes associated with zones that the API token does not have permission for.
 Existing routes for this Worker in such zones will not be deleted.
-Deployed batys-pest-control triggers (1.47 sec)
+Deployed batys-pest-control triggers (1.46 sec)
   batyspestcontrol.com/* (zone name: batyspestcontrol.com)
   www.batyspestcontrol.com/* (zone name: batyspestcontrol.com)
   *.batyspestcontrol.com/* (zone name: batyspestcontrol.com)
-Current Version ID: ef7fd5c4-9ca1-40bc-a6de-124a62b985dd
+Current Version ID: ec2cf825-ca2d-40fd-8ad5-3cbb005cbadd
 ```
