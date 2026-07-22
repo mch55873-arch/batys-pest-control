@@ -6,6 +6,8 @@ import { SITE } from '@/lib/site';
 
 type Props = { params: Promise<{ state: string; city: string; service: string }> };
 
+export const revalidate = 86400;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { state: stateSlug, city: citySlug, service: serviceSlug } = await params;
   const state = findState(stateSlug);
