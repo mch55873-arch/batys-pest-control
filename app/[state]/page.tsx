@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { citiesForState, findState, statePath, cityPath, pestServices, states } from '@/lib/locations';
+import { citiesForState, findState, cityUrl, pestServices, stateUrl, states } from '@/lib/locations';
 
 type Props = { params: Promise<{ state: string }> };
 
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Pest Control in ${state.name}`,
     description: `Browse pest-control services and city-specific pest information across ${state.name}.`,
-    alternates: { canonical: statePath(state) },
+    alternates: { canonical: stateUrl(state) },
   };
 }
 
@@ -46,7 +46,7 @@ export default async function StatePage({ params }: Props) {
           <p className="mt-3 text-slate-600">Choose a location to see its pest-control topic map.</p>
           <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {cities.map((city) => (
-              <Link key={city.slug} href={cityPath(state, city)} className="rounded-lg border border-slate-200 px-3 py-3 text-sm font-semibold hover:border-emerald-500 hover:text-emerald-800">{city.name}</Link>
+              <Link key={city.slug} href={cityUrl(state, city)} className="rounded-lg border border-slate-200 px-3 py-3 text-sm font-semibold hover:border-emerald-500 hover:text-emerald-800">{city.name}</Link>
             ))}
           </div>
         </section>

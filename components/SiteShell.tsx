@@ -21,7 +21,7 @@ export function SiteHeader() {
             <Link href="/" className="text-lime-300">Home</Link>
             <Link href="/about" className="hover:text-lime-300">About Us</Link>
             <Link href="/services" className="hover:text-lime-300">Services</Link>
-            <Link href="/locations" className="hover:text-lime-300">Locations</Link>
+            <Link href="/blog" className="hover:text-lime-300">Blog &amp; Guides</Link>
             <Link href="/contact" className="hover:text-lime-300">Contact Us</Link>
           </nav>
           <a href={SITE.phoneHref} className="rounded-xl bg-white px-4 py-3 text-center text-xs font-black uppercase tracking-wide text-[#07172d] shadow md:px-6">
@@ -57,6 +57,7 @@ export function SiteFooter() {
             <Link href="/about">About Batys Pest Control</Link>
             <Link href="/services">70 Pest Services</Link>
             <Link href="/locations">States & Cities</Link>
+            <Link href="/blog">26 Pest Guides</Link>
             <Link href="/contact">Request Local Availability</Link>
           </div>
         </div>
@@ -76,7 +77,7 @@ export function SiteFooter() {
       </div>
       <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/10 px-4 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
-        <div className="flex gap-5"><Link href="/about">About</Link><Link href="/services">Services</Link><Link href="/contact">Contact</Link></div>
+        <div className="flex gap-5"><Link href="/about">About</Link><Link href="/blog">Blog</Link><Link href="/contact">Contact</Link></div>
       </div>
     </footer>
   );

@@ -1,6 +1,7 @@
 import database from '@/data/usa_locations.json';
 import services from '@/data/services.json';
 import { HIGH_VALUE_SERVICE_SLUGS, PRIORITY_CITY_KEYS } from './site';
+import { SITE } from './site';
 
 export type City = { slug: string; name: string };
 export type State = { code: string; name: string; slug: string; cities: [string, string][] };
@@ -40,6 +41,22 @@ export function cityPath(state: State, city: City) {
 
 export function cityServicePath(state: State, city: City, service: Service) {
   return `${cityPath(state, city)}/${service.slug}`;
+}
+
+export function stateUrl(state: State) {
+  return `https://${state.slug}.${SITE.domain}/`;
+}
+
+export function citySubdomain(state: State, city: City) {
+  return `${city.slug}-${state.slug}`;
+}
+
+export function cityUrl(state: State, city: City) {
+  return `https://${citySubdomain(state, city)}.${SITE.domain}/`;
+}
+
+export function cityServiceUrl(state: State, city: City, service: Service) {
+  return `${cityUrl(state, city)}${service.slug}`;
 }
 
 export function isPriorityCity(state: State, city: City) {

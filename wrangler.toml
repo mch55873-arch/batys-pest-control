@@ -14,3 +14,7 @@ zone_name = "batyspestcontrol.com"
 [[routes]]
 pattern = "www.batyspestcontrol.com/*"
 zone_name = "batyspestcontrol.com"
+
+[[routes]]
+pattern = "*.batyspestcontrol.com/*"
+zone_name = "batyspestcontrol.com"

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { pestServices, states, statePath } from '@/lib/locations';
+import { pestServices, states, stateUrl } from '@/lib/locations';
 import { SITE } from '@/lib/site';
 
 const cityCount = states.reduce((total, state) => total + state.cities.length, 0);
@@ -10,6 +10,12 @@ const faqItems = [
   ['Are pest-control providers licensed in every state?', 'Requirements differ by state and treatment type. Always verify the provider’s current license, insurance, treatment plan, and product information before hiring.'],
   ['How quickly can a local provider respond?', 'Response times depend on location, season, pest type, and provider capacity. Emergency and same-day availability must be confirmed directly with the matched provider.'],
   ['What information should I request in a quote?', 'Ask for the target pest, inspection findings, treatment areas, products, preparation steps, follow-up schedule, exclusions, warranty terms, and total price in writing.'],
+];
+const featuredGuides = [
+  { title: 'Signs of an active termite problem', category: 'Termites', slug: 'early-signs-of-termite-activity' },
+  { title: 'How to prepare for a bed-bug inspection', category: 'Bed Bugs', slug: 'how-to-prepare-for-bed-bug-inspection' },
+  { title: 'Rodent entry points to check first', category: 'Rodents', slug: 'mouse-entry-points-homeowners-miss' },
+  { title: 'Questions to ask before pest treatment', category: 'Hiring Guide', slug: 'questions-before-pest-treatment' },
 ];
 
 export default function HomePage() {
@@ -131,7 +137,7 @@ export default function HomePage() {
           <p className="font-black uppercase tracking-widest text-lime-300">Nationwide Coverage</p>
           <h2 className="mt-3 font-heading text-4xl font-black">Pest-Control Information Across 50 States + DC</h2>
           <p className="mt-4 max-w-3xl text-slate-300">Select a state to browse its city hierarchy and locally organized pest-service topics.</p>
-          <div className="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">{states.map((state) => <Link key={state.code} href={statePath(state)} className="rounded-xl border border-white/10 bg-white/5 px-4 py-4 font-bold hover:border-lime-300 hover:text-lime-300">{state.name}<span className="mt-1 block text-xs font-normal text-slate-400">{state.cities.length.toLocaleString('en-US')} locations</span></Link>)}</div>
+          <div className="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">{states.map((state) => <Link key={state.code} href={stateUrl(state)} className="rounded-xl border border-white/10 bg-white/5 px-4 py-4 font-bold hover:border-lime-300 hover:text-lime-300">{state.name}<span className="mt-1 block text-xs font-normal text-slate-400">{state.cities.length.toLocaleString('en-US')} locations</span></Link>)}</div>
         </div>
       </section>
 
@@ -140,8 +146,9 @@ export default function HomePage() {
           <p className="font-black uppercase tracking-widest text-emerald-700">Knowledge Base</p>
           <h2 className="mt-3 font-heading text-4xl font-black text-[#07172d]">Pest Identification & Treatment Resources</h2>
           <div className="mt-9 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {['Signs of an active termite problem','How to prepare for a bed-bug inspection','Rodent entry points to check first','Questions to ask before pest treatment'].map((title, index) => <article key={title} className="rounded-2xl border border-slate-200 p-6"><p className="text-xs font-black uppercase tracking-widest text-emerald-700">{['Termites','Bed Bugs','Rodents','Hiring Guide'][index]}</p><h3 className="mt-3 font-heading text-xl font-black">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">Practical information to help document the problem and discuss the next step with a qualified local provider.</p><Link href="/services" className="mt-5 inline-flex text-sm font-black text-emerald-700">Explore Resources →</Link></article>)}
+            {featuredGuides.map((guide) => <article key={guide.slug} className="rounded-2xl border border-slate-200 p-6"><p className="text-xs font-black uppercase tracking-widest text-emerald-700">{guide.category}</p><h3 className="mt-3 font-heading text-xl font-black">{guide.title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">Practical information to help document the problem and discuss the next step with a qualified local provider.</p><Link href={`/blog/${guide.slug}`} className="mt-5 inline-flex text-sm font-black text-emerald-700">Read Guide →</Link></article>)}
           </div>
+          <div className="mt-9 text-center"><Link href="/blog" className="inline-flex rounded-xl bg-[#07172d] px-6 py-4 font-black text-white">View All 26 Guides →</Link></div>
         </div>
       </section>
 
