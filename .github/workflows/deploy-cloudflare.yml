@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - deployment-report.md
   workflow_dispatch:
 
 concurrency:
@@ -11,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   deploy:
@@ -21,7 +23,7 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      NEXT_TELEMETRY_DISABLED: 1
+      NEXT_TELEMETRY_DISABLED: "1"
 
     steps:
       - name: Checkout repository
@@ -34,19 +36,80 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        id: install
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npm ci 2>&1 | tee npm-install.log
 
       - name: Build OpenNext application
+        id: opennext
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
         shell: bash
         run: |
           set -o pipefail
           npm run cf:build 2>&1 | tee opennext-build.log
 
       - name: Prepare lightweight Worker assets
+        id: assets
+        if: steps.opennext.outcome == 'success'
+        continue-on-error: true
         shell: bash
         run: |
           set -o pipefail
           npm run worker:assets 2>&1 | tee worker-assets.log
+
+      - name: Deploy to Cloudflare Workers
+        id: deploy
+        if: steps.assets.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          npx wrangler deploy 2>&1 | tee wrangler-deploy.log
+
+      - name: Write deployment report
+        if: always()
+        shell: bash
+        env:
+          INSTALL_OUTCOME: ${{ steps.install.outcome }}
+          OPENNEXT_OUTCOME: ${{ steps.opennext.outcome }}
+          ASSETS_OUTCOME: ${{ steps.assets.outcome }}
+          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+        run: |
+          {
+            echo '# Cloudflare Deployment Report'
+            echo
+            echo "- Source commit: \`$GITHUB_SHA\`"
+            echo "- Run: \`$GITHUB_RUN_ID\`"
+            echo "- Generated: \`$(date -u +'%Y-%m-%dT%H:%M:%SZ')\`"
+            echo "- npm install: **${INSTALL_OUTCOME:-skipped}**"
+            echo "- OpenNext build: **${OPENNEXT_OUTCOME:-skipped}**"
+            echo "- Worker assets: **${ASSETS_OUTCOME:-skipped}**"
+            echo "- Wrangler deploy: **${DEPLOY_OUTCOME:-skipped}**"
+            for log in npm-install.log opennext-build.log worker-assets.log wrangler-deploy.log; do
+              if [ -f "$log" ]; then
+                echo
+                echo "## $log (last 160 lines)"
+                echo '```text'
+                tail -n 160 "$log" | sed -E 's/(CLOUDFLARE_API_TOKEN|CLOUDFLARE_ACCOUNT_ID)=[^[:space:]]+/\1=[REDACTED]/g'
+                echo '```'
+              fi
+            done
+          } > deployment-report.md
+
+      - name: Commit deployment report
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add deployment-report.md
+          git commit -m "chore: update deployment report [skip ci]" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
 
       - name: Upload build diagnostics
         if: always()
@@ -54,10 +117,25 @@ jobs:
         with:
           name: cloudflare-build-diagnostics
           path: |
+            npm-install.log
             opennext-build.log
             worker-assets.log
+            wrangler-deploy.log
+            deployment-report.md
           if-no-files-found: ignore
           retention-days: 3
 
-      - name: Deploy to Cloudflare Workers
-        run: npx wrangler deploy
+      - name: Mark deployment failure
+        if: always()
+        shell: bash
+        env:
+          INSTALL_OUTCOME: ${{ steps.install.outcome }}
+          OPENNEXT_OUTCOME: ${{ steps.opennext.outcome }}
+          ASSETS_OUTCOME: ${{ steps.assets.outcome }}
+          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+        run: |
+          if [ "$INSTALL_OUTCOME" != "success" ] || [ "$OPENNEXT_OUTCOME" != "success" ] || [ "$ASSETS_OUTCOME" != "success" ] || [ "$DEPLOY_OUTCOME" != "success" ]; then
+            echo "Deployment failed. Check deployment-report.md."
+            exit 1
+          fi
+          echo "Deployment completed successfully."
