@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { cityPath, cityServicePath, isIndexableCityService, isPriorityCity, pestServices, states, statePath } from '@/lib/locations';
+import { citiesForState, cityPath, cityServicePath, isIndexableCityService, isPriorityCity, pestServices, states, statePath } from '@/lib/locations';
 import { SITE } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const state of states) {
     urls.push({ url: `${SITE.url}${statePath(state)}`, changeFrequency: 'monthly', priority: 0.8 });
-    for (const city of state.cities) {
+    for (const city of citiesForState(state)) {
       if (!isPriorityCity(state, city)) continue;
       urls.push({ url: `${SITE.url}${cityPath(state, city)}`, changeFrequency: 'monthly', priority: 0.7 });
       for (const service of pestServices) {

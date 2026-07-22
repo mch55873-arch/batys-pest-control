@@ -1,56 +1,81 @@
 import Link from 'next/link';
+import { pestServices } from '@/lib/locations';
 import { SITE } from '@/lib/site';
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-emerald-950/20 bg-[#10261f] text-white shadow-lg">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4">
-        <Link href="/" className="flex items-center gap-3" aria-label={`${SITE.name} home`}>
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-lime-400 text-2xl text-emerald-950">⌁</span>
-          <span>
-            <strong className="block font-heading text-xl leading-none">Batys</strong>
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-lime-300">Pest Control</span>
-          </span>
-        </Link>
-        <nav className="hidden items-center gap-7 text-sm font-semibold md:flex" aria-label="Main navigation">
-          <Link href="/services" className="hover:text-lime-300">Services</Link>
-          <Link href="/locations" className="hover:text-lime-300">Locations</Link>
-          <Link href="/about" className="hover:text-lime-300">How it works</Link>
-          <Link href="/contact" className="rounded-lg bg-lime-400 px-4 py-2 text-emerald-950 hover:bg-lime-300">Request availability</Link>
-        </nav>
-        <Link href="/locations" className="rounded-lg border border-lime-300/50 px-3 py-2 text-sm font-bold text-lime-200 md:hidden">Find local help</Link>
+    <header className="relative z-50 text-white">
+      <div className="bg-lime-400 text-emerald-950">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-5 gap-y-1 px-4 py-2 text-center text-xs font-black sm:justify-between sm:text-sm">
+          <p>📍 Serving All 50 States + DC <span className="mx-3 hidden sm:inline">|</span> <span className="hidden sm:inline">Nationwide Pest-Control Directory</span></p>
+          <p>Independent Provider Network <span className="mx-3">|</span> Coverage Varies by Area</p>
+        </div>
+      </div>
+      <div className="border-b border-white/10 bg-[#07172d] shadow-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-4 py-4">
+          <Link href="/" className="flex min-w-max items-center gap-3" aria-label={`${SITE.name} home`}>
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-lime-300 to-emerald-400 text-2xl font-black text-[#07172d] shadow-lg">B</span>
+            <span className="font-heading text-xl font-black sm:text-2xl">Batys <span className="text-lime-300">Pest Control</span></span>
+          </Link>
+          <nav className="hidden items-center gap-7 text-sm font-bold lg:flex" aria-label="Main navigation">
+            <Link href="/" className="text-lime-300">Home</Link>
+            <Link href="/about" className="hover:text-lime-300">About Us</Link>
+            <Link href="/services" className="hover:text-lime-300">Services</Link>
+            <Link href="/locations" className="hover:text-lime-300">Locations</Link>
+            <Link href="/contact" className="hover:text-lime-300">Contact Us</Link>
+          </nav>
+          <Link href="/contact" className="rounded-xl bg-white px-4 py-3 text-center text-xs font-black uppercase tracking-wide text-[#07172d] shadow md:px-6">
+            <span className="block text-[10px] text-slate-500">Find help near you</span>
+            Request Availability
+          </Link>
+        </div>
       </div>
     </header>
   );
 }
 
 export function SiteFooter() {
+  const popular = pestServices.slice(0, 5);
   return (
-    <footer className="bg-[#0a1914] text-emerald-50">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-3">
+    <footer className="bg-[#030d20] text-slate-200">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-heading text-2xl font-bold">{SITE.name}</p>
-          <p className="mt-3 max-w-sm text-sm leading-6 text-emerald-100/70">
-            Pest information and a growing directory of independent local pest-control providers across the United States.
+          <Link href="/" className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-lime-400 font-black text-emerald-950">B</span>
+            <span className="font-heading text-xl font-black">Batys <span className="text-lime-300">Pest Control</span></span>
+          </Link>
+          <p className="mt-5 text-sm leading-7 text-slate-400">
+            Helping people understand pest problems and connect with available independent pest-control providers serving their area.
           </p>
+          <p className="mt-5 text-sm font-bold text-lime-300">Nationwide USA information & referral network</p>
         </div>
         <div>
-          <p className="font-bold text-lime-300">Explore</p>
-          <div className="mt-4 grid gap-2 text-sm text-emerald-100/80">
-            <Link href="/services">Pest services</Link>
-            <Link href="/locations">States and cities</Link>
-            <Link href="/about">How referrals work</Link>
+          <h2 className="border-b border-white/10 pb-4 font-heading text-lg font-black text-white">Navigation</h2>
+          <div className="mt-5 grid gap-3 text-sm text-slate-400">
+            <Link href="/">Home Page</Link>
+            <Link href="/about">About Batys Pest Control</Link>
+            <Link href="/services">70 Pest Services</Link>
+            <Link href="/locations">States & Cities</Link>
+            <Link href="/contact">Request Local Availability</Link>
           </div>
         </div>
         <div>
-          <p className="font-bold text-lime-300">Important</p>
-          <p className="mt-4 text-sm leading-6 text-emerald-100/70">
-            Batys Pest Control is an information and referral platform. Service availability, licensing, methods, and pricing are confirmed by the independent provider handling each request.
+          <h2 className="border-b border-white/10 pb-4 font-heading text-lg font-black text-white">Popular Services</h2>
+          <div className="mt-5 grid gap-3 text-sm text-slate-400">
+            {popular.map((service) => <Link key={service.slug} href={`/services/${service.slug}`}>{service.name}</Link>)}
+          </div>
+        </div>
+        <div>
+          <h2 className="border-b border-white/10 pb-4 font-heading text-lg font-black text-white">Legal & Compliance</h2>
+          <p className="mt-5 text-sm leading-7 text-slate-400">
+            Batys Pest Control is an information and lead-referral platform. Providers are independent businesses. Customers should verify local licensing, insurance, methods, pricing, and availability before hiring.
           </p>
+          <div className="mt-5 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-xs font-bold text-lime-200">🛡 Independent Provider Network</div>
         </div>
       </div>
-      <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-emerald-100/60">
-        © {new Date().getFullYear()} {SITE.name}. All rights reserved.
+      <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/10 px-4 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+        <div className="flex gap-5"><Link href="/about">About</Link><Link href="/services">Services</Link><Link href="/contact">Contact</Link></div>
       </div>
     </footer>
   );

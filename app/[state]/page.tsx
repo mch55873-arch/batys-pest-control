@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { findState, statePath, cityPath, pestServices, states } from '@/lib/locations';
+import { citiesForState, findState, statePath, cityPath, pestServices, states } from '@/lib/locations';
 
 type Props = { params: Promise<{ state: string }> };
 
@@ -24,6 +24,7 @@ export default async function StatePage({ params }: Props) {
   const { state: stateSlug } = await params;
   const state = findState(stateSlug);
   if (!state) notFound();
+  const cities = citiesForState(state);
   return (
     <>
       <section className="bg-emerald-950 px-4 py-16 text-white">
@@ -44,7 +45,7 @@ export default async function StatePage({ params }: Props) {
           <h2 className="font-heading text-3xl font-bold">Cities and communities in {state.name}</h2>
           <p className="mt-3 text-slate-600">Choose a location to see its pest-control topic map.</p>
           <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            {state.cities.map((city) => (
+            {cities.map((city) => (
               <Link key={city.slug} href={cityPath(state, city)} className="rounded-lg border border-slate-200 px-3 py-3 text-sm font-semibold hover:border-emerald-500 hover:text-emerald-800">{city.name}</Link>
             ))}
           </div>

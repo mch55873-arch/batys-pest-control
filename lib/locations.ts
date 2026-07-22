@@ -1,35 +1,14 @@
-import database from '@/data/usa_database.json';
+import database from '@/data/usa_locations.json';
 import services from '@/data/services.json';
 import { HIGH_VALUE_SERVICE_SLUGS, PRIORITY_CITY_KEYS } from './site';
 
 export type City = { slug: string; name: string };
-export type State = { code: string; name: string; slug: string; cities: City[] };
+export type State = { code: string; name: string; slug: string; cities: [string, string][] };
 export type Service = (typeof services)[number];
 
-function slugify(value: string) {
-  return value
-    .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-}
-
-const statesFromDatabase: State[] = database.states.map((state) => ({
-  code: state.code.toLowerCase(),
-  name: state.name,
-  slug: slugify(state.name),
-  cities: state.cities.map((city) => ({ slug: city.slug, name: city.name })),
-}));
-
-export const states: State[] = [
-  ...statesFromDatabase,
-  {
-    code: 'dc',
-    name: 'District of Columbia',
-    slug: 'district-of-columbia',
-    cities: [{ slug: 'washington', name: 'Washington' }],
-  },
-].sort((a, b) => a.name.localeCompare(b.name));
+// This compact, pre-normalized dataset avoids allocating tens of thousands of
+// duplicate city objects during every Cloudflare Worker cold start.
+export const states = database.states as State[];
 
 export const pestServices: Service[] = services;
 
@@ -39,7 +18,12 @@ export function findState(value: string) {
 }
 
 export function findCity(state: State, citySlug: string) {
-  return state.cities.find((city) => city.slug === citySlug.toLowerCase());
+  const found = state.cities.find(([slug]) => slug === citySlug.toLowerCase());
+  return found ? { slug: found[0], name: found[1] } : undefined;
+}
+
+export function citiesForState(state: State): City[] {
+  return state.cities.map(([slug, name]) => ({ slug, name }));
 }
 
 export function findService(serviceSlug: string) {
