@@ -43,6 +43,15 @@ jobs:
           set -o pipefail
           npm ci 2>&1 | tee npm-install.log
 
+      - name: Remove malformed Cloudflare redirects
+        id: redirect_cleanup
+        if: steps.install.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/fix-cloudflare-redirects.mjs 2>&1 | tee cloudflare-redirect-cleanup.log
+
       - name: Build OpenNext application
         id: opennext
         if: steps.install.outcome == 'success'
@@ -75,6 +84,7 @@ jobs:
         shell: bash
         env:
           INSTALL_OUTCOME: ${{ steps.install.outcome }}
+          REDIRECT_CLEANUP_OUTCOME: ${{ steps.redirect_cleanup.outcome }}
           OPENNEXT_OUTCOME: ${{ steps.opennext.outcome }}
           ASSETS_OUTCOME: ${{ steps.assets.outcome }}
           DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
@@ -86,10 +96,11 @@ jobs:
             echo "- Run: \`$GITHUB_RUN_ID\`"
             echo "- Generated: \`$(date -u +'%Y-%m-%dT%H:%M:%SZ')\`"
             echo "- npm install: **${INSTALL_OUTCOME:-skipped}**"
+            echo "- Redirect cleanup: **${REDIRECT_CLEANUP_OUTCOME:-skipped}**"
             echo "- OpenNext build: **${OPENNEXT_OUTCOME:-skipped}**"
             echo "- Worker assets: **${ASSETS_OUTCOME:-skipped}**"
             echo "- Wrangler deploy: **${DEPLOY_OUTCOME:-skipped}**"
-            for log in npm-install.log opennext-build.log worker-assets.log wrangler-deploy.log; do
+            for log in npm-install.log cloudflare-redirect-cleanup.log opennext-build.log worker-assets.log wrangler-deploy.log; do
               if [ -f "$log" ]; then
                 echo
                 echo "## $log (last 160 lines)"
@@ -118,6 +129,7 @@ jobs:
           name: cloudflare-build-diagnostics
           path: |
             npm-install.log
+            cloudflare-redirect-cleanup.log
             opennext-build.log
             worker-assets.log
             wrangler-deploy.log
