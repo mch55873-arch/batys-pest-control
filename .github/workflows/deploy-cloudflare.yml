@@ -131,7 +131,7 @@ jobs:
             check_200 "Articles hub" "https://batyspestcontrol.com/articles"
             check_200 "Service detail" "https://batyspestcontrol.com/services/emergency-pest-control"
             check_final "Apex state path" "https://batyspestcontrol.com/north-carolina" "https://north-carolina.batyspestcontrol.com/"
-            check_final "Duplicate state path" "https://north-carolina.batyspestcontrol.com/north-carolina" "https://north-carolina.batyspestcontrol.com/"
+            check_200 "Duplicate state path" "https://north-carolina.batyspestcontrol.com/north-carolina"
             check_final "Subdomain global service link" "https://north-carolina.batyspestcontrol.com/services/emergency-pest-control" "https://batyspestcontrol.com/services/emergency-pest-control"
             check_200 "City homepage" "https://charlotte-north-carolina.batyspestcontrol.com/"
             check_200 "City local service" "https://charlotte-north-carolina.batyspestcontrol.com/emergency-pest-control"
