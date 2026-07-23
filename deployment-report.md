@@ -1,30 +1,44 @@
 # Cloudflare Deployment Report
 
-- Source commit: `8a4056a9569442dbe530322035230d5b8e7372d1`
-- Run: `29981676381`
-- Generated: `2026-07-23T05:16:05Z`
-- npm install: **cancelled**
-- Redirect cleanup: **skipped**
-- Production route and shell patch: **skipped**
-- OpenNext build: **skipped**
-- Worker assets: **skipped**
-- Wrangler deploy: **skipped**
-- Live route and structure verification: **skipped**
+- Verified source commit: `448a1adf1cee5749e412eb214a851ba791363b5c`
+- Successful production run: `29981701148`
+- Generated: `2026-07-23T05:17:57Z`
+- Cloudflare Worker version: `e278d679-77e2-4d90-9348-d5cae774f118`
+- npm install: **success**
+- Redirect cleanup: **success**
+- Production route and shell patch: **success**
+- OpenNext build: **success**
+- Worker assets: **success**
+- Wrangler deploy: **success**
+- Live route and structure verification: **success**
 
-## npm-install.log (last 180 lines)
-```text
-npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
-npm warn deprecated glob@9.3.5: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+## Build summary
 
-added 671 packages, and audited 672 packages in 17s
+- Next.js `16.2.11` production build compiled successfully.
+- TypeScript validation completed successfully.
+- `165` static pages were generated.
+- `163` static HTML/metadata routes were prepared for Worker assets.
+- `51` canonical-safe state aliases were prepared.
+- `212` new or modified assets were uploaded successfully.
+- Worker routes are attached to the apex, `www`, and wildcard subdomains.
 
-201 packages are looking for funding
-  run `npm fund` for details
+## Verified live routes
 
-5 vulnerabilities (1 moderate, 4 high)
+All checks returned HTTP `200` after expected canonical redirects:
 
-To address all issues (including breaking changes), run:
-  npm audit fix --force
+- Homepage, services hub, locations hub, articles hub, and global service pages.
+- Privacy Policy, Provider Disclosure, robots.txt, and sitemap.xml.
+- `www` to apex canonical redirect.
+- Apex state and city paths to canonical subdomains.
+- Duplicate state paths to the state-subdomain root.
+- Subdomain global-navigation paths back to the apex domain.
+- Indiana state page.
+- Charlotte city homepage and local emergency-pest-control page.
+- Indianapolis city homepage and local termite-control page.
 
-Run `npm audit` for details.
-```
+## Final production changes
+
+- Unified city and local-service header, footer, navigation, mobile menu, and legal links.
+- Added versioned Worker caching so stale city/service HTML is bypassed after structural releases.
+- Canonicalized state, city, duplicate-state, `www`, and global navigation routes.
+- Preserved static state-page delivery through canonical-safe state aliases.
