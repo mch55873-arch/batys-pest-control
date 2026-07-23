@@ -6,6 +6,13 @@ on:
       - main
     paths-ignore:
       - deployment-report.md
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
   workflow_dispatch:
 
 concurrency:
@@ -123,7 +130,7 @@ jobs:
           } > deployment-report.md
 
       - name: Commit deployment report
-        if: always()
+        if: always() && github.event_name != 'pull_request'
         continue-on-error: true
         shell: bash
         run: |
@@ -162,7 +169,7 @@ jobs:
           DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
         run: |
           if [ "$INSTALL_OUTCOME" != "success" ] || [ "$ROUTE_PATCH_OUTCOME" != "success" ] || [ "$OPENNEXT_OUTCOME" != "success" ] || [ "$ASSETS_OUTCOME" != "success" ] || [ "$DEPLOY_OUTCOME" != "success" ]; then
-            echo "Deployment failed. Check deployment-report.md."
+            echo "Deployment failed. Check the uploaded diagnostics artifact."
             exit 1
           fi
           echo "Deployment completed successfully."
