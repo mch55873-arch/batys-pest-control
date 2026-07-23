@@ -1,44 +1,51 @@
 # Cloudflare Deployment Report
 
-- Verified source commit: `448a1adf1cee5749e412eb214a851ba791363b5c`
-- Successful production run: `29981701148`
-- Generated: `2026-07-23T05:17:57Z`
-- Cloudflare Worker version: `e278d679-77e2-4d90-9348-d5cae774f118`
+- Source commit: `30a5e27ded1d111eca70e6cf92bd7f12c1869f36`
+- Run: `30013508120`
+- Generated: `2026-07-23T13:57:25Z`
 - npm install: **success**
 - Redirect cleanup: **success**
-- Production route and shell patch: **success**
-- OpenNext build: **success**
-- Worker assets: **success**
-- Wrangler deploy: **success**
-- Live route and structure verification: **success**
+- Production route and shell patch: **failure**
+- OpenNext build: **skipped**
+- Worker assets: **skipped**
+- Wrangler deploy: **skipped**
+- Live route and structure verification: **skipped**
 
-## Build summary
+## npm-install.log (last 180 lines)
+```text
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+npm warn deprecated glob@9.3.5: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
-- Next.js `16.2.11` production build compiled successfully.
-- TypeScript validation completed successfully.
-- `165` static pages were generated.
-- `163` static HTML/metadata routes were prepared for Worker assets.
-- `51` canonical-safe state aliases were prepared.
-- `212` new or modified assets were uploaded successfully.
-- Worker routes are attached to the apex, `www`, and wildcard subdomains.
+added 671 packages, and audited 672 packages in 17s
 
-## Verified live routes
+201 packages are looking for funding
+  run `npm fund` for details
 
-All checks returned HTTP `200` after expected canonical redirects:
+5 vulnerabilities (1 moderate, 4 high)
 
-- Homepage, services hub, locations hub, articles hub, and global service pages.
-- Privacy Policy, Provider Disclosure, robots.txt, and sitemap.xml.
-- `www` to apex canonical redirect.
-- Apex state and city paths to canonical subdomains.
-- Duplicate state paths to the state-subdomain root.
-- Subdomain global-navigation paths back to the apex domain.
-- Indiana state page.
-- Charlotte city homepage and local emergency-pest-control page.
-- Indianapolis city homepage and local termite-control page.
+To address all issues (including breaking changes), run:
+  npm audit fix --force
 
-## Final production changes
+Run `npm audit` for details.
+```
 
-- Unified city and local-service header, footer, navigation, mobile menu, and legal links.
-- Added versioned Worker caching so stale city/service HTML is bypassed after structural releases.
-- Canonicalized state, city, duplicate-state, `www`, and global navigation routes.
-- Preserved static state-page delivery through canonical-safe state aliases.
+## cloudflare-redirect-cleanup.log (last 180 lines)
+```text
+Page Rules inspection skipped: GET /zones/4a815a59682dce83132bf0a858580c2d/pagerules?status=active&per_page=100: Unauthorized to access requested resource
+Rulesets inspection skipped: GET /zones/4a815a59682dce83132bf0a858580c2d/rulesets: Authentication error
+No malformed redirect rule remained in accessible Cloudflare settings.
+Removed 0 malformed Cloudflare redirect rule(s).
+```
+
+## worker-routing-patch.log (last 180 lines)
+```text
+file:///home/runner/work/batys-pest-control/batys-pest-control/scripts/patch-worker-routing.mjs:9
+  if (!source.includes(marker)) throw new Error(`Could not find ${label} marker in src/worker.ts.`);
+                                      ^
+
+Error: Could not find main-domain routing marker in src/worker.ts.
+    at replaceRequired (file:///home/runner/work/batys-pest-control/batys-pest-control/scripts/patch-worker-routing.mjs:9:39)
+    at file:///home/runner/work/batys-pest-control/batys-pest-control/scripts/patch-worker-routing.mjs:16:1
+
+Node.js v22.23.1
+```
