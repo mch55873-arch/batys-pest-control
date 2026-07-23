@@ -93,6 +93,15 @@ jobs:
           set -o pipefail
           npx wrangler deploy 2>&1 | tee wrangler-deploy.log
 
+      - name: Purge cache and diagnose state route
+        id: route_diagnostics
+        if: steps.deploy.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          node scripts/diagnose-cloudflare-routing.mjs 2>&1 | tee cloudflare-route-diagnostics.log
+
       - name: Write deployment report
         if: always()
         shell: bash
@@ -103,6 +112,7 @@ jobs:
           OPENNEXT_OUTCOME: ${{ steps.opennext.outcome }}
           ASSETS_OUTCOME: ${{ steps.assets.outcome }}
           DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+          DIAGNOSTICS_OUTCOME: ${{ steps.route_diagnostics.outcome }}
         run: |
           {
             echo '# Cloudflare Deployment Report'
@@ -116,7 +126,8 @@ jobs:
             echo "- OpenNext build: **${OPENNEXT_OUTCOME:-skipped}**"
             echo "- Worker assets: **${ASSETS_OUTCOME:-skipped}**"
             echo "- Wrangler deploy: **${DEPLOY_OUTCOME:-skipped}**"
-            for log in npm-install.log cloudflare-redirect-cleanup.log worker-routing-patch.log opennext-build.log worker-assets.log wrangler-deploy.log; do
+            echo "- Route diagnostics: **${DIAGNOSTICS_OUTCOME:-skipped}**"
+            for log in npm-install.log cloudflare-redirect-cleanup.log worker-routing-patch.log opennext-build.log worker-assets.log wrangler-deploy.log cloudflare-route-diagnostics.log; do
               if [ -f "$log" ]; then
                 echo
                 echo "## $log (last 160 lines)"
@@ -152,6 +163,7 @@ jobs:
             opennext-build.log
             worker-assets.log
             wrangler-deploy.log
+            cloudflare-route-diagnostics.log
             deployment-report.md
           if-no-files-found: ignore
           retention-days: 3
