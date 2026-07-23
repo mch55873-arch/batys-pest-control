@@ -1,4 +1,6 @@
 import services from '../data/services.json';
+import database from '../data/usa_database.json';
+import { coreSitemap, sitemapIndex, stateSitemap } from './sitemaps';
 
 type Env = { ASSETS: { fetch(input: Request | string): Promise<Response> } };
 type Context = { waitUntil(promise: Promise<unknown>): void };
@@ -140,7 +142,29 @@ export default {
       return Response.redirect(url.toString(), 308);
     }
 
-    if (hostname === DOMAIN) {
+    if (hostname === DOMAIN || hostname.endsWith('.workers.dev')) {
+      if (path === '/robots.txt') {
+        const body = `User-agent: *\nAllow: /\nSitemap: https://${DOMAIN}/sitemap.xml\n`;
+        return new Response(request.method === 'HEAD' ? null : body, {
+          headers: {
+            'content-type': 'text/plain; charset=utf-8',
+            'cache-control': 'public, s-maxage=86400',
+            'content-length': String(new TextEncoder().encode(body).byteLength),
+          },
+        });
+      }
+
+      if (path === '/sitemap.xml') return sitemapIndex(database.states, request.method);
+      if (path === '/sitemaps/core.xml') return coreSitemap(database.states, request.method);
+
+      const sitemapMatch = path.match(/^\/sitemaps\/(.+)-(\d+)\.xml$/);
+      if (sitemapMatch) {
+        const stateCode = sitemapMatch[1].toLowerCase();
+        const state = database.states.find((s) => s.code.toLowerCase() === stateCode);
+        const sitemap = state ? stateSitemap(state, Number(sitemapMatch[2]), request.method) : null;
+        return sitemap || new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8' } });
+      }
+
       const segments = path.split('/').filter(Boolean);
       const state = segments[0];
       if (state && STATE_NAMES[state]) {
