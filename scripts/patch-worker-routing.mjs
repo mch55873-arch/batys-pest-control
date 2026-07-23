@@ -27,7 +27,7 @@ if (!source.includes(apexReplacement)) {
 }
 
 const stateMarker = `    if (!location.city) {\n      if (path !== '/') return errorPage(404, 'This state page does not have that route.');`;
-const stateReplacement = `    if (!location.city) {\n      const duplicateStatePath = \`/\${location.state}\`;\n      if (path === duplicateStatePath || path === \`\${duplicateStatePath}/\`) {\n        url.pathname = '/';\n        return Response.redirect(url.toString(), 308);\n      }\n      if (path !== '/') return errorPage(404, 'This state page does not have that route.');`;
+const stateReplacement = `    if (!location.city) {\n      const duplicateStatePath = \`/\${location.state}\`;\n      if (path !== '/' && path !== duplicateStatePath && path !== \`\${duplicateStatePath}/\`) {\n        return errorPage(404, 'This state page does not have that route.');\n      }`;
 
 if (!source.includes(stateReplacement)) {
   if (!source.includes(stateMarker)) {
@@ -50,7 +50,7 @@ if (!source.includes(stateAssetReplacement)) {
 
 if (changed) {
   await writeFile(file, source);
-  console.log('Patched canonical, apex navigation, duplicate state paths, and state alias delivery into src/worker.ts.');
+  console.log('Patched canonical, apex navigation, state path compatibility, and state alias delivery into src/worker.ts.');
 } else {
-  console.log('Canonical, apex navigation, duplicate state paths, and state alias delivery patches are already present.');
+  console.log('Canonical, apex navigation, state path compatibility, and state alias delivery patches are already present.');
 }
