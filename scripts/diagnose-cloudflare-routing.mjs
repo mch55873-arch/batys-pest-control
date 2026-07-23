@@ -23,6 +23,31 @@ async function api(path, init = {}) {
   return payload.result;
 }
 
+async function trace(label, start, requestHeaders = {}) {
+  let current = start;
+  console.log(`\n${label}: ${current}`);
+  for (let hop = 0; hop < 10; hop += 1) {
+    const response = await fetch(current, {
+      redirect: 'manual',
+      headers: {
+        'User-Agent': 'Batys-Route-Diagnostic/1.0',
+        ...requestHeaders,
+      },
+    });
+    const location = response.headers.get('location');
+    const cache = response.headers.get('cf-cache-status');
+    const age = response.headers.get('age');
+    const ray = response.headers.get('cf-ray');
+    console.log(`Hop ${hop + 1}: ${response.status} ${current}${location ? ` -> ${location}` : ''} | cf-cache=${cache || '-'} age=${age || '-'} ray=${ray || '-'}`);
+    if (response.status < 300 || response.status >= 400 || !location) {
+      const body = await response.text();
+      console.log(`Final response snippet: ${body.slice(0, 300).replace(/\s+/g, ' ')}`);
+      break;
+    }
+    current = new URL(location, current).toString();
+  }
+}
+
 const zones = await api(`/zones?name=${encodeURIComponent(DOMAIN)}&status=active`);
 const zone = zones?.[0];
 if (!zone?.id) throw new Error(`Active Cloudflare zone not found for ${DOMAIN}.`);
@@ -80,23 +105,12 @@ try {
   console.warn(`Cloudflare cache purge skipped: ${error.message}`);
 }
 
-let current = `${STATE_URL}?cfdiag=${Date.now()}`;
-console.log(`Redirect chain starting at ${current}`);
-for (let hop = 0; hop < 10; hop += 1) {
-  const response = await fetch(current, {
-    redirect: 'manual',
-    headers: {
-      'Cache-Control': 'no-cache, no-store, max-age=0',
-      Pragma: 'no-cache',
-      'User-Agent': 'Batys-Route-Diagnostic/1.0',
-    },
-  });
-  const location = response.headers.get('location');
-  console.log(`Hop ${hop + 1}: ${response.status} ${current}${location ? ` -> ${location}` : ''}`);
-  if (response.status < 300 || response.status >= 400 || !location) {
-    const body = await response.text();
-    console.log(`Final response snippet: ${body.slice(0, 300).replace(/\s+/g, ' ')}`);
-    break;
-  }
-  current = new URL(location, current).toString();
-}
+await trace('Bare URL with normal headers', STATE_URL);
+await trace('Bare URL with no-cache headers', STATE_URL, {
+  'Cache-Control': 'no-cache, no-store, max-age=0',
+  Pragma: 'no-cache',
+});
+await trace('Cache-busting URL', `${STATE_URL}?cfdiag=${Date.now()}`, {
+  'Cache-Control': 'no-cache, no-store, max-age=0',
+  Pragma: 'no-cache',
+});
