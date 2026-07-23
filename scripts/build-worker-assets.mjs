@@ -5,6 +5,8 @@ const root = process.cwd();
 const openNext = path.join(root, '.open-next');
 const dist = path.join(root, 'dist');
 const cacheBase = path.join(openNext, 'cache');
+const locationDatabase = JSON.parse(await readFile(path.join(root, 'data', 'usa_locations.json'), 'utf8'));
+const stateSlugs = new Set(locationDatabase.states.map((state) => state.slug));
 
 await rm(dist, { recursive: true, force: true });
 await cp(path.join(openNext, 'assets'), dist, { recursive: true });
@@ -23,6 +25,7 @@ async function walk(directory) {
 }
 
 let pageCount = 0;
+let stateAliasCount = 0;
 for (const file of await walk(cacheRoot)) {
   if (!file.endsWith('.cache')) continue;
   const relative = path.relative(cacheRoot, file).replaceAll(path.sep, '/').replace(/\.cache$/, '');
@@ -44,7 +47,16 @@ for (const file of await walk(cacheRoot)) {
       : path.join(dist, relative, 'index.html');
   await mkdir(path.dirname(output), { recursive: true });
   await writeFile(output, value.html);
+
+  if (stateSlugs.has(relative)) {
+    const stateAlias = path.join(dist, '__state-pages', `${relative}.state`);
+    await mkdir(path.dirname(stateAlias), { recursive: true });
+    await writeFile(stateAlias, value.html);
+    stateAliasCount += 1;
+  }
+
   pageCount += 1;
 }
 
 console.log(`Prepared ${pageCount} static HTML/metadata routes in dist.`);
+console.log(`Prepared ${stateAliasCount} canonical-safe state page aliases.`);
