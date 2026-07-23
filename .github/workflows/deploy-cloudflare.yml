@@ -95,6 +95,48 @@ jobs:
           set -o pipefail
           npx wrangler deploy 2>&1 | tee wrangler-deploy.log
 
+      - name: Verify production routes
+        id: verify
+        if: steps.deploy.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          check_200() {
+            local label="$1"
+            local url="$2"
+            local result
+            result=$(curl --fail-with-body --silent --show-error --location --max-redirs 8 --connect-timeout 15 --max-time 45 --output /dev/null --write-out '%{http_code}|%{url_effective}' "$url")
+            local code="${result%%|*}"
+            local final="${result#*|}"
+            echo "$label :: $url :: $code :: $final"
+            test "$code" = "200"
+          }
+          check_final() {
+            local label="$1"
+            local url="$2"
+            local expected="$3"
+            local result
+            result=$(curl --fail-with-body --silent --show-error --location --max-redirs 8 --connect-timeout 15 --max-time 45 --output /dev/null --write-out '%{http_code}|%{url_effective}' "$url")
+            local code="${result%%|*}"
+            local final="${result#*|}"
+            echo "$label :: $url :: $code :: $final :: expected $expected"
+            test "$code" = "200"
+            test "$final" = "$expected"
+          }
+          {
+            check_200 "Homepage" "https://batyspestcontrol.com/"
+            check_200 "Services hub" "https://batyspestcontrol.com/services"
+            check_200 "Service areas" "https://batyspestcontrol.com/locations"
+            check_200 "Articles hub" "https://batyspestcontrol.com/articles"
+            check_200 "Service detail" "https://batyspestcontrol.com/services/emergency-pest-control"
+            check_final "Apex state path" "https://batyspestcontrol.com/north-carolina" "https://north-carolina.batyspestcontrol.com/"
+            check_final "Duplicate state path" "https://north-carolina.batyspestcontrol.com/north-carolina" "https://north-carolina.batyspestcontrol.com/"
+            check_final "Subdomain global service link" "https://north-carolina.batyspestcontrol.com/services/emergency-pest-control" "https://batyspestcontrol.com/services/emergency-pest-control"
+            check_200 "City homepage" "https://charlotte-north-carolina.batyspestcontrol.com/"
+            check_200 "City local service" "https://charlotte-north-carolina.batyspestcontrol.com/emergency-pest-control"
+          } 2>&1 | tee production-route-verification.log
+
       - name: Write deployment report
         if: always()
         shell: bash
@@ -105,6 +147,7 @@ jobs:
           OPENNEXT_OUTCOME: ${{ steps.opennext.outcome }}
           ASSETS_OUTCOME: ${{ steps.assets.outcome }}
           DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+          VERIFY_OUTCOME: ${{ steps.verify.outcome }}
         run: |
           {
             echo '# Cloudflare Deployment Report'
@@ -118,7 +161,8 @@ jobs:
             echo "- OpenNext build: **${OPENNEXT_OUTCOME:-skipped}**"
             echo "- Worker assets: **${ASSETS_OUTCOME:-skipped}**"
             echo "- Wrangler deploy: **${DEPLOY_OUTCOME:-skipped}**"
-            for log in npm-install.log cloudflare-redirect-cleanup.log worker-routing-patch.log opennext-build.log worker-assets.log wrangler-deploy.log; do
+            echo "- Live route verification: **${VERIFY_OUTCOME:-skipped}**"
+            for log in npm-install.log cloudflare-redirect-cleanup.log worker-routing-patch.log opennext-build.log worker-assets.log wrangler-deploy.log production-route-verification.log; do
               if [ -f "$log" ]; then
                 echo
                 echo "## $log (last 160 lines)"
@@ -154,6 +198,7 @@ jobs:
             opennext-build.log
             worker-assets.log
             wrangler-deploy.log
+            production-route-verification.log
             deployment-report.md
           if-no-files-found: ignore
           retention-days: 3
@@ -167,9 +212,10 @@ jobs:
           OPENNEXT_OUTCOME: ${{ steps.opennext.outcome }}
           ASSETS_OUTCOME: ${{ steps.assets.outcome }}
           DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+          VERIFY_OUTCOME: ${{ steps.verify.outcome }}
         run: |
-          if [ "$INSTALL_OUTCOME" != "success" ] || [ "$ROUTE_PATCH_OUTCOME" != "success" ] || [ "$OPENNEXT_OUTCOME" != "success" ] || [ "$ASSETS_OUTCOME" != "success" ] || [ "$DEPLOY_OUTCOME" != "success" ]; then
-            echo "Deployment failed. Check the uploaded diagnostics artifact."
+          if [ "$INSTALL_OUTCOME" != "success" ] || [ "$ROUTE_PATCH_OUTCOME" != "success" ] || [ "$OPENNEXT_OUTCOME" != "success" ] || [ "$ASSETS_OUTCOME" != "success" ] || [ "$DEPLOY_OUTCOME" != "success" ] || [ "$VERIFY_OUTCOME" != "success" ]; then
+            echo "Deployment or live verification failed. Check the uploaded diagnostics artifact."
             exit 1
           fi
-          echo "Deployment completed successfully."
+          echo "Deployment and live route verification completed successfully."
