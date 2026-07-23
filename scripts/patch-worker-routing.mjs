@@ -37,9 +37,20 @@ if (!source.includes(stateReplacement)) {
   changed = true;
 }
 
+const stateAssetMarker = "      return env.ASSETS.fetch(new Request(`https://assets.local/${location.state}/`, request));";
+const stateAssetReplacement = "      return env.ASSETS.fetch(new Request(`https://assets.local/${location.state}`, request));";
+
+if (!source.includes(stateAssetReplacement)) {
+  if (!source.includes(stateAssetMarker)) {
+    throw new Error('Could not find the state static-asset routing marker in src/worker.ts.');
+  }
+  source = source.replace(stateAssetMarker, stateAssetReplacement);
+  changed = true;
+}
+
 if (changed) {
   await writeFile(file, source);
-  console.log('Patched canonical, apex navigation, and duplicate state-subdomain redirects into src/worker.ts.');
+  console.log('Patched canonical, apex navigation, state asset, and duplicate state-subdomain routing into src/worker.ts.');
 } else {
-  console.log('Canonical, apex navigation, and duplicate state-subdomain redirect patches are already present.');
+  console.log('Canonical, apex navigation, state asset, and duplicate state-subdomain routing patches are already present.');
 }
