@@ -1,1 +1,2 @@
 Trigger the final verified Cloudflare production deployment.
+Event: synchronize
