@@ -2,7 +2,7 @@ import { SITE } from '@/lib/site';
 
 export default function NotFound() {
   return (
-    <main className="grid min-h-[70vh] place-items-center bg-[#f4f7f9] px-4 py-20">
+    <div className="grid min-h-[70vh] place-items-center bg-[#f4f7f9] px-4 py-20">
       <section className="w-full max-w-3xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white text-center shadow-xl">
         <div className="bg-[#0b1c2d] px-6 py-14 text-white sm:px-12">
           <p className="font-heading text-8xl font-black text-sky-300/20">404</p>
@@ -15,6 +15,6 @@ export default function NotFound() {
           <a href={SITE.phoneHref} className="min-h-12 rounded-xl bg-[#f47b20] px-5 py-4 font-black text-white">Call {SITE.phoneDisplay}</a>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
