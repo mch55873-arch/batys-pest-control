@@ -37,9 +37,20 @@ if (!source.includes(stateReplacement)) {
   changed = true;
 }
 
+const stateAssetMarker = `      return env.ASSETS.fetch(new Request(\`https://assets.local/\${location.state}/\`, request));`;
+const stateAssetReplacement = `      const stateAsset = await env.ASSETS.fetch(new Request(\`https://assets.local/__state-pages/\${location.state}.state\`, request));\n      if (!stateAsset.ok) return errorPage(404, 'This state page could not be loaded.');\n      const stateHeaders = new Headers(stateAsset.headers);\n      stateHeaders.set('content-type', 'text/html; charset=utf-8');\n      stateHeaders.set('cache-control', 'public, max-age=0, s-maxage=86400, stale-while-revalidate=604800');\n      stateHeaders.set('x-batys-runtime', 'state-static-alias');\n      return new Response(request.method === 'HEAD' ? null : stateAsset.body, { status: 200, headers: stateHeaders });`;
+
+if (!source.includes(stateAssetReplacement)) {
+  if (!source.includes(stateAssetMarker)) {
+    throw new Error('Could not find the state asset delivery marker in src/worker.ts.');
+  }
+  source = source.replace(stateAssetMarker, stateAssetReplacement);
+  changed = true;
+}
+
 if (changed) {
   await writeFile(file, source);
-  console.log('Patched canonical, apex navigation, and duplicate state-subdomain redirects into src/worker.ts.');
+  console.log('Patched canonical, apex navigation, duplicate state paths, and state alias delivery into src/worker.ts.');
 } else {
-  console.log('Canonical, apex navigation, and duplicate state-subdomain redirect patches are already present.');
+  console.log('Canonical, apex navigation, duplicate state paths, and state alias delivery patches are already present.');
 }
