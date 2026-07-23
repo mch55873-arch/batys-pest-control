@@ -53,3 +53,5 @@ if (changed) {
 } else {
   console.log('Routing, state delivery, and local-page cache patches are already present.');
 }
+
+await import('./patch-worker-shell.mjs');
