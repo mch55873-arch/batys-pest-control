@@ -1,0 +1,51 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+summary {
+  list-style: none;
+}
+
+/* Normalize legacy green utility classes retained on older content templates. */
+[class*="bg-emerald-500"] {
+  background-color: #f47b20 !important;
+}
+
+[class*="bg-emerald-100"],
+[class*="bg-emerald-50"] {
+  background-color: #e0f2fe !important;
+}
+
+[class*="bg-emerald-900"],
+[class*="bg-[#092e27]"],
+[class*="bg-[#0b3b31]"] {
+  background-color: #0b1c2d !important;
+}
+
+[class*="text-emerald-900"],
+[class*="text-emerald-800"],
+[class*="text-emerald-700"],
+[class*="text-emerald-600"] {
+  color: #0794bd !important;
+}
+
+[class*="text-emerald-300"],
+[class*="text-emerald-200"],
+[class*="text-emerald-50"] {
+  color: #bae6fd !important;
+}
+
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
