@@ -31,7 +31,7 @@ export function sitemapIndex(states: StateItem[], method = "GET") {
   for (const state of states) {
     const chunks = Math.ceil((state.cities.length * URLS_PER_CITY) / SITEMAP_LIMIT);
     for (let chunk = 1; chunk <= chunks; chunk++) {
-      entries.push(`https://${DOMAIN}/sitemaps/${state.code}-${chunk}.xml`);
+      entries.push(`https://${DOMAIN}/sitemaps/${state.slug}-${chunk}.xml`);
     }
   }
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.map((loc) => `  <sitemap><loc>${xml(loc)}</loc></sitemap>`).join("\n")}\n</sitemapindex>`;
@@ -54,7 +54,7 @@ export function coreSitemap(states: StateItem[], method = "GET") {
   const urls = [
     ...corePaths.map((path) => `https://${DOMAIN}${path}`),
     ...servicesData.map((service) => `https://${DOMAIN}/services/${service.slug}`),
-    ...states.map((state) => `https://${state.code}.${DOMAIN}/`),
+    ...states.map((state) => `https://${state.slug}.${DOMAIN}/`),
   ];
   return sitemapUrlset(urls, method);
 }
@@ -70,7 +70,7 @@ export function stateSitemap(state: StateItem, chunk: number, method = "GET") {
     const cityIndex = Math.floor(index / URLS_PER_CITY);
     const pageIndex = index % URLS_PER_CITY;
     const city = state.cities[cityIndex];
-    const host = `${city.slug}-${state.code}.${DOMAIN}`;
+    const host = `${city[0]}-${state.slug}.${DOMAIN}`;
     urls.push(pageIndex === 0 ? `https://${host}/` : `https://${host}/${servicesData[pageIndex - 1].slug}`);
   }
   return sitemapUrlset(urls, method);

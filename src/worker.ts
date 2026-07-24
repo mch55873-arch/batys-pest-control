@@ -159,8 +159,8 @@ export default {
 
       const sitemapMatch = path.match(/^\/sitemaps\/(.+)-(\d+)\.xml$/);
       if (sitemapMatch) {
-        const stateCode = sitemapMatch[1].toLowerCase();
-        const state = database.states.find((s) => s.code.toLowerCase() === stateCode);
+        const stateSlug = sitemapMatch[1].toLowerCase();
+        const state = database.states.find((s) => s.slug.toLowerCase() === stateSlug || s.code.toLowerCase() === stateSlug);
         if (!state) return new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8' } });
         const sitemap = stateSitemap(state, Number(sitemapMatch[2]), request.method);
         if (!sitemap) return new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8' } });
