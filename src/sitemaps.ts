@@ -17,7 +17,9 @@ function xmlResponse(body: string, method = "GET") {
     headers: {
       "content-type": "application/xml; charset=utf-8",
       "content-length": String(bytes.byteLength),
-      "cache-control": "public, max-age=300, s-maxage=86400, stale-while-revalidate=604800",
+      "cache-control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000",
+      "cdn-cache-control": "public, max-age=604800",
+      "cloudflare-cdn-cache-control": "public, max-age=604800",
       "x-content-type-options": "nosniff",
       "access-control-allow-origin": "*",
     },

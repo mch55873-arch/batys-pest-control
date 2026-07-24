@@ -154,15 +154,17 @@ export default {
         });
       }
 
-      if (path === '/sitemap.xml') return sitemapIndex(database.states, request.method);
-      if (path === '/sitemaps/core.xml') return coreSitemap(database.states, request.method);
+      if (path === '/sitemap.xml') return cached(request, context, () => sitemapIndex(database.states, request.method));
+      if (path === '/sitemaps/core.xml') return cached(request, context, () => coreSitemap(database.states, request.method));
 
       const sitemapMatch = path.match(/^\/sitemaps\/(.+)-(\d+)\.xml$/);
       if (sitemapMatch) {
         const stateCode = sitemapMatch[1].toLowerCase();
         const state = database.states.find((s) => s.code.toLowerCase() === stateCode);
-        const sitemap = state ? stateSitemap(state, Number(sitemapMatch[2]), request.method) : null;
-        return sitemap || new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8' } });
+        if (!state) return new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8' } });
+        const sitemap = stateSitemap(state, Number(sitemapMatch[2]), request.method);
+        if (!sitemap) return new Response('Not Found', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8' } });
+        return cached(request, context, () => sitemap);
       }
 
       const segments = path.split('/').filter(Boolean);
