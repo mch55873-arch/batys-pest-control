@@ -13,10 +13,10 @@ export async function GET(
   const chunk = parseInt(match[2], 10);
 
   const state = database.states.find(
-    (s) =>
-      s.slug?.toLowerCase() === stateSlug ||
-      s.code?.toLowerCase() === stateSlug ||
-      s.name?.toLowerCase().replace(/\s+/g, "-") === stateSlug
+    (s: any) =>
+      (s.slug && s.slug.toLowerCase() === stateSlug) ||
+      (s.code && s.code.toLowerCase() === stateSlug) ||
+      (s.name && s.name.toLowerCase().replace(/\s+/g, "-") === stateSlug)
   );
 
   if (!state) return new Response("State Not Found", { status: 404 });
