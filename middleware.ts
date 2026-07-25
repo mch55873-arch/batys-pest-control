@@ -24,7 +24,7 @@ function locationFromSubdomain(subdomain: string) {
 }
 
 function isAsset(pathname: string) {
-  return pathname.startsWith('/_next/') || pathname.startsWith('/cdn-cgi/') || /\.[a-z0-9]{2,8}$/i.test(pathname);
+  return pathname.startsWith('/_next/') || pathname.startsWith('/cdn-cgi/') || pathname.startsWith('/sitemaps/') || /\.[a-z0-9]{2,8}$/i.test(pathname);
 }
 
 export function middleware(request: NextRequest) {
@@ -40,7 +40,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 308);
   }
 
-  // Handle robots.txt and all sitemap XML files cleanly
+  // Handle robots.txt and sitemap index redirects from subdomains
   if (url.pathname === '/robots.txt' || url.pathname === '/sitemap.xml' || url.pathname.startsWith('/sitemaps/')) {
     if (subdomain) {
       url.hostname = DOMAIN;
@@ -78,5 +78,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|sitemaps).*)'],
 };
