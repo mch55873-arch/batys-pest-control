@@ -40,6 +40,16 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 308);
   }
 
+  // Handle robots.txt and all sitemap XML files cleanly
+  if (url.pathname === '/robots.txt' || url.pathname === '/sitemap.xml' || url.pathname.startsWith('/sitemaps/')) {
+    if (subdomain) {
+      url.hostname = DOMAIN;
+      url.port = '';
+      return NextResponse.redirect(url, 308);
+    }
+    return NextResponse.next();
+  }
+
   if (!subdomain) {
     const segments = url.pathname.split('/').filter(Boolean);
     const state = segments[0];
@@ -54,21 +64,19 @@ export function middleware(request: NextRequest) {
   }
 
   if (isAsset(url.pathname)) return NextResponse.next();
-  if (url.pathname === '/robots.txt' || url.pathname === '/sitemap.xml') {
-    url.hostname = DOMAIN;
-    return NextResponse.redirect(url, 308);
-  }
 
   const location = locationFromSubdomain(subdomain);
   if (!location) return NextResponse.next();
 
-  const suffix = url.pathname === '/' ? '' : url.pathname;
-  url.pathname = location.city
-    ? `/${location.state}/${location.city}${suffix}`
-    : `/${location.state}${suffix}`;
+  if (!location.city) {
+    url.pathname = `/subdomain/${location.state}${url.pathname}`;
+    return NextResponse.rewrite(url);
+  }
+
+  url.pathname = `/subdomain/${location.city}-${location.state}${url.pathname}`;
   return NextResponse.rewrite(url);
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };
