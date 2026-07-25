@@ -87,7 +87,7 @@ export default {
       if (sitemapMatch) {
         const stateSlug = sitemapMatch[1].toLowerCase();
         const state = database.states.find(
-          (s) =>
+          (s: any) =>
             (s.slug && s.slug.toLowerCase() === stateSlug) ||
             (s.code && s.code.toLowerCase() === stateSlug) ||
             (s.name && s.name.toLowerCase().replace(/\s+/g, '-') === stateSlug)
