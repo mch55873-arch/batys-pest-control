@@ -1,6 +1,17 @@
 import services from '../data/services.json';
 import database from '../data/usa_database.json';
-import { cityPage, homePage, localServicePage, notFoundPage, statePage, type StateRow } from './locationTemplates';
+import {
+  areasWeServePage,
+  cityPage,
+  homePage,
+  infoPage,
+  localServicePage,
+  nationalServicePage,
+  notFoundPage,
+  servicesHubPage,
+  statePage,
+  type StateRow
+} from './locationTemplates';
 import { coreSitemap, sitemapIndex, stateSitemap } from './sitemaps';
 
 type Env = { ASSETS: { fetch(input: Request | string): Promise<Response> } };
@@ -16,7 +27,6 @@ function getStateSlug(state: any): string {
   return '';
 }
 
-// Standardize state objects so each has a valid slug and cities array of [slug, name] tuples
 const states: StateRow[] = rawStates.map((s: any) => {
   const slug = getStateSlug(s);
   const cities: [string, string][] = (s.cities || []).map((c: any) => {
@@ -118,8 +128,43 @@ export default {
         return cached(request, context, () => res);
       }
 
-      if (path === "/locations" || path === "/locations/") {
-        return redirect(`https://${DOMAIN}/locations`);
+      if (path === "/services" || path === "/services/") {
+        return cached(request, context, () => htmlResponse(servicesHubPage(), method));
+      }
+
+      if (path.startsWith("/services/")) {
+        const slug = path.split("/")[2];
+        const service = services.find((s) => s.slug === slug);
+        if (service) {
+          return cached(request, context, () => htmlResponse(nationalServicePage(service as any), method));
+        }
+      }
+
+      if (path === "/areas-we-serve" || path === "/areas-we-serve/" || path === "/locations" || path === "/locations/") {
+        return cached(request, context, () => htmlResponse(areasWeServePage(states), method));
+      }
+
+      const infoPages: Record<string, string> = {
+        "/about": "About Batys Pest Control",
+        "/about/": "About Batys Pest Control",
+        "/contact": "Contact Us",
+        "/contact/": "Contact Us",
+        "/privacy-policy": "Privacy Policy",
+        "/privacy-policy/": "Privacy Policy",
+        "/terms": "Terms of Service",
+        "/terms/": "Terms of Service",
+        "/provider-disclosure": "Provider Disclosure",
+        "/provider-disclosure/": "Provider Disclosure",
+        "/accessibility": "Accessibility Statement",
+        "/accessibility/": "Accessibility Statement",
+        "/disclaimer": "Disclaimer",
+        "/disclaimer/": "Disclaimer",
+      };
+
+      if (infoPages[path]) {
+        const title = infoPages[path];
+        const content = `<p>Welcome to ${title} on Batys Pest Control. We provide independent pest control research, local service routing, and provider referral information across all 50 US states.</p><p>For inquiries, call <strong>(614) 926-0787</strong>.</p>`;
+        return cached(request, context, () => htmlResponse(infoPage(title, content, path), method));
       }
 
       const parts = path.split("/").filter(Boolean);
@@ -130,7 +175,7 @@ export default {
         const citySlug = parts[2];
         if (citySlug && state.cities.some(([slug]) => slug === citySlug)) {
           url.hostname = `${citySlug}-${state.slug}.${DOMAIN}`;
-          url.pathname = parts[3] ? `/${parts.slice(3).join("/")}` : "/";
+          url.pathname = parts[3] ? `/${parts.slice(3).join("/")}/` : "/";
         } else {
           url.hostname = `${state.slug}.${DOMAIN}`;
           url.pathname = "/";
@@ -144,7 +189,7 @@ export default {
         url.hostname = citySlug && state.cities.some(([slug]) => slug === citySlug)
           ? `${citySlug}-${state.slug}.${DOMAIN}`
           : `${state.slug}.${DOMAIN}`;
-        url.pathname = parts[2] ? `/${parts.slice(2).join("/")}` : "/";
+        url.pathname = parts[2] ? `/${parts.slice(2).join("/")}/` : "/";
         return redirect(url.toString());
       }
 
@@ -162,7 +207,7 @@ export default {
       return redirect(`https://${DOMAIN}${path}`);
     }
 
-    const apexRoutes = ["/services", "/locations", "/articles", "/about", "/contact", "/privacy-policy", "/terms", "/disclaimer", "/cookie-policy", "/editorial-policy", "/provider-disclosure", "/accessibility"];
+    const apexRoutes = ["/services", "/areas-we-serve", "/locations", "/articles", "/about", "/contact", "/privacy-policy", "/terms", "/disclaimer", "/cookie-policy", "/editorial-policy", "/provider-disclosure", "/accessibility"];
     if (apexRoutes.some((prefix) => path === prefix || path === `${prefix}/` || path.startsWith(`${prefix}/`))) {
       return redirect(`https://${DOMAIN}${path}`);
     }

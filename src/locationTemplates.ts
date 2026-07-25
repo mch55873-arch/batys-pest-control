@@ -6,10 +6,10 @@ const PHONE_DISPLAY = "(614) 926-0787";
 const PHONE_HREF = "tel:+16149260787";
 
 const IMAGES = {
-  hero: "https://images.pexels.com/photos/34859642/pexels-photo-34859642.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  state: "https://images.pexels.com/photos/34859642/pexels-photo-34859642.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  city: "https://images.pexels.com/photos/28384143/pexels-photo-28384143.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  service: "https://images.pexels.com/photos/34711989/pexels-photo-34711989.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  hero: "https://batyspestcontrol.com/images/pest-control-hero.webp",
+  state: "https://batyspestcontrol.com/images/media__1783510889843.jpg",
+  city: "https://batyspestcontrol.com/images/media__1783510889927.jpg",
+  service: "https://batyspestcontrol.com/images/media__1783510931195.jpg",
 };
 
 const CSS = `
@@ -21,11 +21,11 @@ function esc(value: string) {
 }
 
 function header() {
-  return `<div class="top"><div class="wrap"><span>● &nbsp; Nationwide pest control location directory</span><span><b>Independent provider network</b> &nbsp; | &nbsp; Call ${PHONE_DISPLAY}</span></div></div><header class="nav"><div class="wrap"><a class="brand" href="https://${DOMAIN}/"><span class="logo">B</span><span>Batys Pest Control<small>Services · Locations · Pest Guides</small></span></a><nav class="links"><a href="https://${DOMAIN}/">Home</a><a href="https://${DOMAIN}/services">Services</a><a href="https://${DOMAIN}/locations">Service Areas</a><a href="https://${DOMAIN}/about">About</a><a href="https://${DOMAIN}/articles">Articles</a></nav><a class="btn" href="${PHONE_HREF}">Call ${PHONE_DISPLAY}</a></div></header>`;
+  return `<div class="top"><div class="wrap"><span>● &nbsp; Nationwide pest control location directory</span><span><b>Independent provider network</b> &nbsp; | &nbsp; Call ${PHONE_DISPLAY}</span></div></div><header class="nav"><div class="wrap"><a class="brand" href="https://${DOMAIN}/"><span class="logo">B</span><span>Batys Pest Control<small>Services · Locations · Pest Guides</small></span></a><nav class="links"><a href="https://${DOMAIN}/services/">Services</a><a href="https://${DOMAIN}/areas-we-serve/">Areas We Serve</a><a href="https://${DOMAIN}/about/">About</a><a href="https://${DOMAIN}/contact/">Contact</a></nav><a class="btn" href="${PHONE_HREF}">Call ${PHONE_DISPLAY}</a></div></header>`;
 }
 
 function footer() {
-  return `<footer class="footer"><div class="wrap"><div><h3>Batys Pest Control</h3><p>Research pest control issues, compare treatment options and browse independent-provider referral routes across the United States.</p><a class="btn" href="${PHONE_HREF}">Call ${PHONE_DISPLAY}</a></div><div><h3>Explore</h3><a href="https://${DOMAIN}/services">All ${services.length} Pest Services</a><a href="https://${DOMAIN}/locations">States & Cities</a><a href="https://${DOMAIN}/articles">Pest Guides</a><a href="https://${DOMAIN}/about">About</a></div><div><h3>Disclosure</h3><a href="https://${DOMAIN}/provider-disclosure">Provider Disclosure</a><a href="https://${DOMAIN}/privacy-policy">Privacy Policy</a><a href="https://${DOMAIN}/terms">Terms</a><a href="https://${DOMAIN}/disclaimer">Disclaimer</a></div><div class="legal">© ${new Date().getUTCFullYear()} Batys Pest Control. Providers are independent businesses. Verify licensing, insurance, diagnosis, methods, pricing, coverage, and service terms before hiring.</div></div></footer>`;
+  return `<footer class="footer"><div class="wrap"><div><h3>Batys Pest Control</h3><p>Research pest control issues, compare treatment options and browse independent-provider referral routes across the United States.</p><a class="btn" href="${PHONE_HREF}">Call ${PHONE_DISPLAY}</a></div><div><h3>Explore</h3><a href="https://${DOMAIN}/services/">All ${services.length} Pest Services</a><a href="https://${DOMAIN}/areas-we-serve/">States & Cities</a><a href="https://${DOMAIN}/about/">About</a></div><div><h3>Disclosure</h3><a href="https://${DOMAIN}/provider-disclosure/">Provider Disclosure</a><a href="https://${DOMAIN}/privacy-policy/">Privacy Policy</a><a href="https://${DOMAIN}/terms/">Terms</a><a href="https://${DOMAIN}/disclaimer/">Disclaimer</a></div><div class="legal">© ${new Date().getUTCFullYear()} Batys Pest Control. Providers are independent businesses. Verify licensing, insurance, diagnosis, methods, pricing, coverage, and service terms before hiring.</div></div></footer>`;
 }
 
 function shell(title: string, description: string, canonical: string, body: string, schema: unknown) {
@@ -33,7 +33,7 @@ function shell(title: string, description: string, canonical: string, body: stri
 }
 
 function serviceCards(host: string, local: boolean) {
-  return services.map((service, index) => `<a class="card" href="${local ? `https://${host}/${service.slug}` : `https://${DOMAIN}/services/${service.slug}`}"><b>${String(index + 1).padStart(2, "0")}</b><h3>${esc(service.name)}</h3><p>${esc(service.description)}</p><span class="more">Review service →</span></a>`).join("");
+  return services.map((service, index) => `<a class="card" href="${local ? `https://${host}/${service.slug}/` : `https://${DOMAIN}/services/${service.slug}/`}"><b>${String(index + 1).padStart(2, "0")}</b><h3>${esc(service.name)}</h3><p>${esc(service.description)}</p><span class="more">Review service →</span></a>`).join("");
 }
 
 export function homePage(states: StateRow[]) {
@@ -48,7 +48,7 @@ export function homePage(states: StateRow[]) {
         "@type": "Service",
         name: s.name,
         description: s.description,
-        url: `https://${DOMAIN}/services/${s.slug}`
+        url: `https://${DOMAIN}/services/${s.slug}/`
       }
     }))
   };
@@ -76,6 +76,118 @@ export function homePage(states: StateRow[]) {
   return shell("Pest Control Services Directory", "Nationwide pest control and inspection service referral directory across all 50 US states.", canonical, body, schema);
 }
 
+export function servicesHubPage() {
+  const canonical = `https://${DOMAIN}/services/`;
+  const offerCatalog = {
+    "@type": "OfferCatalog",
+    name: "Nationwide Pest Control & Treatment Services",
+    itemListElement: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: s.name,
+        description: s.description,
+        url: `https://${DOMAIN}/services/${s.slug}/`
+      }
+    }))
+  };
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: "All Pest Control & Inspection Services",
+        url: canonical,
+        hasOfferCatalog: offerCatalog
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `https://${DOMAIN}/` },
+          { "@type": "ListItem", position: 2, name: "Services", item: canonical }
+        ]
+      }
+    ]
+  };
+  const body = `<main><section class="hero"><div class="wrap hero-grid"><div><div class="crumb"><a href="https://${DOMAIN}/">Home</a> / Services</div><span class="eyebrow">National Service Hub</span><h1>Pest control & inspection <em>services</em></h1><p>Browse our complete catalog of ${services.length} pest control, inspection, termite treatment, bed bug removal, rodent exclusion, ant control, cockroach treatment, and wildlife removal services.</p><div class="buttons"><a class="btn" href="${PHONE_HREF}">Call ${PHONE_DISPLAY}</a></div></div><div class="hero-photo"><img src="${IMAGES.service}" alt="Pest service" width="800" height="620"></div></div></section><section class="section"><div class="wrap"><div class="head"><div><span class="eyeline">Complete Directory</span><h2>All ${services.length} Service Topics</h2></div></div><div class="grid">${serviceCards(DOMAIN, false)}</div></div></section></main>`;
+  return shell("All Pest Control Services Directory", `Browse all ${services.length} pest control and inspection services across the United States.`, canonical, body, schema);
+}
+
+export function nationalServicePage(service: (typeof services)[number]) {
+  const canonical = `https://${DOMAIN}/services/${service.slug}/`;
+  const related = services.filter((item) => item.category === service.category && item.slug !== service.slug).slice(0, 6);
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        name: service.name,
+        serviceType: service.category,
+        description: service.description,
+        url: canonical,
+        provider: { "@type": "Organization", name: "Batys Pest Control", url: `https://${DOMAIN}/` }
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `https://${DOMAIN}/` },
+          { "@type": "ListItem", position: 2, name: "Services", item: `https://${DOMAIN}/services/` },
+          { "@type": "ListItem", position: 3, name: service.name, item: canonical }
+        ]
+      }
+    ]
+  };
+  const body = `<main><section class="hero"><div class="wrap hero-grid"><div><div class="crumb"><a href="https://${DOMAIN}/">Home</a> / <a href="https://${DOMAIN}/services/">Services</a> / ${esc(service.name)}</div><span class="eyebrow">${esc(service.category)}</span><h1>${esc(service.name)} <em>Guide & Service Directory</em></h1><p>${esc(service.description)} Review warning signs, inspection considerations, and independent provider options.</p><div class="buttons"><a class="btn" href="${PHONE_HREF}">Call ${PHONE_DISPLAY}</a><a class="btn ghost" href="https://${DOMAIN}/areas-we-serve/">Find Local Provider</a></div></div><div class="hero-photo"><img src="${IMAGES.service}" alt="${esc(service.name)}" width="800" height="620"></div></div></section><section class="section content"><div class="wrap article"><span class="eyeline">Service Overview</span><h2>About ${esc(service.name)}</h2><p>${esc(service.description)} Start with a thorough diagnosis before authorizing treatment.</p><h2>Related Services</h2><div class="grid" style="margin-top:20px">${related.map((item) => `<a class="card" href="https://${DOMAIN}/services/${item.slug}/"><h3>${esc(item.name)}</h3><p>${esc(item.description)}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section></main>`;
+  return shell(`${service.name} - Batys Pest Control`, service.description, canonical, body, schema);
+}
+
+export function areasWeServePage(states: StateRow[]) {
+  const canonical = `https://${DOMAIN}/areas-we-serve/`;
+  const stateLinks = states.map((s) => `<a href="https://${s.slug}.${DOMAIN}/"><span>${esc(s.name)} (${s.cities.length} cities)</span></a>`).join("");
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: "Areas We Serve - State & City Pest Control Directories",
+        url: canonical
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `https://${DOMAIN}/` },
+          { "@type": "ListItem", position: 2, name: "Areas We Serve", item: canonical }
+        ]
+      }
+    ]
+  };
+  const body = `<main><section class="hero"><div class="wrap hero-grid"><div><div class="crumb"><a href="https://${DOMAIN}/">Home</a> / Areas We Serve</div><span class="eyebrow">Location Directory</span><h1>Pest control services by <em>State & City</em></h1><p>Select your state below to explore city subdomains and local independent pest control service providers.</p><div class="buttons"><a class="btn" href="#states">Browse States</a></div></div><div class="hero-photo"><img src="${IMAGES.state}" alt="Areas we serve" width="800" height="620"></div></div></section><section class="section soft" id="states"><div class="wrap"><div class="directory">${stateLinks}</div></div></section></main>`;
+  return shell("Areas We Serve - State & City Pest Control Directory", "Browse pest control service locations across all 50 US states and thousands of local cities.", canonical, body, schema);
+}
+
+export function infoPage(title: string, content: string, path: string) {
+  const canonical = `https://${DOMAIN}${path}`;
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: title,
+        url: canonical
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `https://${DOMAIN}/` },
+          { "@type": "ListItem", position: 2, name: title, item: canonical }
+        ]
+      }
+    ]
+  };
+  const body = `<main><section class="hero"><div class="wrap hero-grid"><div><div class="crumb"><a href="https://${DOMAIN}/">Home</a> / ${esc(title)}</div><span class="eyebrow">Information</span><h1>${esc(title)}</h1></div><div class="hero-photo"><img src="${IMAGES.hero}" alt="${esc(title)}" width="800" height="620"></div></div></section><section class="section content"><div class="wrap article">${content}</div></section></main>`;
+  return shell(`${title} | Batys Pest Control`, `${title} page on Batys Pest Control.`, canonical, body, schema);
+}
+
 export function statePage(state: StateRow, host: string) {
   const cityLinks = state.cities.map(([slug, name]) => `<a href="https://${slug}-${state.slug}.${DOMAIN}/"><span>${esc(name)}</span></a>`).join("");
   const canonical = `https://${host}/`;
@@ -92,13 +204,13 @@ export function statePage(state: StateRow, host: string) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Service Areas", item: `https://${DOMAIN}/locations` },
+          { "@type": "ListItem", position: 1, name: "Areas We Serve", item: `https://${DOMAIN}/areas-we-serve/` },
           { "@type": "ListItem", position: 2, name: state.name, item: canonical }
         ]
       }
     ]
   };
-  const body = `<main><section class="hero"><div class="wrap hero-grid"><div><div class="crumb"><a href="https://${DOMAIN}/">Home</a> / <a href="https://${DOMAIN}/locations">Service Areas</a> / ${esc(state.name)}</div><span class="eyebrow">${state.code.toUpperCase()} pest control directory</span><h1>Pest control services across <em>${esc(state.name)}</em></h1><p>Choose a city or community, review the complete ${services.length}-service directory and prepare for a consultation with an independent pest provider.</p><div class="buttons"><a class="btn" href="#cities">Browse ${state.cities.length.toLocaleString()} Cities</a><a class="btn ghost" href="#services">View All Services</a></div><div class="badges"><span class="badge">Independent providers</span><span class="badge">City-specific routes</span><span class="badge">Inspection-first guidance</span></div></div><div class="hero-photo"><img src="${IMAGES.state}" alt="Service area properties" width="800" height="620"></div></div></section><section class="stats"><div class="wrap"><div class="stat"><strong>${services.length}</strong><span>Pest topics</span></div><div class="stat"><strong>${state.cities.length.toLocaleString()}</strong><span>Cities & communities</span></div><div class="stat"><strong>${state.code.toUpperCase()}</strong><span>State directory</span></div><div class="stat"><strong>Direct</strong><span>Provider verification</span></div></div></section><section class="section soft" id="cities"><div class="wrap"><div class="head"><div><span class="eyeline">Areas we serve</span><h2>Pest control locations in ${esc(state.name)}</h2><p class="muted">Select a city to open its local service hub.</p></div></div><div class="directory">${cityLinks}</div></div></section><section class="section" id="services"><div class="wrap"><div class="head"><div><span class="eyeline">Complete service directory</span><h2>All ${services.length} pest services</h2><p class="muted">Review termites, bed bugs, rodents, ants, cockroaches, mosquitoes, wildlife, and commercial pest services.</p></div><a class="btn dark" href="https://${DOMAIN}/services">National Service Hub</a></div><div class="grid">${serviceCards(host, false)}</div></div></section></main>`;
+  const body = `<main><section class="hero"><div class="wrap hero-grid"><div><div class="crumb"><a href="https://${DOMAIN}/">Home</a> / <a href="https://${DOMAIN}/areas-we-serve/">Areas We Serve</a> / ${esc(state.name)}</div><span class="eyebrow">${state.code.toUpperCase()} pest control directory</span><h1>Pest control services across <em>${esc(state.name)}</em></h1><p>Choose a city or community, review the complete ${services.length}-service directory and prepare for a consultation with an independent pest provider.</p><div class="buttons"><a class="btn" href="#cities">Browse ${state.cities.length.toLocaleString()} Cities</a><a class="btn ghost" href="#services">View All Services</a></div><div class="badges"><span class="badge">Independent providers</span><span class="badge">City-specific routes</span><span class="badge">Inspection-first guidance</span></div></div><div class="hero-photo"><img src="${IMAGES.state}" alt="Service area properties" width="800" height="620"></div></div></section><section class="stats"><div class="wrap"><div class="stat"><strong>${services.length}</strong><span>Pest topics</span></div><div class="stat"><strong>${state.cities.length.toLocaleString()}</strong><span>Cities & communities</span></div><div class="stat"><strong>${state.code.toUpperCase()}</strong><span>State directory</span></div><div class="stat"><strong>Direct</strong><span>Provider verification</span></div></div></section><section class="section soft" id="cities"><div class="wrap"><div class="head"><div><span class="eyeline">Areas we serve</span><h2>Pest control locations in ${esc(state.name)}</h2><p class="muted">Select a city to open its local service hub.</p></div></div><div class="directory">${cityLinks}</div></div></section><section class="section" id="services"><div class="wrap"><div class="head"><div><span class="eyeline">Complete service directory</span><h2>All ${services.length} pest services</h2><p class="muted">Review termites, bed bugs, rodents, ants, cockroaches, mosquitoes, wildlife, and commercial pest services.</p></div><a class="btn dark" href="https://${DOMAIN}/services/">National Service Hub</a></div><div class="grid">${serviceCards(host, false)}</div></div></section></main>`;
   return shell(`Pest Control Services in ${state.name}`, `Browse ${services.length} pest control services and ${state.cities.length} city routes in ${state.name}.`, canonical, body, schema);
 }
 
@@ -115,7 +227,7 @@ export function cityPage(state: StateRow, city: [string, string], host: string) 
         "@type": "Service",
         name: `${s.name} in ${cityName}`,
         description: s.description,
-        url: `https://${host}/${s.slug}`
+        url: `https://${host}/${s.slug}/`
       }
     }))
   };
@@ -155,13 +267,13 @@ export function cityPage(state: StateRow, city: [string, string], host: string) 
     ]
   };
 
-  const body = `<main><section class="hero"><div class="wrap hero-grid"><div><div class="crumb"><a href="https://${DOMAIN}/locations">Service Areas</a> / <a href="https://${state.slug}.${DOMAIN}/">${esc(state.name)}</a> / ${esc(cityName)}</div><span class="eyebrow">Local pest control guide</span><h1>Pest control in <em>${esc(cityName)}, ${esc(state.name)}</em></h1><p>Explore the complete ${services.length}-service directory for ${esc(cityName)}. Review warning signs, treatment methods, and connect with independent pest professionals.</p><div class="buttons"><a class="btn" href="${PHONE_HREF}">Call ${PHONE_DISPLAY}</a><a class="btn ghost" href="#services">Browse All Services</a></div><div class="badges"><span class="badge">Location-specific guide</span><span class="badge">Inspection-first advice</span><span class="badge">Written-scope checklist</span></div></div><div class="hero-photo"><img src="${IMAGES.city}" alt="Pest control inspection" width="800" height="620"></div></div></section><section class="stats"><div class="wrap"><div class="stat"><strong>${services.length}</strong><span>Pest topics</span></div><div class="stat"><strong>${state.code.toUpperCase()}</strong><span>${esc(state.name)}</span></div><div class="stat"><strong>City</strong><span>${esc(cityName)}</span></div><div class="stat"><strong>Verify</strong><span>Scope & price</span></div></div></section><section class="section soft" id="services"><div class="wrap"><div class="head"><div><span class="eyeline">Pest services</span><h2>Services to review in ${esc(cityName)}</h2><p class="muted">Select a pest or service topic for detailed inspection guidance and treatment options.</p></div></div><div class="grid">${serviceCards(host, true)}</div></div></section><section class="section"><div class="wrap content"><article class="article"><span class="eyeline">Before requesting service</span><h2>Start with an accurate pest inspection</h2><p>A professional recommendation should connect proposed treatments directly to visible evidence. Inspection should identify harborage areas, access points, moisture, and contributing environmental factors.</p><h2>Common warning signs</h2><ul><li>Visible pest activity, droppings, frass, mud tubes, shed skins, or nesting material.</li><li>Unusual structural noise, wall tapping, chewing, or clicking sounds in voids.</li><li>Musty odors, grease marks along baseboards, or damaged food packaging.</li><li>Stings, bites, or property damage to wood, wiring, insulation, or fabrics.</li></ul></article><aside class="side"><span class="eyebrow">${esc(cityName)} coverage</span><h2>Check availability</h2><p>Confirm ZIP-code coverage, scheduling, licensing, and pricing directly with local providers.</p><a class="btn" href="${PHONE_HREF}">Call ${PHONE_DISPLAY}</a><a class="more" href="https://${state.slug}.${DOMAIN}/">Browse ${esc(state.name)} cities →</a></aside></div></section></main>`;
+  const body = `<main><section class="hero"><div class="wrap hero-grid"><div><div class="crumb"><a href="https://${DOMAIN}/areas-we-serve/">Areas We Serve</a> / <a href="https://${state.slug}.${DOMAIN}/">${esc(state.name)}</a> / ${esc(cityName)}</div><span class="eyebrow">Local pest control guide</span><h1>Pest control in <em>${esc(cityName)}, ${esc(state.name)}</em></h1><p>Explore the complete ${services.length}-service directory for ${esc(cityName)}. Review warning signs, treatment methods, and connect with independent pest professionals.</p><div class="buttons"><a class="btn" href="${PHONE_HREF}">Call ${PHONE_DISPLAY}</a><a class="btn ghost" href="#services">Browse All Services</a></div><div class="badges"><span class="badge">Location-specific guide</span><span class="badge">Inspection-first advice</span><span class="badge">Written-scope checklist</span></div></div><div class="hero-photo"><img src="${IMAGES.city}" alt="Pest control inspection" width="800" height="620"></div></div></section><section class="stats"><div class="wrap"><div class="stat"><strong>${services.length}</strong><span>Pest topics</span></div><div class="stat"><strong>${state.code.toUpperCase()}</strong><span>${esc(state.name)}</span></div><div class="stat"><strong>City</strong><span>${esc(cityName)}</span></div><div class="stat"><strong>Verify</strong><span>Scope & price</span></div></div></section><section class="section soft" id="services"><div class="wrap"><div class="head"><div><span class="eyeline">Pest services</span><h2>Services to review in ${esc(cityName)}</h2><p class="muted">Select a pest or service topic for detailed inspection guidance and treatment options.</p></div></div><div class="grid">${serviceCards(host, true)}</div></div></section><section class="section"><div class="wrap content"><article class="article"><span class="eyeline">Before requesting service</span><h2>Start with an accurate pest inspection</h2><p>A professional recommendation should connect proposed treatments directly to visible evidence. Inspection should identify harborage areas, access points, moisture, and contributing environmental factors.</p><h2>Common warning signs</h2><ul><li>Visible pest activity, droppings, frass, mud tubes, shed skins, or nesting material.</li><li>Unusual structural noise, wall tapping, chewing, or clicking sounds in voids.</li><li>Musty odors, grease marks along baseboards, or damaged food packaging.</li><li>Stings, bites, or property damage to wood, wiring, insulation, or fabrics.</li></ul></article><aside class="side"><span class="eyebrow">${esc(cityName)} coverage</span><h2>Check availability</h2><p>Confirm ZIP-code coverage, scheduling, licensing, and pricing directly with local providers.</p><a class="btn" href="${PHONE_HREF}">Call ${PHONE_DISPLAY}</a><a class="more" href="https://${state.slug}.${DOMAIN}/">Browse ${esc(state.name)} cities →</a></aside></div></section></main>`;
   return shell(`Pest Control in ${cityName}, ${state.name}`, `Browse ${services.length} pest control and inspection topics for ${cityName}, ${state.name}.`, canonical, body, schema);
 }
 
 export function localServicePage(state: StateRow, city: [string, string], service: (typeof services)[number], host: string) {
   const [, cityName] = city;
-  const canonical = `https://${host}/${service.slug}`;
+  const canonical = `https://${host}/${service.slug}/`;
   const offerCatalog = {
     "@type": "OfferCatalog",
     name: `Pest Control Services in ${cityName}, ${state.name}`,
@@ -171,7 +283,7 @@ export function localServicePage(state: StateRow, city: [string, string], servic
         "@type": "Service",
         name: `${s.name} in ${cityName}`,
         description: s.description,
-        url: `https://${host}/${s.slug}`
+        url: `https://${host}/${s.slug}/`
       }
     }))
   };
@@ -219,5 +331,5 @@ export function localServicePage(state: StateRow, city: [string, string], servic
 }
 
 export function notFoundPage(message: string) {
-  return `<!doctype html><html><head><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>404 | Batys Pest Control</title><style>${CSS}</style></head><body>${header()}<main class="section"><div class="wrap"><span class="eyeline">Page not found</span><h1>404</h1><p>${esc(message)}</p><a class="btn dark" href="https://${DOMAIN}/locations">Browse Service Areas</a></div></main>${footer()}</body></html>`;
+  return `<!doctype html><html><head><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>404 | Batys Pest Control</title><style>${CSS}</style></head><body>${header()}<main class="section"><div class="wrap"><span class="eyeline">Page not found</span><h1>404</h1><p>${esc(message)}</p><a class="btn dark" href="https://${DOMAIN}/areas-we-serve/">Browse Service Areas</a></div></main>${footer()}</body></html>`;
 }
