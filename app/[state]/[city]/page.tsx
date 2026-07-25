@@ -53,7 +53,7 @@ export default async function CityPage({ params }: Props) {
     .map((slug) => pestServices.find((service) => service.slug === slug))
     .filter((service): service is NonNullable<typeof service> => Boolean(service));
   const canonical = cityUrl(state, city);
-  const faqs = [
+  const faqs: [string, string][] = [
     [`What pests are commonly researched in ${city.name}?`, `Common service searches include ants, cockroaches, termites, rodents, spiders, mosquitoes, bed bugs, fleas, ticks, stinging insects, wildlife, and seasonal invaders. An inspection should confirm the pest and source before treatment.`],
     [`How quickly can pest control respond in ${city.name}?`, `Response time depends on local provider coverage, season, pest type, urgency, route capacity, and travel distance. Call to confirm same-day or emergency availability.`],
     [`What should I ask before treatment in ${city.name}?`, `Ask for identification, inspection findings, treatment areas, products or methods, preparation, re-entry, number of visits, follow-up, exclusions, warranty terms, and total price in writing.`],
@@ -61,9 +61,38 @@ export default async function CityPage({ params }: Props) {
     [`Can one treatment solve every pest problem?`, `No. Eggs, colonies, hidden harborages, structural entry points, neighboring activity, sanitation, moisture, weather, and seasonal pressure may require monitoring, exclusion, repairs, or repeat service.`],
   ];
 
+  const offerCatalog = {
+    '@type': 'OfferCatalog',
+    name: `Pest Control Services in ${city.name}, ${state.name}`,
+    itemListElement: pestServices.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: `${s.name} in ${city.name}`,
+        description: s.description,
+        url: cityServiceUrl(state, city, s)
+      }
+    }))
+  };
+
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
+      {
+        '@type': 'PestControl',
+        '@id': `${canonical}#business`,
+        name: `Batys Pest Control ${city.name}`,
+        url: canonical,
+        telephone: SITE.phoneDisplay,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: city.name,
+          addressRegion: state.code.toUpperCase(),
+          addressCountry: 'US'
+        },
+        priceRange: '$$',
+        hasOfferCatalog: offerCatalog
+      },
       {
         '@type': 'CollectionPage',
         '@id': `${canonical}#webpage`,
@@ -87,6 +116,13 @@ export default async function CityPage({ params }: Props) {
       },
     ],
   };
+
+  const steps: [string, string, string][] = [
+    ['01', 'Describe the problem', 'Share the location, signs, affected areas, property type, and urgency.'],
+    ['02', 'Inspect and identify', 'The provider confirms evidence, extent, access, source, and contributing conditions.'],
+    ['03', 'Review the scope', 'Compare the written methods, preparation, safety, price, visits, and exclusions.'],
+    ['04', 'Treat and monitor', 'Complete the agreed work and document activity, repairs, prevention, and follow-up.']
+  ];
 
   return (
     <>
@@ -125,7 +161,21 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="bg-[#0b1c2d] px-4 py-20 text-white"><div className="mx-auto max-w-7xl"><p className="text-xs font-black uppercase tracking-[.18em] text-sky-300">How it works</p><h2 className="mt-3 font-heading text-4xl font-black">A simple local service process</h2><div className="mt-10 grid gap-8 md:grid-cols-4">{[['01','Describe the problem','Share the location, signs, affected areas, property type, and urgency.'],['02','Inspect and identify','The provider confirms evidence, extent, access, source, and contributing conditions.'],['03','Review the scope','Compare the written methods, preparation, safety, price, visits, and exclusions.'],['04','Treat and monitor','Complete the agreed work and document activity, repairs, prevention, and follow-up.']].map(([number,title,text])=><div key={number}><strong className="font-heading text-5xl font-black text-white/15">{number}</strong><h3 className="mt-3 text-xl font-black">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-300">{text}</p></div>)}</div></div></section>
+      <section className="bg-[#0b1c2d] px-4 py-20 text-white">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-black uppercase tracking-[.18em] text-sky-300">How it works</p>
+          <h2 className="mt-3 font-heading text-4xl font-black">A simple local service process</h2>
+          <div className="mt-10 grid gap-8 md:grid-cols-4">
+            {steps.map(([number, title, text]) => (
+              <div key={number}>
+                <strong className="font-heading text-5xl font-black text-white/15">{number}</strong>
+                <h3 className="mt-3 text-xl font-black">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="px-4 py-20"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_.9fr]"><div><p className="text-xs font-black uppercase tracking-[.18em] text-sky-600">Before hiring</p><h2 className="mt-3 font-heading text-4xl font-black text-[#0b1c2d]">Verify the provider and treatment plan</h2><div className="mt-8 grid gap-4">{[`Verify licensing or certification required in ${state.name}`,'Request inspection findings and the target pest in writing','Confirm products, devices, treatment areas, and preparation','Ask about children, pets, food areas, allergies, and re-entry','Confirm total price, number of visits, exclusions, and warranty','Keep service records and document activity between visits'].map((item)=><div key={item} className="rounded-xl bg-[#f4f7f9] p-5 font-bold text-slate-700"><span className="mr-2 text-sky-500">✓</span>{item}</div>)}</div></div><div><p className="text-xs font-black uppercase tracking-[.18em] text-sky-600">Frequently asked questions</p><h2 className="mt-3 font-heading text-4xl font-black text-[#0b1c2d]">Pest control in {city.name}</h2><div className="mt-8 grid gap-3">{faqs.map(([question,answer])=><details key={question} className="rounded-xl border border-slate-200 bg-white p-5"><summary className="cursor-pointer font-black text-[#0b1c2d]">{question}<span className="float-right text-sky-500">+</span></summary><p className="mt-3 text-sm leading-7 text-slate-600">{answer}</p></details>)}</div><p className="mt-7"><a href={stateUrl(state)} className="font-black text-sky-600">Browse all {state.name} locations →</a></p></div></div></section>
 

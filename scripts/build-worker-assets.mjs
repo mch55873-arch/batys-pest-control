@@ -5,8 +5,12 @@ const root = process.cwd();
 const openNext = path.join(root, '.open-next');
 const dist = path.join(root, 'dist');
 const cacheBase = path.join(openNext, 'cache');
-const locationDatabase = JSON.parse(await readFile(path.join(root, 'data', 'usa_locations.json'), 'utf8'));
-const stateSlugs = new Set(locationDatabase.states.map((state) => state.slug));
+const locationDatabase = JSON.parse(await readFile(path.join(root, 'data', 'usa_database.json'), 'utf8'));
+const stateSlugs = new Set(
+  locationDatabase.states.map(
+    (state) => state.slug || state.name.toLowerCase().replace(/\s+/g, '-')
+  )
+);
 
 await rm(dist, { recursive: true, force: true });
 await cp(path.join(openNext, 'assets'), dist, { recursive: true });
