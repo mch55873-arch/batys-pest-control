@@ -2,7 +2,7 @@ import servicesData from "../data/services.json";
 import database from "../data/usa_database.json";
 
 const DOMAIN = "batyspestcontrol.com";
-export const SITEMAP_LIMIT = 40000;
+export const SITEMAP_LIMIT = 2000;
 const URLS_PER_CITY = servicesData.length + 1;
 
 type StateItem = (typeof database.states)[number];
@@ -26,12 +26,23 @@ function xmlResponse(body: string, method = "GET") {
   });
 }
 
+function getStateSlug(state: any): string {
+  return state.slug || state.name?.toLowerCase().replace(/\s+/g, "-") || state.code?.toLowerCase();
+}
+
+function getCitySlug(city: any): string {
+  if (typeof city === "string") return city;
+  if (Array.isArray(city)) return city[0];
+  return city.slug || city.name?.toLowerCase().replace(/\s+/g, "-") || city.code?.toLowerCase();
+}
+
 export function sitemapIndex(states: StateItem[], method = "GET") {
   const entries = [`https://${DOMAIN}/sitemaps/core.xml`];
   for (const state of states) {
+    const stateSlug = getStateSlug(state);
     const chunks = Math.ceil((state.cities.length * URLS_PER_CITY) / SITEMAP_LIMIT);
     for (let chunk = 1; chunk <= chunks; chunk++) {
-      entries.push(`https://${DOMAIN}/sitemaps/${state.slug}-${chunk}.xml`);
+      entries.push(`https://${DOMAIN}/sitemaps/${stateSlug}-${chunk}.xml`);
     }
   }
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.map((loc) => `  <sitemap><loc>${xml(loc)}</loc></sitemap>`).join("\n")}\n</sitemapindex>`;
@@ -54,13 +65,14 @@ export function coreSitemap(states: StateItem[], method = "GET") {
   const urls = [
     ...corePaths.map((path) => `https://${DOMAIN}${path}`),
     ...servicesData.map((service) => `https://${DOMAIN}/services/${service.slug}`),
-    ...states.map((state) => `https://${state.slug}.${DOMAIN}/`),
+    ...states.map((state) => `https://${getStateSlug(state)}.${DOMAIN}/`),
   ];
   return sitemapUrlset(urls, method);
 }
 
 export function stateSitemap(state: StateItem, chunk: number, method = "GET") {
   if (!Number.isInteger(chunk) || chunk < 1) return null;
+  const stateSlug = getStateSlug(state);
   const start = (chunk - 1) * SITEMAP_LIMIT;
   const total = state.cities.length * URLS_PER_CITY;
   if (start >= total) return null;
@@ -70,7 +82,8 @@ export function stateSitemap(state: StateItem, chunk: number, method = "GET") {
     const cityIndex = Math.floor(index / URLS_PER_CITY);
     const pageIndex = index % URLS_PER_CITY;
     const city = state.cities[cityIndex];
-    const host = `${city[0]}-${state.slug}.${DOMAIN}`;
+    const citySlug = getCitySlug(city);
+    const host = `${citySlug}-${stateSlug}.${DOMAIN}`;
     urls.push(pageIndex === 0 ? `https://${host}/` : `https://${host}/${servicesData[pageIndex - 1].slug}`);
   }
   return sitemapUrlset(urls, method);
