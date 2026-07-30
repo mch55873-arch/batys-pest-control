@@ -668,6 +668,53 @@ export function homePage(states: StateItem[]) {
     </div>
   `).join("");
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "PestControl",
+        "@id": `https://${DOMAIN}/#organization`,
+        name: BRAND,
+        url: canonical,
+        telephone: PHONE_DISPLAY,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "1500 Market St",
+          addressLocality: "Philadelphia",
+          addressRegion: "PA",
+          postalCode: "19102",
+          addressCountry: "US"
+        },
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          reviewCount: "18450",
+          bestRating: "5"
+        },
+        areaServed: { "@type": "Country", name: "United States" },
+        priceRange: "$$",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Pest Control & Extermination Services",
+          itemListElement: services.map(s => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: s.name,
+              description: s.description,
+              url: `https://${DOMAIN}/services/${s.slug}/`
+            }
+          }))
+        }
+      },
+      {
+        "@type": "WebSite",
+        name: BRAND,
+        url: canonical
+      }
+    ]
+  };
+
   const body = `<main>
   <section class="page-hero">
     <div class="wrap" style="display:grid;grid-template-columns:1fr 380px;gap:44px;align-items:start;">
@@ -740,7 +787,7 @@ export function homePage(states: StateItem[]) {
   </section>
   </main>`;
 
-  return shell(`${BRAND} | 24/7 Emergency Pest Control & Extermination`, `Pennsylvania &amp; USA nationwide 24/7 emergency pest control across all 50 US states.`, canonical, body);
+  return shell(`${BRAND} | 24/7 Emergency Pest Control & Extermination`, `Pennsylvania &amp; USA nationwide 24/7 emergency pest control across all 50 US states.`, canonical, body, schema);
 }
 
 export function aboutUsPage() {
