@@ -1,4 +1,10 @@
-[
+import json
+import os
+
+print("=== RESTRUCTURING BATYS PEST CONTROL CATALOG WITH CLAUDE'S STRATEGIC RULES ===")
+
+optimized_pest_services = [
+  # --- 1. CORE GENERAL & EMERGENCY PEST CONTROL (All States) ---
   {
     "slug": "general-pest-control",
     "name": "General Pest Control",
@@ -31,6 +37,8 @@
     "description": "Year-round seasonal perimeter barrier treatments and exclusion techniques to block recurring pest entry.",
     "allowedStates": []
   },
+
+  # --- 2. ANTS (Core + Regional Fire Ant) ---
   {
     "slug": "ant-control",
     "name": "Ant Control Service",
@@ -53,22 +61,10 @@
     "category": "Ants",
     "tier": "regional",
     "description": "Broad-spectrum mound baiting and broadcast lawn treatment for aggressive stinging fire ant colonies.",
-    "allowedStates": [
-      "FL",
-      "TX",
-      "GA",
-      "AL",
-      "MS",
-      "SC",
-      "NC",
-      "AZ",
-      "CA",
-      "TN",
-      "LA",
-      "AR",
-      "OK"
-    ]
+    "allowedStates": ["FL", "TX", "GA", "AL", "MS", "SC", "NC", "AZ", "CA", "TN", "LA", "AR", "OK"]
   },
+
+  # --- 3. COCKROACHES ---
   {
     "slug": "cockroach-control",
     "name": "Cockroach Control Service",
@@ -85,6 +81,8 @@
     "description": "Targeted multi-step clean-out programs for severe German roach infestations in kitchens and bathrooms.",
     "allowedStates": []
   },
+
+  # --- 4. BED BUGS ---
   {
     "slug": "bed-bug-treatment",
     "name": "Bed Bug Treatment Service",
@@ -101,6 +99,8 @@
     "description": "Whole-structure thermal heat remediation to kill bed bugs and their un-hatched eggs in a single day.",
     "allowedStates": []
   },
+
+  # --- 5. TERMITES & WDO INSPECTION ---
   {
     "slug": "termite-control",
     "name": "Termite Control & Soil Treatment",
@@ -139,17 +139,10 @@
     "category": "Termites",
     "tier": "regional",
     "description": "Whole-structure tent fumigation for drywood termite infestations in structural timber.",
-    "allowedStates": [
-      "CA",
-      "HI",
-      "FL",
-      "TX",
-      "AZ",
-      "LA",
-      "AL",
-      "MS"
-    ]
+    "allowedStates": ["CA", "HI", "FL", "TX", "AZ", "LA", "AL", "MS"]
   },
+
+  # --- 6. RODENTS & WILDLIFE (HIGH TICKET ADDITIONS!) ---
   {
     "slug": "rodent-control",
     "name": "Rodent Control & Trapping",
@@ -206,6 +199,8 @@
     "description": "Fast response snake capture, venomous species identification, and yard exclusion fencing.",
     "allowedStates": []
   },
+
+  # --- 7. MOSQUITOES, TICKS & LAWN PESTS ---
   {
     "slug": "mosquito-control",
     "name": "Mosquito Control & Barrier Spray",
@@ -230,6 +225,8 @@
     "description": "Sub-surface root zone treatment for beetle grubs, chinch bugs, and armyworms damaging residential turfgrass.",
     "allowedStates": []
   },
+
+  # --- 8. STINGING INSECTS & SPIDERS ---
   {
     "slug": "wasp-control",
     "name": "Wasp & Hornet Nest Removal",
@@ -260,22 +257,7 @@
     "category": "Stinging Pests & Spiders",
     "tier": "regional",
     "description": "Specialized monitoring, dust applications, and micro-encapsulated spray barriers for brown recluse spiders.",
-    "allowedStates": [
-      "MO",
-      "KS",
-      "TX",
-      "OK",
-      "AR",
-      "TN",
-      "KY",
-      "AL",
-      "MS",
-      "GA",
-      "IL",
-      "IN",
-      "NE",
-      "IA"
-    ]
+    "allowedStates": ["MO", "KS", "TX", "OK", "AR", "TN", "KY", "AL", "MS", "GA", "IL", "IN", "NE", "IA"]
   },
   {
     "slug": "scorpion-control",
@@ -283,15 +265,10 @@
     "category": "Stinging Pests & Spiders",
     "tier": "regional",
     "description": "Blacklight night inspection, specialized residual barriers, and home sealing for desert bark scorpions.",
-    "allowedStates": [
-      "AZ",
-      "NM",
-      "TX",
-      "NV",
-      "CA",
-      "UT"
-    ]
+    "allowedStates": ["AZ", "NM", "TX", "NV", "CA", "UT"]
   },
+
+  # --- 9. HOUSEHOLD & PANTRY PESTS ---
   {
     "slug": "pantry-pest-control",
     "name": "Pantry Pest & Stored Product Control",
@@ -316,6 +293,8 @@
     "description": "Carpet broadcast treatments with insect growth regulators (IGRs) to break the flea life cycle indoors.",
     "allowedStates": []
   },
+
+  # --- 10. COMMERCIAL VERTICALS ---
   {
     "slug": "restaurant-pest-control",
     "name": "Commercial Restaurant Pest Control",
@@ -333,3 +312,8 @@
     "allowedStates": []
   }
 ]
+
+with open("data/services.json", "w", encoding="utf-8") as f:
+    json.dump(optimized_pest_services, f, indent=2)
+
+print(f"[OK] Successfully wrote {len(optimized_pest_services)} optimized, high-ticket, climate-conditional pest services to data/services.json")

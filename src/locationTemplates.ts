@@ -1,3 +1,12 @@
+
+export function getServicesForState(stateCode: string): any[] {
+  const code = (stateCode || "").toUpperCase();
+  return (services as any[]).filter((s: any) => {
+    if (!s.allowedStates || s.allowedStates.length === 0) return true;
+    return s.allowedStates.includes(code);
+  });
+}
+
 import database from "../data/usa_database.json";
 import services from "../data/services.json";
 import articles from "../data/articles.json";

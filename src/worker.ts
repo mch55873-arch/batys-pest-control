@@ -2,6 +2,7 @@ import database from "../data/usa_database.json";
 import services from "../data/services.json";
 import articles from "../data/articles.json";
 import {
+  getServicesForState,
   aboutUsPage,
   areasWeServePage,
   articlePage,
@@ -18,8 +19,10 @@ import {
   statePage,
   termsOfServicePage,
 } from "./locationTemplates";
-import { coreSitemap, sitemapIndex, stateSitemap, type StateItem } from "./sitemaps";
-import { SITE } from "../lib/site";
+import {
+  getServicesForState, coreSitemap, sitemapIndex, stateSitemap, type StateItem } from "./sitemaps";
+import {
+  getServicesForState, SITE } from "../lib/site";
 
 type Env = { ASSETS: { fetch(input: Request | string): Promise<Response> } };
 type Ctx = { waitUntil(promise: Promise<unknown>): void };
@@ -109,6 +112,11 @@ export default {
       if (hostname === DOMAIN || hostname.endsWith(".workers.dev")) {
         if (path === "/" || path === "") {
           return cached(request, ctx, () => htmlResponse(homePage(STATES), method));
+        }
+
+        if (path.match(/^\/([a-f0-9]{32})\.txt$/i)) {
+          const key = path.slice(1, -4);
+          return new Response(key, { headers: { "content-type": "text/plain; charset=utf-8" } });
         }
 
         if (path === "/robots.txt") {
