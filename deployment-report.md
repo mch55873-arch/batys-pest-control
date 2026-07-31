@@ -1,8 +1,8 @@
 # Cloudflare Deployment Report
 
-- Source commit: `239dd81f5e71bedf91a5fb7bec0690e72b2dab9b`
-- Run: `30619545004`
-- Generated: `2026-07-31T09:20:34Z`
+- Source commit: `63a9e0ade7f745f16988a876e27138e1d9a85330`
+- Run: `30619897556`
+- Generated: `2026-07-31T09:26:20Z`
 - npm install: **success**
 - Redirect cleanup: **success**
 - Production route and shell patch: **failure**
@@ -16,7 +16,7 @@
 npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
 npm warn deprecated glob@9.3.5: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
-added 671 packages, and audited 672 packages in 22s
+added 671 packages, and audited 672 packages in 21s
 
 201 packages are looking for funding
   run `npm fund` for details
