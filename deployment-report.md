@@ -1,8 +1,8 @@
 # Cloudflare Deployment Report
 
-- Source commit: `96dc2af4d157ef70e211a423c6ad57cd21990107`
-- Run: `30541095385`
-- Generated: `2026-07-30T12:05:41Z`
+- Source commit: `239dd81f5e71bedf91a5fb7bec0690e72b2dab9b`
+- Run: `30619545004`
+- Generated: `2026-07-31T09:20:34Z`
 - npm install: **success**
 - Redirect cleanup: **success**
 - Production route and shell patch: **failure**
