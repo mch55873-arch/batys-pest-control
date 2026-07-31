@@ -239,6 +239,10 @@ export default {
       const service = services.find((item) => item.slug === routeParts[0]);
       if (!service) return notFound("This service could not be found.", method);
 
+      const stateServices = getServicesForState(location.state.code);
+      const isAllowed = stateServices.some((s: any) => s.slug === service.slug);
+      if (!isAllowed) return notFound(`This service is not applicable for ${location.state.name}.`, method);
+
       return cached(request, ctx, () => htmlResponse(localServicePage(location.state, location.city!, service, hostname), method));
     } catch (err) {
       return htmlResponse(notFoundPage("An unexpected error occurred. Please try again."), "GET", 500);
