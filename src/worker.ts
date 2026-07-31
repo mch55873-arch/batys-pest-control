@@ -2,7 +2,6 @@ import database from "../data/usa_database.json";
 import services from "../data/services.json";
 import articles from "../data/articles.json";
 import {
-  getServicesForState,
   aboutUsPage,
   areasWeServePage,
   articlePage,
@@ -10,6 +9,7 @@ import {
   cityPage,
   contactUsPage,
   disclaimerPage,
+  getServicesForState,
   homePage,
   localServicePage,
   nationalServicePage,
@@ -19,10 +19,8 @@ import {
   statePage,
   termsOfServicePage,
 } from "./locationTemplates";
-import {
-  getServicesForState, coreSitemap, sitemapIndex, stateSitemap, type StateItem } from "./sitemaps";
-import {
-  getServicesForState, SITE } from "../lib/site";
+import { coreSitemap, sitemapIndex, stateSitemap, type StateItem } from "./sitemaps";
+import { SITE } from "../lib/site";
 
 type Env = { ASSETS: { fetch(input: Request | string): Promise<Response> } };
 type Ctx = { waitUntil(promise: Promise<unknown>): void };
