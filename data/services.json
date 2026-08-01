@@ -331,5 +331,37 @@
     "tier": "core",
     "description": "Scheduled unit-by-unit bed bug, roach, and rodent management programs for landlords and property managers.",
     "allowedStates": []
+  },
+  {
+    "slug": "water-bug-control",
+    "name": "Water Bug & Cockroach Control",
+    "category": "Cockroaches",
+    "tier": "core",
+    "description": "Targeted sewer line baiting, drain flushing, and perimeter exclusion for large NYC water bugs and American roaches.",
+    "allowedStates": []
+  },
+  {
+    "slug": "pigeon-control",
+    "name": "Pigeon Control & Solar Panel Mesh Guarding",
+    "category": "Wildlife",
+    "tier": "core",
+    "description": "Commercial pigeon deterrence, netting installation, roosting spikes, and solar panel mesh exclusion guards.",
+    "allowedStates": []
+  },
+  {
+    "slug": "spotted-lanternfly-control",
+    "name": "Spotted Lanternfly Control & Tree Treatment",
+    "category": "Regional Pests",
+    "tier": "regional",
+    "description": "Systemic tree injections, egg mass scraping, and foliar treatments for invasive spotted lanternflies.",
+    "allowedStates": [
+      "NY",
+      "NJ",
+      "PA",
+      "OH",
+      "VA",
+      "MD",
+      "DE"
+    ]
   }
 ]

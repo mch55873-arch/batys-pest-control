@@ -7,6 +7,7 @@ import {
   articlePage,
   articlesHubPage,
   cityPage,
+  commercialPage,
   contactUsPage,
   disclaimerPage,
   getServicesForState,
@@ -15,9 +16,11 @@ import {
   nationalServicePage,
   notFoundPage,
   privacyPolicyPage,
+  residentialPage,
   servicesHubPage,
   statePage,
   termsOfServicePage,
+  wildlifePage,
 } from "./locationTemplates";
 import { coreSitemap, sitemapIndex, stateSitemap, type StateItem } from "./sitemaps";
 import { SITE } from "../lib/site";
@@ -143,6 +146,18 @@ export default {
 
         if (path === "/about-us" || path === "/about-us/" || path === "/about" || path === "/about/") {
           return cached(request, ctx, () => htmlResponse(aboutUsPage(), method));
+        }
+
+        if (path === "/residential" || path === "/residential/") {
+          return cached(request, ctx, () => htmlResponse(residentialPage(), method));
+        }
+
+        if (path === "/commercial" || path === "/commercial/") {
+          return cached(request, ctx, () => htmlResponse(commercialPage(), method));
+        }
+
+        if (path === "/wildlife" || path === "/wildlife/") {
+          return cached(request, ctx, () => htmlResponse(wildlifePage(), method));
         }
 
         if (path === "/contact-us" || path === "/contact-us/" || path === "/contact" || path === "/contact/") {

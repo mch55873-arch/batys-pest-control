@@ -799,6 +799,158 @@ export function homePage(states: StateItem[]) {
   return shell(`${BRAND} | 24/7 Emergency Pest Control & Extermination`, `Pennsylvania &amp; USA nationwide 24/7 emergency pest control across all 50 US states.`, canonical, body, schema);
 }
 
+export function residentialPage() {
+  const canonical = `https://${DOMAIN}/residential/`;
+  const body = `<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="tag-badge">RESIDENTIAL PROTECTION</span>
+      <h1>Family &amp; Pet-Considerate <span>Home Pest Control</span></h1>
+      <p style="font-size:18px;color:#cbd5e1;max-width:720px;">Eco-friendly perimeter protection, low-impact interior treatments, and 24/7 emergency response for single-family homes, apartments, and brownstones.</p>
+      <div style="display:flex;gap:16px;margin-top:28px;flex-wrap:wrap;">
+        <a href="${PHONE_HREF}" class="btn-cta">Call Now: ${PHONE_DISPLAY}</a>
+        <a href="#pricing" class="btn-glass-cyan">View Price Guide</a>
+      </div>
+    </div>
+  </section>
+  <section class="sec-white" id="pricing">
+    <div class="wrap">
+      <h2 class="sec-title" style="text-align:center;">Residential Pest Solutions</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px;">
+        <div style="background:#f8fafc;padding:28px;border-radius:18px;border:1px solid #e2e8f0;">
+          <h3 style="font-size:20px;font-weight:800;color:#0d1b2a;">🪳 Crawling Insect Control</h3>
+          <p style="color:#64748b;font-size:14px;">Targeted gel baiting and perimeter barrier for ants, cockroaches, water bugs, spiders, and silverfish.</p>
+        </div>
+        <div style="background:#f8fafc;padding:28px;border-radius:18px;border:1px solid #e2e8f0;">
+          <h3 style="font-size:20px;font-weight:800;color:#0d1b2a;">🛏️ Bed Bug Eradication</h3>
+          <p style="color:#64748b;font-size:14px;">Guaranteed 3-visit chemical and thermal heat protocols for bedrooms and mattresses.</p>
+        </div>
+        <div style="background:#f8fafc;padding:28px;border-radius:18px;border:1px solid #e2e8f0;">
+          <h3 style="font-size:20px;font-weight:800;color:#0d1b2a;">🐀 Rodent Proofing &amp; Mesh</h3>
+          <p style="color:#64748b;font-size:14px;">Steel copper mesh sealing of pipe penetrations, basement entry points, and crawl space vents.</p>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:32px;border:1px solid #e2e8f0;box-shadow:0 12px 32px rgba(0,0,0,.06);margin-top:36px;">
+        <div style="display:flex;align-items:center;justify-space:between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+          <div>
+            <span style="background:#e0f2fe;color:#0284c7;font-size:12px;font-weight:800;padding:4px 12px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em;">ESTIMATED PRICING</span>
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:900;color:#0d1b2a;margin:6px 0 0;">Average Residential Pest Cost Guide</h3>
+          </div>
+          <span style="background:#ecfdf5;color:#059669;font-size:13px;font-weight:700;padding:6px 14px;border-radius:10px;border:1px solid #a7f3d0;">⚡ Same-Day Service Available</span>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;color:#334155;">
+          <thead>
+            <tr style="background:#f8fafc;border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:14px 16px;font-weight:800;color:#0f172a;">Pest Service Type</th>
+              <th style="padding:14px 16px;font-weight:800;color:#0f172a;">Average Price Range</th>
+              <th style="padding:14px 16px;font-weight:800;color:#0f172a;">Service Scope &amp; Guarantee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:14px 16px;font-weight:700;color:#0d1b2a;">🪳 Cockroach &amp; Water Bug Cleanout</td>
+              <td style="padding:14px 16px;font-weight:800;color:#0ea5e9;">$100 – $250</td>
+              <td style="padding:14px 16px;">Gel Baiting, IGRs &amp; Void Flushout</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:14px 16px;font-weight:700;color:#0d1b2a;">🛏️ Bed Bug Extermination</td>
+              <td style="padding:14px 16px;font-weight:800;color:#0ea5e9;">$300 – $1,500</td>
+              <td style="padding:14px 16px;">3-Visit Chemical / Thermal Heat Protocol</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:14px 16px;font-weight:700;color:#0d1b2a;">🐀 Rodent Exclusion &amp; Steel Mesh</td>
+              <td style="padding:14px 16px;font-weight:800;color:#0ea5e9;">$250 – $800</td>
+              <td style="padding:14px 16px;">Entry Sealing, Trap Setup &amp; Sanitation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  </main>`;
+  return shell(`Residential Pest Control Services | ${BRAND}`, `Family-safe residential pest control and extermination services.`, canonical, body);
+}
+
+export function commercialPage() {
+  const canonical = `https://${DOMAIN}/commercial/`;
+  const body = `<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="tag-badge">COMMERCIAL COMPLIANCE</span>
+      <h1>Health Dept Compliant <span>Commercial Pest Management</span></h1>
+      <p style="font-size:18px;color:#cbd5e1;max-width:720px;">Scheduled Integrated Pest Management (IPM) for restaurants, hotels, healthcare facilities, office buildings, and multi-family property managers.</p>
+      <div style="display:flex;gap:16px;margin-top:28px;flex-wrap:wrap;">
+        <a href="${PHONE_HREF}" class="btn-cta">Call Now: ${PHONE_DISPLAY}</a>
+      </div>
+    </div>
+  </section>
+  <section class="sec-white">
+    <div class="wrap">
+      <h2 class="sec-title" style="text-align:center;">Commercial Industry Verticals</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px;">
+        <div style="background:#f8fafc;padding:24px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="font-size:32px;">🍽️</div>
+          <h4 style="font-size:16px;font-weight:800;margin:10px 0 4px;color:#0d1b2a;">Restaurants &amp; Dining</h4>
+          <p style="font-size:13px;color:#64748b;margin:0;">Health dept inspection logs &amp; drain fly management.</p>
+        </div>
+        <div style="background:#f8fafc;padding:24px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="font-size:32px;">🏨</div>
+          <h4 style="font-size:16px;font-weight:800;margin:10px 0 4px;color:#0d1b2a;">Hotels &amp; Hospitality</h4>
+          <p style="font-size:13px;color:#64748b;margin:0;">Discreet proactive bed bug protocols &amp; room clearance.</p>
+        </div>
+        <div style="background:#f8fafc;padding:24px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="font-size:32px;">🏢</div>
+          <h4 style="font-size:16px;font-weight:800;margin:10px 0 4px;color:#0d1b2a;">Property Managers</h4>
+          <p style="font-size:13px;color:#64748b;margin:0;">Multi-family apartment building perimeter barrier plans.</p>
+        </div>
+        <div style="background:#f8fafc;padding:24px;border-radius:16px;border:1px solid #e2e8f0;text-align:center;">
+          <div style="font-size:32px;">🏥</div>
+          <h4 style="font-size:16px;font-weight:800;margin:10px 0 4px;color:#0d1b2a;">Healthcare &amp; Schools</h4>
+          <p style="font-size:13px;color:#64748b;margin:0;">Zero-chemical sensitive environment pest exclusion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>`;
+  return shell(`Commercial Pest Control & DOH Inspection Compliance | ${BRAND}`, `Commercial pest control and health department compliance services.`, canonical, body);
+}
+
+export function wildlifePage() {
+  const canonical = `https://${DOMAIN}/wildlife/`;
+  const body = `<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="tag-badge">WILDLIFE &amp; BIRD EXCLUSION</span>
+      <h1>Humane Wildlife Removal &amp; <span>Solar Guarding</span></h1>
+      <p style="font-size:18px;color:#cbd5e1;max-width:720px;">Humane trapping and exclusion for raccoons, squirrels, bats, pigeons, and solar panel bird guarding.</p>
+      <div style="display:flex;gap:16px;margin-top:28px;flex-wrap:wrap;">
+        <a href="${PHONE_HREF}" class="btn-cta">Call Now: ${PHONE_DISPLAY}</a>
+      </div>
+    </div>
+  </section>
+  <section class="sec-white">
+    <div class="wrap">
+      <h2 class="sec-title" style="text-align:center;">Wildlife Services</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px;">
+        <div style="background:#f8fafc;padding:28px;border-radius:18px;border:1px solid #e2e8f0;">
+          <h3 style="font-size:20px;font-weight:800;color:#0d1b2a;">🦝 Raccoon &amp; Squirrel Trapping</h3>
+          <p style="color:#64748b;font-size:14px;">Humane live trapping, attic entry sealing, and insulation repair.</p>
+        </div>
+        <div style="background:#f8fafc;padding:28px;border-radius:18px;border:1px solid #e2e8f0;">
+          <h3 style="font-size:20px;font-weight:800;color:#0d1b2a;">🐦 Pigeon Spikes &amp; Solar Mesh</h3>
+          <p style="color:#64748b;font-size:14px;">Solar panel bird guarding mesh, stainless steel roosting spikes, and netting.</p>
+        </div>
+        <div style="background:#f8fafc;padding:28px;border-radius:18px;border:1px solid #e2e8f0;">
+          <h3 style="font-size:20px;font-weight:800;color:#0d1b2a;">🦇 Bat Exclusion &amp; One-Way Doors</h3>
+          <p style="color:#64748b;font-size:14px;">Humane bat valves, guano cleanup, and roof ridge cap sealing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>`;
+  return shell(`Humane Wildlife Removal & Bird Guarding | ${BRAND}`, `Humane wildlife removal, raccoon trapping, bat exclusion, and pigeon control.`, canonical, body);
+}
+
 export function aboutUsPage() {
   const canonical = `https://${DOMAIN}/about-us/`;
   const body = `<main><section class="page-hero"><div class="wrap"><h1>Your Neighbors in the <span>Pest Control &amp; Extermination</span> Business</h1></div></section></main>`;
